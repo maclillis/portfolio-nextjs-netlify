@@ -83,16 +83,17 @@ export async function getStaticProps({ params }) {
 
 export default function TagPage({ tag, posts }) {
 
-    if (!tag.title) {
-        return <p>Kunde inte hitta den valda taggen</p>
-    }
-
     const { ref, inView } = useInView({
         triggerOnce: true, // Load the post only once when it enters the viewport
         threshold: 0.1,    // Load when 10% of the element is visible
       });
 
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+
+    if (!posts || !tag) {
+        return <p>Laddar innehåll...</p>;
+      }
+    
     return (
     <div className="container m-auto pt-24 h-full">
         <Head>
