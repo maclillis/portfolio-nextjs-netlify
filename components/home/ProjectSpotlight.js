@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './ProjectSpotlight.module.scss'
 import Truncate from 'components/utils/TruncateText';
 import { Button, Link } from '@nextui-org/react';
@@ -14,7 +15,7 @@ export default function ProjectSpotlight({ workPosts }) {
                     {workPosts.map((workPost) => (
                     <article key={workPost._id} className={`${styles.project_card} flex flex-col justify-between`}>
 
-                        <img src={workPost.featured.asset.url} className={`${styles.spotlight_feat_image} mb-3 w-full`} />
+                        <Image src={workPost.featured.asset.url} className={`${styles.spotlight_feat_image} mb-3 w-full`} alt={workPost.featured.alt} />
 
                         <Link href={`/projekt/${workPost.slug.current}`}>
                             <h3 className="py-2"><Truncate text={workPost.title} maxLength={130} lines={3} /></h3>
