@@ -17,10 +17,6 @@ export default defineConfig({
   //For Prod
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, // Ensure these are set correctly
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET, // Ensure these are set correctly
-  
-  //For Local
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID, // Ensure these are set correctly
-  dataset: process.env.SANITY_STUDIO_DATASET, // Ensure these are set correctly
 
   plugins: [structureTool(), visionTool()],
 
