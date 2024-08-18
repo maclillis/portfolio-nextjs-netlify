@@ -82,7 +82,7 @@ export default function ContactModule() {
       };
     
     return(
-        <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} data-netlify="true" onSubmit={handleSubmit}>
+        <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} onSubmit={handleSubmit}>
             <div className="w-full">
 
             <input type="text" name="honey" style={{ display: 'none' }} onChange={handleChange} />
