@@ -1,8 +1,13 @@
-import { useState } from 'react';
 import {Input, Button, Select, SelectItem, Textarea} from "@nextui-org/react";
+
+import React, { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
+
 import styles from './ContactModule.module.scss'
 
 export default function ContactModule() {
+
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -47,9 +52,37 @@ export default function ContactModule() {
         } finally {
           setLoading(false);
         }
+
+        e.preventDefault();
+        if (!recaptchaValue) {
+          alert('Please complete the reCAPTCHA');
+          return;
+        }
+    
+        const response = await fetch('/api/verify-recaptcha', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            recaptchaValue,
+          }),
+        });
+    
+        const data = await response.json();
+        if (data.success) {
+          alert('reCAPTCHA verified successfully!');
+        } else {
+          alert('reCAPTCHA verification failed!');
+        }
       };
+
+      const handleRecaptchaChange = (value) => {
+        setRecaptchaValue(value);
+      };
+    
     return(
-        <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} netlify="true">
+        <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} netlify="true" onSubmit={handleSubmit}>
             <div className="w-full">
 
             <input type="text" name="honey" style={{ display: 'none' }} onChange={handleChange} />
@@ -67,6 +100,8 @@ export default function ContactModule() {
             <div className="w-full md:h-full">
                 <Textarea value={formData.message} id="message" type="text" label="Meddelande" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white", "textarea"]}}  className="py-2 h-full" onChange={handleChange} required />
             </div>
+
+            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} onChange={handleRecaptchaChange} />
 
             <div className="flex pt-5 col-span-1 md:col-start-2 w-full md:justify-end">
                 <Button className="button_base button_primary btn_internal py-2 px-4 w-full">{loading ? 'Skickar...' : 'Skicka meddelande'} </Button>
