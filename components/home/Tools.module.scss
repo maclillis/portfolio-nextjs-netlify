@@ -1,0 +1,28 @@
+.tools_wrap {
+
+    .tools_text {
+        font-family: 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
+        color: $color-white;
+        font-size: 1.1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-left: 1rem;
+
+        .bolder {
+            font-family: 'Inter-Semibold', 'Helvetica Neue', Helvetica, sans-serif;
+        }
+    }
+
+    .icon_grid {
+        width: 40px;
+        height: 40px;
+        color: $color-purple-600;
+
+        @media (min-width: 1024px) {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+
+}

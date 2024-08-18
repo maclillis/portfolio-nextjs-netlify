@@ -1,0 +1,55 @@
+.hero_wrap {
+    background-color: $color-purple-900;
+    .welcome_wrap {
+        .welcome_text {
+            font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, sans-serif;
+            font-size: 1.3625rem;
+            font-style: italic;
+            line-height: normal;
+        }
+    }
+    .subline_text {
+        font-family: 'Inter-SemiBold', 'Helvetica Neue', Helvetica, sans-serif;
+        //font-size: 0.875rem;
+        font-style: normal;
+        line-height: normal;
+        text-transform: uppercase;
+        color: $color-purple-400;
+    }
+
+    .hero_bio_wrap {
+        :last-child {
+            @media (max-width: 767px) {
+                width: auto;
+                height: auto;
+            }
+        }
+    }
+    .hero_bio_text {
+        font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+        font-size: 1.125rem;
+        font-style: normal;
+        line-height: normal;
+        color: $color-purple-100;
+
+        @media (max-width: 767px) {
+            -shape-outside: circle(65% at 130% -93%);
+            shape-outside: circle(65% at 130% -93%);
+            float: left;
+            width: 215px;
+            height: auto;
+            hyphens:auto;
+        }
+    }
+
+    .profile_wrap {
+        @media (min-width: 1024px) {
+            left: 62% !important;
+        }
+
+    }
+
+    .profile_hero_img {
+        border-radius: 50%;
+    }
+}

@@ -1,0 +1,20 @@
+.webkpis_wrap {
+    .webkpis_text {
+        font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .icon_grid {
+        width: 2.5rem;
+        height: 2.5rem;
+        color: $color-purple-600;
+
+        @media (min-width: 1024px) {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+}

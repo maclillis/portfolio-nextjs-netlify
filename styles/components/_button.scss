@@ -1,0 +1,110 @@
+.button_base {
+    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    border-radius: 2.125rem;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 1.5rem;
+    cursor: pointer;
+}
+
+.button_primary {
+    color: $color-purple-700;
+    background-color: $color-purple-600;
+}
+
+.button_light {
+    color: $color-white;
+
+    &:after {
+        content: '';
+        background: url('/assets/images/chevron_right_white.svg');
+        background-size: cover;
+        width: 1.0625rem;
+        height: 1.0625rem;
+        stroke:  $color-purple-700;
+    }
+}
+
+.btn_internal {
+    &:after {
+        content: '';
+        background: url('/assets/images/chevron_right.svg');
+        background-size: cover;
+        width: 1.0625rem;
+        height: 1.0625rem;
+        stroke:  $color-purple-700;
+    }
+}
+
+.btn_external {
+    &:after {
+        content: '';
+        background: url('/assets/images/arrow_top_right.svg');
+        background-size: cover;
+        width: 1.0625rem;
+        height: 1.0625rem;
+        stroke:  $color-purple-700;
+    }
+}
+
+.btn_external_white {
+    border-color: $color-white !important;
+    &:after {
+        content: '';
+        background: url('/assets/images/arrow_top_right_white.svg');
+        background-size: cover;
+        width: 1.0625rem;
+        height: 1.0625rem;
+        stroke:  $color-purple-700;
+    }
+}
+
+.link_button {
+    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    color: $color-white;
+    cursor: pointer;
+
+    &:after {
+        content: '';
+        background: url('/assets/images/arrow_right.svg');
+        background-size: cover;
+        width: 1.0625rem;
+        height: 1.0625rem;
+        stroke:  $color-purple-700;
+        margin-left: 0.3rem;
+    }
+}
+
+.link_figma {
+    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    color: $color-white;
+    cursor: pointer;
+
+    &:after {
+        content: '';
+        background: url('/assets/images/figma_icon.svg');
+        background-repeat: no-repeat;
+        width: 1.0625rem;
+        height: 1.0625rem;
+        stroke:  $color-purple-700;
+        margin-left: 0.3rem;
+    }
+}
+
+.link_github {
+    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    color: $color-white;
+    cursor: pointer;
+
+    &:after {
+        content: '';
+        background: url('/assets/images/github_icon.svg');
+        background-repeat: no-repeat;
+        width: 1.0625rem;
+        height: 1.0625rem;
+        stroke:  $color-purple-700;
+        margin-left: 0.3rem;
+    }
+}

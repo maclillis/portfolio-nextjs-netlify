@@ -1,0 +1,24 @@
+.contact_form_label {
+    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    color: $color-white;
+    font-size: 1.0625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.contact_form_bg {
+    background-color: $color-purple-800;
+    border-color: $color-purple-600;
+    border-width: 3px;
+}
+
+.contact_form_select_bg {
+    background-color: $color-purple-800;
+    border-color: $color-purple-600;
+    border-width: 3px;
+}
+
+.select_popout_bg {
+    background-color: $color-purple-700;
+}

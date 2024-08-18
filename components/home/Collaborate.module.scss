@@ -1,0 +1,24 @@
+.collaborate_wrap {
+    .collaborate_description {
+        font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, sans-serif;
+        color: $color-purple-300;
+        //font-size: 1.20rem;
+        font-size: clamp(1rem, 1vw + 1rem, 1.3rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .collaborate_text {
+        font-family: 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
+        color: $color-white;
+        font-size: 1.1rem;
+        font-weight: 400;
+        line-height: normal;
+        padding-bottom: 1.205rem;
+    }
+}
+
+.bolder {
+    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+}

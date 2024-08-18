@@ -1,0 +1,85 @@
+.post_feat_image {
+    height: auto;
+    border-radius: 1rem;
+    border: 3px solid $color-purple-600;
+}
+
+.blog_single_main {
+
+    .post_wrap {
+
+        .post_title {
+            font-family: 'Inter-SemiBold', 'Helvetica Neue', Helvetica, sans-serif;
+            color: $color-white;
+            font-size: 2.125rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 2.375rem;
+            text-transform: none;
+        }
+        
+        .post_datestamp {
+            font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: $color-purple-200;
+            font-size: 0.9375rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+        
+        .post_content p {
+            font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: $color-white;
+            font-size: 1.1rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.4rem;
+        }
+
+        .post_content {
+            h4 {
+                font-family: 'Inter-SemiBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 1.4rem;
+                margin: 14px 0;
+            }
+
+            h5 {
+                font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 1.2rem;
+                margin-top: 14px;
+                margin-bottom: 8px
+            }
+
+            a {
+                font-family: 'Inter-SemiBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                text-decoration: underline;
+            }
+        }
+
+        .post_summary p {
+            font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+        }
+    }
+}
+
+.author_box {
+
+    .written_by {
+        font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        font-style: normal;
+        line-height: 1.4rem;
+        color: $color-purple-200;
+    }
+    
+    .author_name {
+        font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 1.15rem;
+        font-style: normal;
+        line-height: 1.2rem;
+        color: $color-purple-200;
+    }
+}

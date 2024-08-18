@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './themes/variables';
+@import './themes/mixins';
+@import './base/reset';
+@import './base/typography';
+@import './base/utilities';
+@import './layouts/grid';
+@import './components/button';
+@import './components/card';
+@import './components/forms';
+@import './utils/functions';
+@import './utils/mixins';
+
+:root {
+  background-color: $color-purple-900;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $font-body;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  font-size: 16px; /* Base font size */
+  background: $color-purple-800;
+  height: 100%;
+}
+
+body {
+  background-color: $color-purple-900;
+  color: $color-white;
+  font-size: clamp(1rem, 1.5vw + 1rem, 2rem);
+  line-height: normal;
+}
+
+.section_bg {
+  background-color: $color-purple-950;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+code {
+  background: #e2e8f0;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-family: Menlo, Monaco, Lucida Console, Courier New, monospace;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Inter-Black', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  //font-size: 2.1125rem;
+  font-size: clamp(2rem, 3vw + 1rem, 2.5rem);
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal; /* 102.703% */
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  //font-size: 1.625rem;
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 1.5rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+h3 {
+  font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+  color: $color-white;
+  //font-size: 1.5rem;
+  font-size: clamp(1.5rem, 1.5vw + 1rem, 1.3rem);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+p {
+  font-size: clamp(1rem, 1.2vw + 1rem, 1.2rem);
+  line-height: normal
+}
+
+.tag_ {
+  text-decoration: underline;
+  color: $color-purple-200;
+  text-underline-offset: 0.2rem;
+}
+
+.no_tag_ {
+  color: $color-purple-200;
+  text-underline-offset: 0.2rem;
+}
+
+.text-primary, .text-foreground {
+  color: $color-white; 
+}
+
+.text-foreground\/50 {
+  color: hsl(0deg 0% 100% / 50%);
+}
+
+.textarea {
+  height: 100% !important;
+}
+
+.bg-divider {
+  background-color: $color-purple-600;
+  width: 60%;
+  margin: 1.7rem auto;
+}
+
+.cookie_consent_wrap {
+  background-color: rgba(25, 15, 31, 0.95);
+  z-index: 99;
+}
+
+.consent_text {
+  font-size: 1.1rem;
+}
+
+.consent_button_yes {
+  padding: 0rem 2rem !important;
+  font-size: 0.9rem !important;
+  height: 45px;
+}
+
+.consent_button_no {
+  border: 1px solid $color-white;
+  height: 45px;
+  padding: 0rem 2rem !important;
+  margin-right: 0.5rem;
+
+  &:after {
+    content: '';
+    display: none;
+  }
+}
+
+.page_title {
+  font-family: 'Inter-Black', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: $color-white;
+  font-size: 2.3125rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 2.375rem; /* 102.703% */
+  text-transform: uppercase;
+}
+
+.section_description {
+  font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  //font-size: 0.875rem;
+  font-size: clamp(0.875rem, 0.5vw + 1rem, 1.1rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: $color-purple-300;
+  padding: 0.5rem 0;
+}
+
+.listing_assets {
+  font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: $color-purple-150;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  .bolder {
+    font-family: 'Inter-SemiBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bolder
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+}
+
+.listing_blog_datestamp {
+  font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: $color-purple-200;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.listing_blog_excerpt, .listing_tools p {
+  font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: $color-purple-150;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.listing_single_tools p {
+  font-size: 1.15rem;
+  color: $color-purple-150;
+}
+
+.breadcrumbs_wrap {
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  a {
+    font-size: inherit;
+    color: $color-purple-100;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .breadc_title span {
+    width: 200px; 
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.tags_wrap {
+  color: $color-purple-200;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.listing-specs {
+  color: $color-purple-150;
+  font-size: 1rem;
+  font-family: 'Inter-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  .specs-item {
+    margin: 0;
+    line-height: normal;
+
+    .bolder {
+      font-family: 'Inter-SemiBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+  }
+}
+
+.profile_hero_img {
+  border-radius: 50%;
+}
+
+.post_content {
+  p {
+    margin-bottom: 1.2rem;
+  }
+}

@@ -1,0 +1,16 @@
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .copyright_text {
+    color: $color-purple-600;
+    //font-size: 0.7rem;
+    line-height: 1.05rem;
+
+    .copyright_pipe {
+      opacity: 0.3;
+    }
+  }
+}

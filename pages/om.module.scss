@@ -1,0 +1,41 @@
+.about_text {
+    font-family: 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    line-height: normal;
+    color: $color-purple-100;
+}
+
+.experience_label {
+    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.skills_label {
+    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.skills_models {
+    font-family: 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 1.03rem;
+    font-style: normal;
+    line-height: normal;
+    color: $color-purple-100;
+    padding-top: 0.2rem;
+}
+
+.icon_grid {
+    width: 2.9375rem;
+    height: 2.9375rem;
+    color: $color-purple-600;
+}
+
+.about_main svg {
+    margin:  0;
+}
