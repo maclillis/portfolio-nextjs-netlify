@@ -16,7 +16,20 @@ const nextConfig = {
         hostname: 'cdn.sanity.io'
       }
     ]
-  }
+  },
+  headers: async () => {
+    return [
+      {
+        source: '/(.*)', 
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow', 
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
