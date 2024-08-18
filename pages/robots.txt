@@ -1,0 +1,19 @@
+# This file tells search engines how to crawl and index your site.
+
+# Disallow all crawlers from accessing certain parts of the site
+User-agent: *
+Disallow: /api/                  # Prevents access to any API routes
+Disallow: /_next/static/         # Prevents access to Next.js static assets
+Disallow: /_next/webpack/        # Prevents access to Webpack-related files
+Disallow: /_next/image/          # Prevents access to Next.js optimized images
+Disallow: /private/              # Example of a directory that shouldn't be crawled
+Disallow: /login/                # Prevents access to login page
+Disallow: /register/             # Prevents access to registration page
+Disallow: /admin/                # Prevents access to admin panel (if applicable)
+
+# Allow crawlers to access certain important parts of the site
+Allow: /_next/static/css/        # Allow CSS files to be crawled
+Allow: /_next/static/chunks/     # Allow JS chunks to be crawled
+
+# Sitemap for search engines
+Sitemap: https://www.marcusliljehammar.se/sitemap.xml
