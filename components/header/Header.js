@@ -1,7 +1,13 @@
-import {Avatar, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@nextui-org/react";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 import styles from './Header.module.scss'
+
+const UserAvatar = dynamic(() => import('../utils/Avatar'), {
+  ssr: false, // If you don't need server-side rendering for this component
+  loading: () => <p>Laddar...</p>, // Optional loading indicator
+});
 
 export default function Header({ href, isActive, children }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,7 +41,7 @@ export default function Header({ href, isActive, children }) {
       <Navbar isBlurred={false} className={isScrolled ? `${styles.navbar_wrap} ${styles.scrolled_navbar} fixed py-1 md:py-2 ` : `${styles.navbar_wrap} fixed py-1 md:py-2`}>
         <NavbarBrand className="navbar_brand">
           <Link href="/">
-          <Avatar isBordered color="default" classNames={{img:"avatar_img"}} src="../../assets/images/marcus.webp" size="sm" />
+          <UserAvatar src="../../assets/images/marcus.webp" alt="Marcus Liljehammar" />
           </Link>
         </NavbarBrand>
         <NavbarContent className={`${styles.menu_wrap} gap-4 md:gap-6`}>
