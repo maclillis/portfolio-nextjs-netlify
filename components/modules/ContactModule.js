@@ -1,12 +1,15 @@
 import {Input, Button, Select, SelectItem, Textarea} from "@nextui-org/react";
 
 import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
+import dynamic from 'next/dynamic';
+
+const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), { ssr: false });
 
 import styles from './ContactModule.module.scss'
 
 export default function ContactModule() {
 
+  const [recaptchaVisible, setRecaptchaVisible] = useState(false);
   const [recaptchaValue, setRecaptchaValue] = useState(null);
 
     const [formData, setFormData] = useState({
@@ -24,6 +27,14 @@ export default function ContactModule() {
           ...formData,
           [e.target.name]: e.target.value
         });
+      };
+
+      const handleRecaptchaChange = (value) => {
+        setRecaptchaValue(value);
+      };
+    
+      const handleFocus = () => {
+        setRecaptchaVisible(true);
       };
     
       const handleSubmit = async (e) => {
@@ -59,7 +70,7 @@ export default function ContactModule() {
           return;
         }
     
-        const response = await fetch('/api/verify-recaptcha', {
+        const response = await fetch('/api/verifyRecaptcha', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -75,11 +86,9 @@ export default function ContactModule() {
         } else {
           alert('reCAPTCHA verification failed!');
         }
-      };
+      ;
 
-      const handleRecaptchaChange = (value) => {
-        setRecaptchaValue(value);
-      };
+    }
     
     return(
         <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} onSubmit={handleSubmit}>
@@ -87,7 +96,7 @@ export default function ContactModule() {
 
             <input type="text" name="honey" style={{ display: 'none' }} onChange={handleChange} />
 
-            <Input value={formData.name} id="name" type="text" label="Namn" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
+            <Input onFocus={handleFocus} value={formData.name} id="name" type="text" label="Namn" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
             <Input value={formData.email} id="email" type="email" label="Email" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
@@ -100,8 +109,9 @@ export default function ContactModule() {
             <div className="w-full md:h-full">
                 <Textarea value={formData.message} id="message" type="text" label="Meddelande" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white", "textarea"]}}  className="py-2 h-full" onChange={handleChange} required />
             </div>
-
+            {recaptchaVisible && (
             <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} onChange={handleRecaptchaChange} />
+            )}
 
             <div className="flex pt-5 col-span-1 md:col-start-2 w-full md:justify-end">
                 <Button className="button_base button_primary btn_internal py-2 px-4 w-full">{loading ? 'Skickar...' : 'Skicka meddelande'} </Button>
