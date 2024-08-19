@@ -20,7 +20,7 @@ export default function Hero() {
                         <p className={styles.hero_bio_text}>Just nu jobbar som Webbutvecklare/UX Designerkonstult men gör även <Link href="#freelance_work "to="freelance_work" smooth={true} duration={1200}>mindre sidoprojekt</Link>.</p>
                     </div>
                     <div className={`${styles.profile_wrap} flex justify-center items-start absolute w-72 left-52 top-32 md:relative md:left-12 md:top-0 lg:absolute lg:left-2/4 lg:bottom-0 lg:w-96`}>
-                        <Image src={profileImg} alt="Marcus Liljehammar" width={350} height={350} quality={75} className={`${styles.profile_hero_img} self-start w-70 md:self-end`} priority />
+                        <Image src={profileImg} alt="Marcus Liljehammar" quality={50} className={`${styles.profile_hero_img} self-start w-70 md:self-end`} priority fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                     </div>
                 </div>
             </div>
