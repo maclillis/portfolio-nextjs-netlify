@@ -23,8 +23,8 @@ const staticPages = [
       priority: '0.8'
     },
     {
-      url: 'jobb',
-      lastmod: getLastModifiedDate('pages/jobb.js'),
+      url: 'projekt',
+      lastmod: getLastModifiedDate('pages/projekt.js'),
       changefreq: 'yearly',
       priority: '0.7'
     },
@@ -71,7 +71,7 @@ export async function getServerSideProps({ res }) {
     if (type === "blog") {
       fullUrl = `blogg/${url}`;
     } else if (type === "work") {
-      fullUrl = `jobb/${url}`;
+      fullUrl = `projekt/${url}`;
     } else if (type === "tag") {
         fullUrl = `blogg/taggar/${url}`;
       } else {
