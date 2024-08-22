@@ -4,7 +4,7 @@ import Footer from '@components/footer/Footer';
 import Image from 'next/image';
 import {Breadcrumbs, BreadcrumbItem, Link, Avatar} from "@nextui-org/react";
 import { fetchSanity } from '../../utils/fetchSanity';
-import { format } from 'date-fns';
+import { formatPublishedAt } from '../../utils/formatDate';
 import { PortableText } from '@portabletext/react';
 
 import styles from './[slug].module.scss';
@@ -97,7 +97,7 @@ export default function BlogSingle({blogPost}) {
 
                 <h1 className={`${styles.post_title} lg:max-w-3xl`}>{blogPost.title}</h1>
 
-                <p className={`${styles.post_datestamp} pt-2 pb-2 lg:pt-4 lg:pb-4`}>{format(new Date(blogPost.publishedAt), 'd MMMM yyy, H:I')}</p>
+                <p className={`${styles.post_datestamp} pt-2 pb-2 lg:pt-4 lg:pb-4`}>{formatPublishedAt(blogPost.publishedAt)}</p>
 
                 {blogPost.featured && blogPost.featured.asset && ( 
                     <Image

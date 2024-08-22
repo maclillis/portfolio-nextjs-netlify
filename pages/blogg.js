@@ -6,7 +6,7 @@ import Image from 'next/image';
 import {Breadcrumbs, BreadcrumbItem, Link, Divider} from "@nextui-org/react";
 import { useLazyLoadPosts } from '../hooks/LazyLoadPosts';
 import { client } from '../sanity/lib/client';
-import { format } from 'date-fns';
+import { formatPublishedAt } from '../utils/formatDate';
 
 import loader from '../public/assets/images/loader_infinity.svg';
 
@@ -119,7 +119,7 @@ export default function Blog({initialPosts, total, baseQuery}) {
                             <h2><Truncate text={blogPost.title} maxLength={50} lines={3} /></h2>
                         </Link>
 
-                        <p className="listing_blog_datestamp pt-4">{format(new Date(blogPost.publishedAt), 'd MMMM yyy, H:I')}</p>
+                        <p className="listing_blog_datestamp pt-4">{formatPublishedAt(blogPost.publishedAt)}</p>
                         <div className="listing_blog_excerpt py-6">
                         <Truncate text={blogPost.exerpt} maxLength={130} lines={6} />
                         </div>
