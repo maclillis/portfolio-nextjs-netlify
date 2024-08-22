@@ -119,7 +119,7 @@ export default function Blog({initialPosts, total, baseQuery}) {
                             <h2><Truncate text={blogPost.title} maxLength={50} lines={3} /></h2>
                         </Link>
 
-                        <p className="listing_blog_datestamp pt-4">{format(new Date(blogPost.publishedAt), 'd MMMM yyy, H:I')}</p>
+                        <p className="listing_blog_datestamp pt-4">{/*format(new Date(blogPost.publishedAt), 'd MMMM yyy, H:I')*/}</p>
                         <div className="listing_blog_excerpt py-6">
                         <Truncate text={blogPost.exerpt} maxLength={130} lines={6} />
                         </div>
