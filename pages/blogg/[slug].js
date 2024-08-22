@@ -73,7 +73,7 @@ export default function BlogSingle({blogPost}) {
     <div className="container m-auto pt-14 h-full">
         <Head>
             <title>{blogPost.title + " | Marcus Liljehammar - Webbutvecklare & UX/UI Designer"}</title>
-            <link rel="canonical" href={`${baseURL}/blogg/${blogPost.slug}`} />
+            <link rel="canonical" href={`${baseURL}/blogg/${blogPost.slug.current}`} />
             <meta name="description" content={blogPost.summary} />
             <script type="application/ld+json">
                 {JSON.stringify(structuredData)}

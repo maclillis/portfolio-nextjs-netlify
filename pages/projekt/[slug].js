@@ -75,7 +75,7 @@ export default function WorkSingle({workPost}) {
         <Head>
             <title>{workPost.title + " | Marcus Liljehammar - Webbutvecklare & UX/UI Designer"}</title>
             <meta name="description" content={workPost.excerpt} />
-            <link rel="canonical" href={`${baseURL}/projekt/${workPost.slug}`} />
+            <link rel="canonical" href={`${baseURL}/projekt/${workPost.slug.current}`} />
             <script type="application/ld+json">
                 {JSON.stringify(structuredData)}
             </script>
