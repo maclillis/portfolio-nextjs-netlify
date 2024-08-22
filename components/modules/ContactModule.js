@@ -110,7 +110,7 @@ export default function ContactModule() {
                 <Textarea value={formData.message} id="message" type="text" label="Meddelande" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white", "textarea"]}}  className="py-2 h-full" onChange={handleChange} required />
             </div>
             {recaptchaVisible && (
-            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} onChange={handleRecaptchaChange} />
+            <ReCAPTCHA sitekey="6LfijikqAAAAAK4nGtzLu0ynJFE9ldIFKOaF1GE8" onChange={handleRecaptchaChange} />
             )}
 
             <div className="flex pt-5 col-span-1 md:col-start-2 w-full md:justify-end">
