@@ -62,7 +62,7 @@ export default function BlogSingle({blogPost}) {
         },
         "datePublished": blogPost.publishedAt,
         "dateModified": blogPost.modifiedAt || blogPost.publishedAt, 
-        "description": blogPost.summary,
+        "description": blogPost.exerpt,
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": `${baseURL}/blogg/${blogPost.slug.current}`,
@@ -74,7 +74,7 @@ export default function BlogSingle({blogPost}) {
         <Head>
             <title>{blogPost.title + " | Marcus Liljehammar - Webbutvecklare & UX/UI Designer"}</title>
             <link rel="canonical" href={`${baseURL}/blogg/${blogPost.slug.current}`} />
-            <meta name="description" content={blogPost.summary} />
+            <meta name="description" content={blogPost.exerpt} />
             <script type="application/ld+json">
                 {JSON.stringify(structuredData)}
             </script>
