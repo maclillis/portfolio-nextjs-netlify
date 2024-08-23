@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Header from '@components/header/Header';
 import Footer from '@components/footer/Footer';
@@ -11,6 +12,34 @@ import Contact from '@components/home/Contact';
 import styles from './index.module.scss';
 import { fetchSanity } from '../utils/fetchSanity';
 import LatestBlog from '@components/home/LatestBlog'
+
+const LazyTools = dynamic(() => import('@components/home/Tools'), {
+  ssr: false,
+})
+
+const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), {
+  ssr: false,
+})
+
+const LazyGithub = dynamic(() => import('@components/home/GithubActivity'), {
+  ssr: false,
+})
+
+const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {
+  ssr: false,
+})
+
+const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {
+  ssr: false,
+})
+
+const LazyContact = dynamic(() => import('@components/home/Contact'), {
+  ssr: false,
+})
+
+const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {
+  ssr: false,
+})
 
 export async function getServerSideProps() {
   const blogQuery = `*[_type == "blog"] | order(_createdAt desc)[0...3]{
@@ -87,19 +116,19 @@ export default function Home({blogPosts, workPosts}) {
 
         <Hero />
 
-        <Tools />
+        <LazyTools />
 
-        <ProjectSpotlight workPosts={workPosts} />
+        <LazyProjects workPosts={workPosts} />
 
-        <GithubActivity />
+        <LazyGithub />
 
-        <LatestBlog blogPosts={blogPosts} />
+        <LazyBlog blogPosts={blogPosts} />
 
-        <WebKpis />
+        <LazyWebkpis />
 
-        <Collaborate />
+        <LazyCollaborate />
 
-        <Contact />
+        <LazyContact />
 
       </main>
 
