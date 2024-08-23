@@ -9,8 +9,20 @@ import styles from './ContactModule.module.scss'
 
 export default function ContactModule() {
 
-  const [recaptchaVisible, setRecaptchaVisible] = useState(false);
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+
+  const loadRecaptcha = () => {
+    if (!recaptchaLoaded) {
+      const script = document.createElement('script');
+      script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+      script.async = true;
+      script.onload = () => {
+        setRecaptchaLoaded(true);
+      };
+      document.body.appendChild(script);
+    }
+  };
 
     const [formData, setFormData] = useState({
         name: '',
@@ -27,14 +39,6 @@ export default function ContactModule() {
           ...formData,
           [e.target.name]: e.target.value
         });
-      };
-
-      const handleRecaptchaChange = (value) => {
-        setRecaptchaValue(value);
-      };
-    
-      const handleFocus = () => {
-        setRecaptchaVisible(true);
       };
     
       const handleSubmit = async (e) => {
@@ -64,29 +68,30 @@ export default function ContactModule() {
           setLoading(false);
         }
 
-        e.preventDefault();
-        if (!recaptchaValue) {
-          alert('Please complete the reCAPTCHA');
+        if (!window.grecaptcha) {
+          console.error('reCAPTCHA not yet loaded');
           return;
         }
     
-        const response = await fetch('/api/verifyRecaptcha', {
+        const token = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
+        setRecaptchaToken(token);
+    
+        const response = await fetch('/api/verify-recaptcha', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            recaptchaValue,
-          }),
+          body: JSON.stringify({ recaptchaToken: token }),
         });
     
         const data = await response.json();
+    
         if (data.success) {
           alert('reCAPTCHA verified successfully!');
+          // Continue with form submission
         } else {
           alert('reCAPTCHA verification failed!');
         }
-      ;
 
     }
     
@@ -96,7 +101,7 @@ export default function ContactModule() {
 
             <input type="text" name="honey" style={{ display: 'none' }} onChange={handleChange} />
 
-            <Input onFocus={handleFocus} value={formData.name} id="name" type="text" label="Namn" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
+            <Input onFocus={loadRecaptcha} value={formData.name} id="name" type="text" label="Namn" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
             <Input value={formData.email} id="email" type="email" label="Email" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
@@ -109,9 +114,6 @@ export default function ContactModule() {
             <div className="w-full md:h-full">
                 <Textarea value={formData.message} id="message" type="text" label="Meddelande" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white", "textarea"]}}  className="py-2 h-full" onChange={handleChange} required />
             </div>
-            {recaptchaVisible && (
-            <ReCAPTCHA sitekey="6LfijikqAAAAAK4nGtzLu0ynJFE9ldIFKOaF1GE8" onChange={handleRecaptchaChange} />
-            )}
 
             <div className="flex pt-5 col-span-1 md:col-start-2 w-full md:justify-end">
                 <Button className="button_base button_primary btn_internal py-2 px-4 w-full">{loading ? 'Skickar...' : 'Skicka meddelande'} </Button>
