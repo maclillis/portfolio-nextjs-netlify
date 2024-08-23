@@ -46,6 +46,14 @@ export default function ContactModule() {
         setLoading(true);
         setError('');
         setSuccess('');
+
+        //Netlify compatibility AJAX-call
+        const formData = new FormData(event.target);
+          await fetch('/__forms.html', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+              body: new URLSearchParams(formData).toString()
+        });
     
         try {
           const res = await fetch('/api/contact', {
@@ -96,7 +104,7 @@ export default function ContactModule() {
     }
     
     return(
-        <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} onSubmit={handleSubmit}>
+        <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} netlify="true" onSubmit={handleSubmit}>
             <div className="w-full">
 
             <input type="text" name="honey" style={{ display: 'none' }} onChange={handleChange} />
