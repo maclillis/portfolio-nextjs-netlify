@@ -15,7 +15,7 @@ export default function ProjectSpotlight({ workPosts }) {
                     {workPosts.map((workPost) => (
                     <article key={workPost._id} className={`${styles.project_card} flex flex-col justify-between`}>
 
-                        <Image src={workPost.featured.asset.url} className={`${styles.spotlight_feat_image} mb-3 w-full`} alt={workPost.featured.alt} width={336} height={140} />
+                        <Image src={workPost.featured.asset.url} className={`${styles.spotlight_feat_image} mb-3 w-full`} alt={workPost.featured.alt} width={336} height={140} layout="fixed" />
 
                         <Link href={`/projekt/${workPost.slug.current}`}>
                             <h3 className="py-2"><Truncate text={workPost.title} maxLength={130} lines={3} /></h3>
