@@ -1,9 +1,6 @@
 import {Input, Button, Select, SelectItem, Textarea} from "@nextui-org/react";
 
 import React, { useState } from 'react';
-import dynamic from 'next/dynamic';
-
-const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), { ssr: false });
 
 import styles from './ContactModule.module.scss'
 
