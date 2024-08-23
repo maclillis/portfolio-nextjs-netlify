@@ -7,23 +7,7 @@ const withPWA = require('next-pwa')({
   register: true,
   disable: process.env.NODE_ENV === 'development',
   skipWaiting: true,
-  runtimeCaching: [
-    {
-      urlPattern: /_next\/.*\.json$/,
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: 'next-data',
-        networkTimeoutSeconds: 10,
-        expiration: {
-          maxEntries: 20,
-          maxAgeSeconds: 24 * 60 * 60, // 1 day
-        },
-        cacheableResponse: {
-          statuses: [0, 200],
-        },
-      },
-    },
-  ],
+  buildExcludes: [/middleware-manifest.json$/], // Exclude problematic files
 });
 
 const nextConfig = {
