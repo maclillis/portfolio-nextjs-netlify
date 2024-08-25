@@ -2,14 +2,14 @@
     background-color: $color-purple-900;
     .welcome_wrap {
         .welcome_text {
-            font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter-Light', 'Helvetica Neue', Helvetica, sans-serif;
             font-size: 1.3625rem;
             font-style: italic;
             line-height: normal;
         }
     }
     .subline_text {
-        font-family: 'Inter-SemiBold', 'Helvetica Neue', Helvetica, sans-serif;
+        font-family:  -apple-system, BlinkMacSystemFont, 'Inter-SemiBold', 'Helvetica Neue', Helvetica, sans-serif;
         //font-size: 0.875rem;
         font-style: normal;
         line-height: normal;
@@ -26,7 +26,7 @@
         }
     }
     .hero_bio_text {
-        font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
         font-size: 1.125rem;
         font-style: normal;
         line-height: normal;

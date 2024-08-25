@@ -1,6 +1,6 @@
 .collaborate_wrap {
     .collaborate_description {
-        font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Inter-Light', 'Helvetica Neue', Helvetica, sans-serif;
         color: $color-purple-300;
         //font-size: 1.20rem;
         font-size: clamp(1rem, 1vw + 1rem, 1.3rem);
@@ -10,7 +10,7 @@
     }
 
     .collaborate_text {
-        font-family: 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
         color: $color-white;
         font-size: 1.1rem;
         font-weight: 400;
@@ -20,5 +20,5 @@
 }
 
 .bolder {
-    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
 }
