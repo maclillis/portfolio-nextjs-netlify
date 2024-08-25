@@ -9,8 +9,3 @@
 [functions]
   node_bundler = "esbuild"
   directory = ".netlify/functions/"
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/next"
-  status = 200

@@ -68,13 +68,13 @@ export default function ContactModule() {
           });
     
           if (res.ok) {
-            setSuccess('Message sent successfully!');
+            setSuccess('Meddelandet skickat!');
             setFormData({ namn: '', email: '', typ: '', meddelande: '' });
           } else {
-            setError('Failed to send message.');
+            setError('Misslyckades med att skicka meddelandet');
           }
         } catch (error) {
-          setError('Something went wrong.');
+          setError('Meddelandet skickades inte');
         } finally {
           setLoading(false);
         }
