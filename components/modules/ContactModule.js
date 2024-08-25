@@ -32,14 +32,12 @@ export default function ContactModule() {
       const [success, setSuccess] = useState('');
     
       const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { namn, value } = e.target;
 
         const newFormData = {
               ...formData,
-              [name]: value, 
+              [namn]: value, 
             };
-
-        console.log('Updated formData:', newFormData);
 
         setFormData(newFormData);
       };
@@ -51,12 +49,12 @@ export default function ContactModule() {
         setSuccess('');
 
         //Netlify compatibility AJAX-call
-        const formData = new FormData(event.target);
+        /*const formData = new FormData(event.target);
           await fetch('/__forms.html', {
               method: 'POST',
               headers: {'Content-Type': 'application/x-www-form-urlencoded'},
               body: new URLSearchParams(formData).toString()
-        });
+        });*/
     
         try {
           const res = await fetch('/api/contact', {
@@ -98,10 +96,9 @@ export default function ContactModule() {
         const data = await response.json();
     
         if (data.success) {
-          alert('reCAPTCHA verified successfully!');
           // Continue with form submission
         } else {
-          alert('reCAPTCHA verification failed!');
+          console.log("reCAPTCHA failed");
         }
 
     }
@@ -123,7 +120,7 @@ export default function ContactModule() {
             </Select>
             </div>
             <div className="w-full md:h-full">
-                <Textarea value={formData.meddelande} id="message" type="text" name="meddelande" label="Meddelande" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white", "textarea"]}}  className="py-2 h-full" onChange={handleChange} required />
+                <Textarea value={formData.meddelande} id="message" type="text" name="meddelande" label="Meddelande" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white", "textarea", "text-base"]}}  className="py-2 h-full text-base" onChange={handleChange} required />
             </div>
 
             <div className="flex pt-5 col-span-1 md:col-start-2 w-full md:justify-end">
