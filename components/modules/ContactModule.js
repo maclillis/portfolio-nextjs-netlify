@@ -24,7 +24,6 @@ export default function ContactModule() {
     const [formData, setFormData] = useState({
         namn: '',
         email: '',
-        typ: '',
         meddelande: ''
       });
       const [loading, setLoading] = useState(false);
@@ -42,11 +41,16 @@ export default function ContactModule() {
         setFormData(newFormData);
       };
     
-      const handleSubmit = async (e) => {
-        e.preventDefault();
+      const handleSubmit = async (vente) => {
+        event.preventDefault();
         setLoading(true);
         setError('');
         setSuccess('');
+
+        const formData = new FormData();
+        formData.append('namn', event.target.name.value);
+        formData.append('email', event.target.email.value);
+        formData.append('meddelande', event.target.message.value);
 
         //Netlify compatibility AJAX-call
         /*const formData = new FormData(event.target);
@@ -62,14 +66,16 @@ export default function ContactModule() {
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(formData)
+            body: formData
           });
     
           if (res.ok) {
-            setSuccess('Meddelandet skickat!');
-            setFormData({ namn: '', email: '', typ: '', meddelande: '' });
+            setSuccess('Meddelandet skickats!');
+            console.log('success!');
+            //setFormData({ namn: '', email: '', typ: '', meddelande: '' });
           } else {
             setError('Misslyckades med att skicka meddelandet');
+            console.log('fail!');
           }
         } catch (error) {
           setError('Meddelandet skickades inte');
@@ -113,7 +119,7 @@ export default function ContactModule() {
 
             <Input value={formData.email} id="email" type="email" label="Email" name="email" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
-            <Select value={formData.typ} id="purpose" labelPlacement="inside" name="typ" label="Typ" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[filled=true]:text-gray-400"], inputWrapper: "focus-within:!border-white", value: "text-white",  trigger: ["contact_form_select_bg", "group-data-[filled=true]:border-white"], popoverContent: ["select_popout_bg", "focus-within:!border-white"], listbox: "group-data-[focus=true]:text-gray-400" }} className="py-2" onChange={handleChange} required>
+            <Select id="purpose" labelPlacement="inside" name="typ" label="Typ" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[filled=true]:text-gray-400"], inputWrapper: "focus-within:!border-white", value: "text-white",  trigger: ["contact_form_select_bg", "group-data-[filled=true]:border-white"], popoverContent: ["select_popout_bg", "focus-within:!border-white"], listbox: "group-data-[focus=true]:text-gray-400" }} className="py-2" onChange={handleChange} required>
                 <SelectItem classNames={{base: "data-[selectable=true]:focus:bg-purple-200"}} key="Samarbete" value="Samarbete">Samarbete</SelectItem>
                 <SelectItem classNames={{base: "data-[selectable=true]:focus:bg-purple-200"}} key="Rekrytering" value="Rekrytering">Rekrytering</SelectItem>
                 <SelectItem classNames={{base: "data-[selectable=true]:focus:bg-purple-200"}} key="Övrigt" value="Övrigt">Övrigt</SelectItem>
