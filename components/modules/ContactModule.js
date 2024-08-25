@@ -32,11 +32,11 @@ export default function ContactModule() {
       const [success, setSuccess] = useState('');
     
       const handleChange = (e) => {
-        const { namn, value } = e.target;
+        const { name, value } = e.target;
 
         const newFormData = {
               ...formData,
-              [namn]: value, 
+              [name]: value, 
             };
 
         setFormData(newFormData);
@@ -109,7 +109,7 @@ export default function ContactModule() {
 
             <input type="text" name="honey" style={{ display: 'none' }} onChange={handleChange} />
 
-            <Input onFocus={loadRecaptcha} value={formData.name} id="name" labelPlaceholder="Name" type="text" name="namn" label="Namn" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
+            <Input onFocus={loadRecaptcha} value={formData.namn} id="name" labelPlaceholder="Namn" type="text" name="namn" label="Namn" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
             <Input value={formData.email} id="email" type="email" label="Email" name="email" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
