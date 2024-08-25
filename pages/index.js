@@ -14,6 +14,8 @@ const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {s
 const LazyContact = dynamic(() => import('@components/home/Contact'), {ssr: false,})
 const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {ssr: false,})
 
+const LazyFooter = dynamic(() => import('@components/footer/Footer'), {ssr: false,})
+
 export async function getServerSideProps() {
   const blogQuery = `*[_type == "blog"] | order(_createdAt desc)[0...3]{
     _id,
@@ -83,6 +85,7 @@ export default function Home({blogPosts, workPosts}) {
               {JSON.stringify(structuredData)}
           </script>
       </Head>
+      
       <Header />
 
       <main className={`${styles.main} w-full pb-14 flex items-start justify-start overflow-x-hidden`}>
@@ -105,7 +108,7 @@ export default function Home({blogPosts, workPosts}) {
 
       </main>
 
-      <Footer />
+      <LazyFooter />
     </div>
   )
 }

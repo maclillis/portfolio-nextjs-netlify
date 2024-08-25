@@ -29,7 +29,7 @@ class AppDocument extends Document {
         <meta name="msapplication-wide310x150logo" content="../../assets/favicon/mstile-310x150.png" />
         <meta name="msapplication-square310x310logo" content="../../assets/favicon/mstile-310x310.png" />
 
-        <link rel="preload" href="../../assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+        <link rel="preload" href="../../assets/fonts/Inter-Mediun.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
         <link rel="preload" href="../../assets/fonts/Inter-Black.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
         </Head>
         <body className="h-full">
