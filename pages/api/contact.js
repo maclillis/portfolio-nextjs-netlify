@@ -2,10 +2,10 @@ import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-      const { name, email, message, subject } = req.body;
+      const { namn, email, meddelande, typ } = req.body;
   
     // Basic validation
-    if (!name || !email || !message || !subject) {
+    if (!namn || !email || !meddelande || !typ) {
     return res.status(400).json({ error: 'All fields are required.' });
     }
 
@@ -37,18 +37,18 @@ export default async function handler(req, res) {
         // await transporter.sendMail({
         //   from: email,
         //   to: 'your-email@example.com',
-        //   subject: `New message from ${name}`,
+        //   subject: `New message from ${namn}`,
         //   text: message,
         // });
 
         await transporter.sendMail({
             from: email,
             to: 'hello@marcusliljehammar.se',
-            subject: `Nytt meddelande från ${name} - ${subject}`,
+            subject: `Nytt meddelande från ${namn} - ${typ}`,
             text: message,
           });
   
-        res.status(200).json({ message: 'Message sent successfully!' });
+        res.status(200).json({ meddelande: 'Message sent successfully!' });
       } catch (error) {
         res.status(500).json({ error: 'Failed to send message.' });
       }
