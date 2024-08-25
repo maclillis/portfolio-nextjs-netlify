@@ -41,16 +41,21 @@ export default function ContactModule() {
         setFormData(newFormData);
       };
     
-      const handleSubmit = async (vente) => {
+      const handleSubmit = async (event) => {
         event.preventDefault();
         setLoading(true);
         setError('');
         setSuccess('');
 
-        const formData = new FormData();
-        formData.append('namn', event.target.name.value);
-        formData.append('email', event.target.email.value);
-        formData.append('meddelande', event.target.message.value);
+        event.preventDefault();
+
+        const formData = {
+          name: event.target.name.value,
+          email: event.target.email.value,
+          message: event.target.message.value,
+        };
+
+        console.log(formData);
 
         //Netlify compatibility AJAX-call
         /*const formData = new FormData(event.target);
@@ -66,7 +71,7 @@ export default function ContactModule() {
             headers: {
               'Content-Type': 'application/json'
             },
-            body: formData
+            body: JSON.stringify(formData)
           });
     
           if (res.ok) {
