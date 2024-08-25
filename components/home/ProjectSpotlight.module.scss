@@ -1,9 +1,13 @@
 .spotlight_wrap {
 
     .featured_thumbnail {
-        border-radius: 1rem;
-        border: 3px solid $color-purple-600;
         width: 330px;
-        height: 140px;
+        height: 220px;
+        position: relative;
+
+        img {
+            border-radius: 1rem;
+            border: 3px solid $color-purple-600;
+        }
     }
 }
