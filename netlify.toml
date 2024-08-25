@@ -3,8 +3,14 @@
   publish = ".next"
   functions = "netlify/functions"
 
-[functions]
-  node_bundler = "esbuild"
-
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[functions]
+  node_bundler = "esbuild"
+  directory = ".netlify/functions/"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/next"
+  status = 200

@@ -69,7 +69,7 @@ export default function ContactModule() {
     
           if (res.ok) {
             setSuccess('Message sent successfully!');
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setFormData({ namn: '', email: '', typ: '', meddelande: '' });
           } else {
             setError('Failed to send message.');
           }
@@ -87,7 +87,7 @@ export default function ContactModule() {
         const token = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
         setRecaptchaToken(token);
     
-        const response = await fetch('/api/verify-recaptcha', {
+        const response = await fetch('/api/verifyRecaptcha', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
