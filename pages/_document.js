@@ -30,6 +30,10 @@ class AppDocument extends Document {
         <meta name="msapplication-square310x310logo" content="../../assets/favicon/mstile-310x310.png" />
 
         <link rel="preload" href="../../assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+        <link rel="preload" href="../../assets/fonts/Inter-Light.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+        <link rel="preload" href="../../assets/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+        <link rel="preload" href="../../assets/fonts/Inter-Black.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+        <link rel="preload" href="../../assets/fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
         </Head>
         <body className="h-full">
           <Main className="h-full" />
