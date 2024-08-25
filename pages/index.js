@@ -3,43 +3,16 @@ import Head from 'next/head'
 import Header from '@components/header/Header';
 import Footer from '@components/footer/Footer';
 import Hero from '@components/home/Hero';
-import Tools from '@components/home/Tools';
-import ProjectSpotlight from '@components/home/ProjectSpotlight';
-import GithubActivity from '@components/home/GithubActivity';
-import WebKpis from '@components/home/WebKpis';
-import Collaborate from '@components/home/Collaborate';
-import Contact from '@components/home/Contact';
 import styles from './index.module.scss';
 import { fetchSanity } from '../utils/fetchSanity';
-import LatestBlog from '@components/home/LatestBlog'
 
-const LazyTools = dynamic(() => import('@components/home/Tools'), {
-  ssr: false,
-})
-
-const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), {
-  ssr: false,
-})
-
-const LazyGithub = dynamic(() => import('@components/home/GithubActivity'), {
-  ssr: false,
-})
-
-const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {
-  ssr: false,
-})
-
-const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {
-  ssr: false,
-})
-
-const LazyContact = dynamic(() => import('@components/home/Contact'), {
-  ssr: false,
-})
-
-const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {
-  ssr: false,
-})
+const LazyTools = dynamic(() => import('@components/home/Tools'), {ssr: false,})
+const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), {ssr: false,})
+const LazyGithub = dynamic(() => import('@components/home/GithubActivity'), {ssr: false,})
+const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {ssr: false,})
+const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {ssr: false,})
+const LazyContact = dynamic(() => import('@components/home/Contact'), {ssr: false,})
+const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {ssr: false,})
 
 export async function getServerSideProps() {
   const blogQuery = `*[_type == "blog"] | order(_createdAt desc)[0...3]{
