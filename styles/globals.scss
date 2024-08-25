@@ -71,7 +71,7 @@ code {
 }
 
 h1 {
-  font-family: 'Inter-Black', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter-Black',  Helvetica, Arial, sans-serif;
   //font-size: 2.1125rem;
   font-size: clamp(2rem, 3vw + 1rem, 2.5rem);
   font-style: normal;
@@ -81,7 +81,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium',  Helvetica, Arial, sans-serif;
   //font-size: 1.625rem;
   font-size: clamp(1.75rem, 2.5vw + 1rem, 1.5rem);
   font-style: normal;
@@ -90,7 +90,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium',  Helvetica, sans-serif;
   color: $color-white;
   //font-size: 1.5rem;
   font-size: clamp(1.5rem, 1.5vw + 1rem, 1.3rem);
@@ -167,7 +167,7 @@ p {
 }
 
 .page_title {
-  font-family: 'Inter-Black', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter-Black',  Helvetica, Arial, sans-serif;
   color: $color-white;
   font-size: 2.3125rem;
   font-style: normal;
@@ -177,7 +177,7 @@ p {
 }
 
 .section_description {
-  font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter-Light',  Helvetica, Arial, sans-serif;
   //font-size: 0.875rem;
   font-size: clamp(0.875rem, 0.5vw + 1rem, 1.1rem);
   font-style: normal;
@@ -188,14 +188,14 @@ p {
 }
 
 .listing_assets {
-  font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter-Light',  Helvetica, Arial, sans-serif;
   color: $color-purple-150;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 
   .bolder {
-    font-family: 'Inter-SemiBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter-SemiBold',  Helvetica, Arial, sans-serif;
     font-weight: bolder
   }
 
@@ -206,7 +206,7 @@ p {
 }
 
 .listing_blog_datestamp {
-  font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium',  Helvetica, Arial, sans-serif;
   color: $color-purple-200;
   font-size: 0.9375rem;
   font-style: normal;
@@ -216,7 +216,7 @@ p {
 }
 
 .listing_blog_excerpt, .listing_tools p {
-  font-family: 'Inter-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter-Light',  Helvetica, Arial, sans-serif;
   color: $color-purple-150;
   font-size: 1rem;
   font-style: normal;
@@ -261,13 +261,13 @@ p {
 .listing-specs {
   color: $color-purple-150;
   font-size: 1rem;
-  font-family: 'Inter-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter-Regular',  Helvetica, Arial, sans-serif;
   .specs-item {
     margin: 0;
     line-height: normal;
 
     .bolder {
-      font-family: 'Inter-SemiBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter-SemiBold',  Helvetica, Arial, sans-serif;
     }
   }
 }

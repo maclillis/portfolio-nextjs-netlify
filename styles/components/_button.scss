@@ -1,5 +1,5 @@
 .button_base {
-    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
     border-radius: 2.125rem;
     font-size: 1rem;
     font-style: normal;
@@ -62,7 +62,7 @@
 }
 
 .link_button {
-    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
     color: $color-white;
     cursor: pointer;
 
@@ -94,7 +94,7 @@
 }
 
 .link_github {
-    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
     color: $color-white;
     cursor: pointer;
 
