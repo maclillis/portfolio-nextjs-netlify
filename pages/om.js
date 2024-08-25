@@ -37,7 +37,7 @@ export default function About() {
                 <div className="grid grid-cols-3 gap-3 md:gap-6 pb-8">
                     <div className="col-span-1 text-center flex flex-col items-center">
                         <ShoppingBagIcon className={`${styles.icon_grid} stroke-1`} />
-                        <h3 className={`${styles.experience_label} text-base lg:text-xl pt-2`}>E-commerce</h3>
+                        <h3 className={`${styles.experience_label} text-base lg:text-xl pt-2`}>E-handel</h3>
                     </div>
                     <div className="col-span-1 text-center flex flex-col items-center m-auto">
                         <MagnifyingGlassIcon className={`${styles.icon_grid} stroke-1`} />

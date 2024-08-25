@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Header from '@components/header/Header';
-import Footer from '@components/footer/Footer';
 import Hero from '@components/home/Hero';
 import styles from './index.module.scss';
 import { fetchSanity } from '../utils/fetchSanity';
@@ -44,7 +43,6 @@ export async function getServerSideProps() {
   }`;
 
   const blogPosts = await fetchSanity(blogQuery);
-
   const workPosts = await fetchSanity(workQuery);
 
   return {
