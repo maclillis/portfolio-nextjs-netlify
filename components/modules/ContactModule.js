@@ -22,20 +22,26 @@ export default function ContactModule() {
   };
 
     const [formData, setFormData] = useState({
-        name: '',
+        namn: '',
         email: '',
-        subject: '',
-        message: ''
+        typ: '',
+        meddelande: ''
       });
       const [loading, setLoading] = useState(false);
       const [error, setError] = useState('');
       const [success, setSuccess] = useState('');
     
       const handleChange = (e) => {
-        setFormData({
-          ...formData,
-          [e.target.name]: e.target.value
-        });
+        const { name, value } = e.target;
+
+        const newFormData = {
+              ...formData,
+              [name]: value, 
+            };
+
+        console.log('Updated formData:', newFormData);
+
+        setFormData(newFormData);
       };
     
       const handleSubmit = async (e) => {
@@ -106,18 +112,18 @@ export default function ContactModule() {
 
             <input type="text" name="honey" style={{ display: 'none' }} onChange={handleChange} />
 
-            <Input onFocus={loadRecaptcha} value={formData.name} id="name" type="text" label="Namn" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
+            <Input onFocus={loadRecaptcha} value={formData.name} id="name" labelPlaceholder="Name" type="text" name="namn" label="Namn" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
-            <Input value={formData.email} id="email" type="email" label="Email" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
+            <Input value={formData.email} id="email" type="email" label="Email" name="email" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
-            <Select value={formData.purpose} id="purpose" labelPlacement="inside" label="Ärende" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[filled=true]:text-gray-400"], inputWrapper: "focus-within:!border-white", value: "text-white",  trigger: ["contact_form_select_bg", "group-data-[filled=true]:border-white"], popoverContent: ["select_popout_bg", "focus-within:!border-white"], listbox: "group-data-[focus=true]:text-gray-400" }} className="py-2" onChange={handleChange} required>
+            <Select value={formData.typ} id="purpose" labelPlacement="inside" name="typ" label="Typ" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[filled=true]:text-gray-400"], inputWrapper: "focus-within:!border-white", value: "text-white",  trigger: ["contact_form_select_bg", "group-data-[filled=true]:border-white"], popoverContent: ["select_popout_bg", "focus-within:!border-white"], listbox: "group-data-[focus=true]:text-gray-400" }} className="py-2" onChange={handleChange} required>
                 <SelectItem classNames={{base: "data-[selectable=true]:focus:bg-purple-200"}} key="Samarbete" value="Samarbete">Samarbete</SelectItem>
                 <SelectItem classNames={{base: "data-[selectable=true]:focus:bg-purple-200"}} key="Rekrytering" value="Rekrytering">Rekrytering</SelectItem>
                 <SelectItem classNames={{base: "data-[selectable=true]:focus:bg-purple-200"}} key="Övrigt" value="Övrigt">Övrigt</SelectItem>
             </Select>
             </div>
             <div className="w-full md:h-full">
-                <Textarea value={formData.message} id="message" type="text" label="Meddelande" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white", "textarea"]}}  className="py-2 h-full" onChange={handleChange} required />
+                <Textarea value={formData.meddelande} id="message" type="text" name="meddelande" label="Meddelande" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white", "textarea"]}}  className="py-2 h-full" onChange={handleChange} required />
             </div>
 
             <div className="flex pt-5 col-span-1 md:col-start-2 w-full md:justify-end">

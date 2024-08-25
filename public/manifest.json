@@ -3,7 +3,6 @@
     "short_name": "Portfolio",
     "description": "Marcus Liljehammars officiella portfolio som Webbutvecklare & Digital Designer. Här samlar han insiktsfulla historier från hans yrkesliv och roliga projekt som han gjort under årens gång.",
     "start_url": "/",
-    "scope": "/",
     "display": "standalone",
     "background_color": "#271932",
     "theme_color": "#CBA6DD",
