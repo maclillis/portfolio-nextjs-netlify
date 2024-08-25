@@ -1,6 +1,9 @@
 .spotlight_wrap {
-    .spotlight_feat_image {
+
+    .featured_thumbnail {
         border-radius: 1rem;
         border: 3px solid $color-purple-600;
+        width: 330px;
+        height: 140px;
     }
 }

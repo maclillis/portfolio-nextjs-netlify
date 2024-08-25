@@ -20,7 +20,6 @@ export async function getServerSideProps() {
     _id,
     title,
     slug,
-    body,
     publishedAt,
     exerpt
   }`;
@@ -29,10 +28,7 @@ export async function getServerSideProps() {
     _id,
     title,
     slug,
-    body,
     tools,
-    publishedAt,
-    excerpt,
     featured{
       asset->{
         _id,

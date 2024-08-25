@@ -5,8 +5,8 @@ import dynamic from 'next/dynamic';
 import styles from './Header.module.scss'
 
 const UserAvatar = dynamic(() => import('../utils/Avatar'), {
-  ssr: true, // If you don't need server-side rendering for this component
-  loading: () => <p>Laddar...</p>, // Optional loading indicator
+  ssr: true,
+  loading: () => <p className="text-sm">Laddar...</p>, // Optional loading indicator
 });
 
 export default function Header({ href, isActive, children }) {
