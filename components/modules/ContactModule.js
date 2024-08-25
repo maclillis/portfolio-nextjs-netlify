@@ -127,7 +127,7 @@ export default function ContactModule() {
             </div>
 
             <div className="flex pt-5 col-span-1 md:col-start-2 w-full md:justify-end">
-                <Button className="button_base button_primary btn_internal py-2 px-4 w-full">{loading ? 'Skickar...' : 'Skicka meddelande'} </Button>
+                <Button type="submit" className="button_base button_primary btn_internal py-2 px-4 w-full">{loading ? 'Skickar...' : 'Skicka meddelande'} </Button>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 {success && <p style={{ color: 'green' }}>{success}</p>}
             </div>
