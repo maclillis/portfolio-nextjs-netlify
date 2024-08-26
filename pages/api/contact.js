@@ -2,25 +2,23 @@ import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { name, email, message } = req.body;
-
-    console.log('Is POST!');
+    const { name, email, message, subject } = req.body;
 
     const transporter = nodemailer.createTransport({
-      host: 'mailcluster.loopia.se',
+      host: process.env.EMAIL_SERVER,
       port: 465, // or 465 for secure
       secure: true, // true if port is 465
       auth: {
-        user: 'hello@marcusliljehammar.se',
-        pass: 'R7UURi8_cAw.W@mZiq',
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     const mailOptions = {
-      from: 'hello@marcusliljehammar.se',
-      to: 'hello@marcusliljehammar.se',
-      subject: `Nytt meddelande från ${name}`,
-      text: message,
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_TO_MAIL,
+      subject: `Nytt meddelande från ${name} - ${subject}`,
+      text: subject + '<br>'+ message + '<br>Email: ' + email,
     };
 
     try {
