@@ -4,6 +4,8 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { name, email, message } = req.body;
 
+    console.log('Is POST!');
+
     const transporter = nodemailer.createTransport({
       host: 'mailcluster.loopia.se',
       port: 465, // or 465 for secure
