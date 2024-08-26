@@ -88,6 +88,8 @@ export default function Home({blogPosts, workPosts}) {
 
         <LazyTools />
 
+        <LazyProjects workPosts={workPosts} />
+
         <LazyGithub />
 
         <LazyBlog blogPosts={blogPosts} />

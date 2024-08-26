@@ -6,8 +6,8 @@ export default async function handler(req, res) {
 
     const transporter = nodemailer.createTransport({
       host: 'mailcluster.loopia.se',
-      port: 587, // or 465 for secure
-      secure: false, // true if port is 465
+      port: 465, // or 465 for secure
+      secure: true, // true if port is 465
       auth: {
         user: 'hello@marcusliljehammar.se',
         pass: 'R7UURi8_cAw.W@mZiq',
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     const mailOptions = {
       from: email,
       to: 'hello@marcusliljehammar.se',
-      subject: `Nytt meddelande från ${namn} - ${typ}`,
+      subject: `Nytt meddelande från ${name}`,
       text: message,
     };
 

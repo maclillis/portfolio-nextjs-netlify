@@ -122,7 +122,10 @@ export default function BlogSingle({blogPost}) {
                     {blogPost.tags && blogPost.tags.length > 0 ? (
                         blogPost.tags.map((tag, index)=>(
                         <Link key={index} href={`/blogg/taggar/${tag.slug.current}`}>
-                            <span className="tag_ ps-1">{tag.title}, </span>
+                            <span className="tag_ ps-1">
+                              {tag.title}
+                              {index < blogPost.tags.length - 1 && ', '}
+                            </span>
                         </Link>
                         ))
                     ) : (

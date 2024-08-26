@@ -36,7 +36,7 @@ export default function About() {
 
             <section className="py-5">
                 <h2 className="pb-4">Socialt</h2>
-                <p className={styles.about_text}>Vill du kontakta med på Linkedin i stället? Det funkar också!</p>
+                <p className={styles.about_text}>Vill du kontakta mig på Linkedin i stället? Det funkar också!</p>
             </section>
 
             <div className="pt-2 w-full flex justify-center">

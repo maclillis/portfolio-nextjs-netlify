@@ -1,12 +1,13 @@
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@nextui-org/react";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import {CircularProgress} from "@nextui-org/react";
 import dynamic from 'next/dynamic';
 import styles from './Header.module.scss'
 
 const UserAvatar = dynamic(() => import('../utils/Avatar'), {
   ssr: true,
-  loading: () => <p className="text-sm">Laddar...</p>, // Optional loading indicator
+  loading: () =><CircularProgress size="sm" color="secondary" aria-label="Laddar..." />, // Optional loading indicator
 });
 
 export default function Header({ href, isActive, children }) {

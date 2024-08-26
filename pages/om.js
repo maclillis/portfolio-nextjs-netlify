@@ -13,7 +13,7 @@ export default function About() {
         <Head>
             <title>Om | Marcus Liljehammar - Webbutvecklare & UX/UI Designer</title>
             <link rel="canonical" href={`${baseURL}/om/`} />
-            <meta name="description" content="Plats för bifografi" />
+            <meta name="description" content="Jag har kodat hemsidor sedan gymnasiet och har under årens lopp vandra mellan det kreativa och det tekniska med stadiga, nyfikna steg." />
         </Head>
         <Header />
 
@@ -29,7 +29,12 @@ export default function About() {
 
             <section className="py-6 lg:py-8 w-full md:px-5">
                 <h2 className="pb-4">Biografi</h2>
-                <p className={`${styles.about_text} lg:max-w-2xl `}>I have 12+ years of professionally working with making beautiful, easy to use & performance-driven web apps and sites.</p>
+                <p className={`${styles.about_text} lg:max-w-2xl `}>Jag har kodat hemsidor sedan gymnasiet och har under årens lopp vandra mellan det kreativa och det tekniska med stadiga, nyfikna steg.</p>
+                <p className={`${styles.about_text} lg:max-w-2xl `}>Under flera år frilansade jag som grafisk designer och kom i kontakt med plattformar som Wordpress och Joomla redan 2008. Här någonstans föddes också passionen för användbarhet och tillsammans med det kreativa skapa verktyg som både förtrollar och kan användas av alla, oavsett kompetens.</p>
+                <p className={`${styles.about_text} lg:max-w-2xl `}>Jag gillar verkligen människan och hennes beteende och det finns nog inget mer fascinerande än att studera det som i det digitala, på webben.</p>
+                <p className={`${styles.about_text} lg:max-w-2xl `}>Det finns något riktigt speciellt att starta en digital resa med någon, att se  något formas till en konverterande plattform för någon att få ut sitt budskap i, vare sig det gäller sälja inom e-handel till bara att publicera historier i en blogg.</p>
+                <p className={`${styles.about_text} lg:max-w-2xl `}>Mitt fokus ligger väldigt mycket i att balansera det snygga med det tekniska och lever enligt deviserna ”less is more” och ”keep it simple, stupid” eftersom enkelhet är det första steget i att skapa verktyg alla kan använda och det är där magin finns.</p>
+                <p className={`${styles.about_text} lg:max-w-2xl `}>Ska vi göra något kul tillsammans? <Link ahref="/kontakt">Kontakta mig gärna via formuläret här</Link> eller <Link ahref="https://www.linkedin.com/in/marcusliljehammar/" target="_blank">på LinkedIn</Link>, så tar vi därifrån.</p>
             </section>
 
             <section className="py-6 lg:py-8 w-full md:px-5">
