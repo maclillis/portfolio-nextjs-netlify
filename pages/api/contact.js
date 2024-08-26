@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     });
 
     const mailOptions = {
-      from: email,
+      from: 'hello@marcusliljehammar.se',
       to: 'hello@marcusliljehammar.se',
       subject: `Nytt meddelande från ${name}`,
       text: message,
