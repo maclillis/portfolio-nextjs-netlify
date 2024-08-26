@@ -72,6 +72,8 @@ export default function ContactModule() {
         });
 
         const result = await res.json();
+
+        console.log('result: ' + res);
   
         if (res.ok) {
           setSuccess('Meddelandet skickats!');
