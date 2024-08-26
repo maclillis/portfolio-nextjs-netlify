@@ -76,7 +76,7 @@ export default function ContactModule() {
     
           if (res.ok) {
             setSuccess('Meddelandet skickats!');
-            const result = await response.json();
+            const result = await res.json();
             console.log('success! ' + result);
           } else {
             setError('Misslyckades med att skicka meddelandet');
