@@ -29,7 +29,7 @@ export default function About() {
 
             <section className="py-6 lg:py-8 w-full px-0 lg:px-20">
                 <h2 className="pb-4">Biografi</h2>
-                <p className={`${styles.about_text_start}`}>Jag har kodat hemsidor sedan gymnasiet och har under årens lopp vandra mellan det kreativa och det tekniska med stadiga, nyfikna steg.</p>
+                <p className={`${styles.about_text_start}`}>Jag har kodat hemsidor sedan gymnasiet och har under årens lopp vandrat mellan det kreativa och det tekniska med stadiga, nyfikna steg.</p>
                 <p className={`${styles.about_text}`}>Under flera år frilansade jag som grafisk designer och kom i kontakt med plattformar som Wordpress och Joomla redan 2008. Här någonstans föddes också passionen för användbarhet och tillsammans med det kreativa skapa verktyg som både förtrollar och kan användas av alla, oavsett kompetens.</p>
                 <p className={`${styles.about_text}`}>Jag gillar verkligen människan och hennes beteende och det finns nog inget mer fascinerande än att studera det som i det digitala, på webben.</p>
                 <p className={`${styles.about_text}`}>Det finns något riktigt speciellt att starta en digital resa med någon, att se  något formas till en konverterande plattform för någon att få ut sitt budskap i, vare sig det gäller sälja inom e-handel till bara att publicera historier i en blogg.</p>
