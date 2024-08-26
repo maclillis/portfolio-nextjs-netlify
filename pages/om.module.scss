@@ -1,20 +1,34 @@
-.about_text {
-    font-family: 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
+.about_text, .about_text_start {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 1.125rem;
     font-style: normal;
     line-height: normal;
+    padding: 10px 0;
     color: $color-purple-100;
+
+    a {
+        text-decoration: underline;
+        color: $color-purple-100;
+        font-size: 1.125rem;
+        font-weight: 500;
+    }
+}
+
+.about_text_start {
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.2rem;
 }
 
 .experience_label {
-    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
 }
 
 .skills_label {
-    font-family: 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium', 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 600;
@@ -22,7 +36,7 @@
 }
 
 .skills_models {
-    font-family: 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Regular', 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 1.03rem;
     font-style: normal;
     line-height: normal;
