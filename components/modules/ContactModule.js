@@ -55,8 +55,6 @@ export default function ContactModule() {
           message: event.target.message.value,
         };
 
-        console.log(formData);
-
         //Netlify compatibility AJAX-call
         /*const formData = new FormData(event.target);
           await fetch('/__forms.html', {
@@ -64,28 +62,23 @@ export default function ContactModule() {
               headers: {'Content-Type': 'application/x-www-form-urlencoded'},
               body: new URLSearchParams(formData).toString()
         });*/
-    
-        try {
-          const res = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          });
-    
-          if (res.ok) {
-            setSuccess('Meddelandet skickats!');
-            const result = await res.json();
-            console.log('success! ' + result);
-          } else {
-            setError('Misslyckades med att skicka meddelandet');
-            console.log('fail!');
-          }
-        } catch (error) {
-          setError('Meddelandet skickades inte');
-        } finally {
-          setLoading(false);
+
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await res.json();
+  
+        if (res.ok) {
+          setSuccess('Meddelandet skickats!');
+          console.log('success! ' + result);
+        } else {
+          setError('Misslyckades med att skicka meddelandet');
+          console.log('fail!');
         }
 
         if (!window.grecaptcha) {
