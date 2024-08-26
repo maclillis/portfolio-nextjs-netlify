@@ -76,8 +76,8 @@ export default function ContactModule() {
     
           if (res.ok) {
             setSuccess('Meddelandet skickats!');
-            console.log('success!');
-            //setFormData({ namn: '', email: '', typ: '', meddelande: '' });
+            const result = await response.json();
+            console.log('success! ' + result);
           } else {
             setError('Misslyckades med att skicka meddelandet');
             console.log('fail!');
