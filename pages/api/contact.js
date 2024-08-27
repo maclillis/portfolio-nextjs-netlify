@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
       
       const slackMessage = {
-          text: `:x: *reCAPTCHa-validering misslyckades för kontaktformuläret!* :rotating_light:\n\n\n*Namn:* ${name}\n*Email:* ${email}\n*Meddelande:*\n\n${message}`
+          text: `:x: *reCAPTCHa-validation failed* :rotating_light:\n\n\n*Namn:* ${name}\n*Email:* ${email}\n*Meddelande:*\n\n${message}`
       };
 
       await fetch(process.env.SLACK_WEBHOOK_URL, {
@@ -62,18 +62,17 @@ export default async function handler(req, res) {
       //Let's send a notification to Slack
       const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
       await axios.post(slackWebhookUrl, {
-          text: `:bell: *Pling! Nytt meddelande från kontaktformuläret!* :memo:`
+          text: `:bell: *Ping! New message is incoming* :memo:`
       });
 
       await transporter.sendMail(mailOptions);
       res.status(200).json({ success: true });
     } catch (error) {
-      console.error('Form submission failed:', error);
-
+      
       // Send Slack error notification
       const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
       await axios.post(slackWebhookUrl, {
-          text: `:x: *Kontaktformuläret skickade inte!* :warning:\n\n*Error:* ${error.message}\n\n*Namn:* ${name}\n*Email:* ${email}\n*Meddelande:*\n\n${message}`
+          text: `:x: *Message was not sent!* :warning:\n\n*Error:* ${error.message}\n\n*Namn:* ${name}\n*Email:* ${email}\n*Meddelande:*\n\n${message}`
       });
       res.status(500).json({ error: 'Failed to submit the form. Please try again later.' });
     }

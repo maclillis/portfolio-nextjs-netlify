@@ -2,7 +2,7 @@ import {Input, Button, Select, SelectItem, Textarea} from "@nextui-org/react";
 
 import React, { useState } from 'react';
 import {CircularProgress} from "@nextui-org/react";
-import { HandThumbUpIcon, HandThumbDownIcon } from '@heroicons/react/24/solid';
+import { HandThumbUpIcon, XCircleIcon } from '@heroicons/react/24/solid';
 
 import styles from './ContactModule.module.scss'
 
@@ -67,10 +67,10 @@ export default function ContactModule() {
 
     if (response.ok) {
       // Continue with form submission
-      setResponseMessage('Snyggt, meddelandet har skickats!');
+      setResponseMessage('Meddelandet har skickats!');
       setIsSuccess(true);
     } else {
-      setResponseMessage(`Error: ${result.error}`);
+      setResponseMessage(result.error);
       setIsSuccess(false);
     }
 
@@ -85,22 +85,21 @@ export default function ContactModule() {
 
 const buttonContent = isSubmitting ? (
   <>
-    Skickar...
     <CircularProgress size="sm" color="default" />
   </>
 ) : isSuccess === true ? (
   <>
-   <HandThumbUpIcon className="w-5 h-5 mr-2 text-white" /> {responseMessage }
+    <HandThumbUpIcon className="w-5 h-5 md:w-7 md:h-7 text-black" /> 
   </>
 ) : isSuccess === false ? (
   <>
-    <HandThumbDownIcon className="w-5 h-5 mr-2 text-white" /> {responseMessage }
+    <XCircleIcon className="w-5 h-5 md:w-7 md:h-7 text-white" /> 
   </>
 ) : (
   'Skicka'
 );
 
-const buttonColor = isSuccess === true ? 'success' : isSuccess === false ? 'error' : 'primary';
+const btnState = isSuccess === true ? 'button_success' : isSuccess === false ? 'button_fail' : '';
     
     return(
         <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} onSubmit={handleSubmit}>
@@ -122,8 +121,9 @@ const buttonColor = isSuccess === true ? 'success' : isSuccess === false ? 'erro
                 <Textarea value={formData.meddelande} id="message" type="text" name="message" label="Meddelande" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white", "textarea", "text-base"]}}  className="py-2 h-full text-base" onChange={handleChange} required />
             </div>
 
-            <div className="flex pt-5 col-span-1 md:col-start-2 w-full md:justify-end">
-            <Button className="button_base button_primary btn_internal py-2 px-4 w-full md:w-1/2" type="submit" disabled={isSubmitting} color={buttonColor} auto css={{transition: 'width 0.3s ease', width: isSuccess === null ? '150px' : '250px', }}>{buttonContent}</Button>
+            <div className="flex pt-5 col-span-1 md:col-start-2 w-full justify-end items-center flex-row-reverse md:flex-row">
+            {<p className="response_msg ps-5 text-base md:pe-5">{responseMessage}</p>}
+            <Button className={`${btnState} button_base button_primary btn_internal py-2 px-4 w-full md:w-auto`} type="submit" disabled={isSubmitting} auto>{buttonContent}</Button>
             </div>
         </form>
     )

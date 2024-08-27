@@ -108,3 +108,29 @@
         margin-left: 0.3rem;
     }
 }
+
+.button_success {
+    background-color: #43c969;
+    color: #000;
+    width: auto !important;
+    display: flex;
+    transition: width 0.3s ease  transform 2s;
+
+    &::after {
+        content: '';
+        display: none;
+    }
+}
+
+.button_fail {
+    background-color: #ea1962;
+    color: #FFF;
+    width: auto !important;
+    display: flex;
+    transition: width 0.3s ease transform 2s;
+
+    &::after {
+        content: '';
+        display: none;
+    }
+}
