@@ -34,8 +34,8 @@ export default function About() {
                 <ContactModule classname="w-full" />
             </section>
 
-            <section className="py-5">
-                <h2 className="pb-4">Socialt</h2>
+            <section className="pt-5 pb-10">
+                <h2>Socialt</h2>
                 <p className={styles.about_text}>Vill du kontakta mig på Linkedin i stället? Det funkar också!</p>
             </section>
 

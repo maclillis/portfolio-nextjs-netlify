@@ -1,7 +1,7 @@
-import { Avatar } from "@nextui-org/react";
+import { User } from "@nextui-org/react";
 
 const UserAvatar = ({ src, alt }) => {
-  return <Avatar size="sm" isBordered color="default" classNames={{img:"avatar_img"}} src={src} alt={alt} />;
+  return <User name="Marcus Liljehammar" description="Webbutvecklare & UX/Digital Designer" color="default" classNames={{img:"avatar_img"}} avatarProps={{src: src}} alt={alt} />;
 };
 
 export default UserAvatar;

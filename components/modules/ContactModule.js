@@ -1,13 +1,15 @@
-import {Input, Button, Select, SelectItem, Textarea} from "@nextui-org/react";
+import {Input, Button, Select, SelectItem, Textarea, Tooltip} from "@nextui-org/react";
 
 import React, { useState } from 'react';
 import {CircularProgress} from "@nextui-org/react";
+import { HandThumbUpIcon, HandThumbDownIcon } from '@heroicons/react/solid';
 
 import styles from './ContactModule.module.scss'
 
 export default function ContactModule() {
 
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(null);
 
   const loadRecaptcha = () => {
     if (!recaptchaLoaded) {
@@ -42,9 +44,9 @@ export default function ContactModule() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
+    setIsSuccess(null);
 
     if (!window.grecaptcha) {
-      console.error('reCAPTCHA not yet loaded');
       return;
     }
     try {
@@ -65,19 +67,40 @@ export default function ContactModule() {
 
     if (response.ok) {
       // Continue with form submission
+      setResponseMessage('Snyggt, meddelandet har skickats!');
+      setIsSuccess(true);
     } else {
-      console.log("reCAPTCHA failed");
       setResponseMessage(`Error: ${result.error}`);
+      setIsSuccess(false);
     }
 
   } catch (error) {
-      setResponseMessage('Failed to send message. Please try again later.');
-      console.log('Form error: ' + error);
+      setResponseMessage('Det gick inte att skicka meddelandet. Försök igen.');
+      setIsSuccess(false);
     } finally {
       setIsSubmitting(false);
   }
 
 }
+
+const buttonContent = isSubmitting ? (
+  <>
+    Skickar...
+    <CircularProgress size="sm" color="default" />
+  </>
+) : isSuccess === true ? (
+  <>
+   <HandThumbUpIcon className="w-5 h-5 mr-2 text-white" /> {responseMessage }
+  </>
+) : isSuccess === false ? (
+  <>
+    <HandThumbDownIcon className="w-5 h-5 mr-2 text-white" /> {responseMessage }
+  </>
+) : (
+  'Skicka'
+);
+
+const buttonColor = isSuccess === true ? 'success' : isSuccess === false ? 'error' : 'primary';
     
     return(
         <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} onSubmit={handleSubmit}>
@@ -100,10 +123,7 @@ export default function ContactModule() {
             </div>
 
             <div className="flex pt-5 col-span-1 md:col-start-2 w-full md:justify-end">
-                <Button type="submit" className="button_base button_primary btn_internal py-2 px-4 w-full">
-                {isSubmitting ? ( <> Skickar...  <CircularProgress size="sm" color="default" /> </>) : ('Skicka')}
-                </Button>
-                {responseMessage && <p>{responseMessage}</p> }
+            <Button className="button_base button_primary btn_internal py-2 px-4 w-full md:w-1/2" type="submit" disabled={isSubmitting} color={buttonColor} auto css={{transition: 'width 0.3s ease', width: isSuccess === null ? '150px' : '250px', }}>{buttonContent}</Button>
             </div>
         </form>
     )
