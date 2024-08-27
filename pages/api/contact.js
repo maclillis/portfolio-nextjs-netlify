@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
       
       const slackMessage = {
-          text: `:x: *reCAPTCHa-validering misslyckades för kontaktformuläret!* :warning:\n\n\n*Namn:* ${name}\n*Email:* ${email}\n*Meddelande:*\n\n${message}`
+          text: `:x: *reCAPTCHa-validering misslyckades för kontaktformuläret!* :rotating_light:\n\n\n*Namn:* ${name}\n*Email:* ${email}\n*Meddelande:*\n\n${message}`
       };
 
       await fetch(process.env.SLACK_WEBHOOK_URL, {
@@ -57,7 +57,7 @@ export default async function handler(req, res) {
       //Let's send a notification to Slack
       const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
       await axios.post(slackWebhookUrl, {
-          text: `*Nytt meddelande från kontaktformuläret!* :memo:`
+          text: `:bell: *Pling! Nytt meddelande från kontaktformuläret!* :memo:`
       });
 
       await transporter.sendMail(mailOptions);

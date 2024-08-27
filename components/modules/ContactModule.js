@@ -49,7 +49,6 @@ export default function ContactModule() {
     try {
 
     const recaptchaToken = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
-    setRecaptchaToken(token);
 
     const response = await fetch('/api/verifyRecaptcha', {
       method: 'POST',
@@ -61,9 +60,9 @@ export default function ContactModule() {
         recaptchaToken}),
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
-    if (data.ok) {
+    if (response.ok) {
       // Continue with form submission
     } else {
       console.log("reCAPTCHA failed");
@@ -71,6 +70,7 @@ export default function ContactModule() {
 
   } catch (error) {
       setResponseMessage('Failed to send message. Please try again later.');
+      console.log('Form error: ' + error);
     } finally {
       setIsSubmitting(false);
   }
