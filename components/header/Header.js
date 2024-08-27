@@ -1,7 +1,6 @@
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Tooltip, CircularProgress} from "@nextui-org/react";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import {CircularProgress} from "@nextui-org/react";
 import dynamic from 'next/dynamic';
 import styles from './Header.module.scss'
 
@@ -42,9 +41,25 @@ export default function Header({ href, isActive, children }) {
       <Navbar isBlurred={false} className={isScrolled ? `${styles.navbar_wrap} ${styles.scrolled_navbar} fixed py-1 md:py-2 ` : `${styles.navbar_wrap} fixed py-1 md:py-2`}>
         <NavbarBrand className="navbar_brand">
         {isScrolled &&
-          <Link href="/">
+        <Tooltip 
+        showArrow
+        placement="left"
+        content="Psst. Jag letar uppdrag!"
+        classNames={{
+          base: [
+            // arrow color
+            "before:bg-neutral-400 dark:before:bg-white",
+          ],
+          content: [
+            "py-2 px-4 shadow-xl",
+            "text-black bg-gradient-to-br from-white to-neutral-400 text-xs",
+          ],
+        }}
+      >
+          <Link href="/#freelance_work" to="/#freelance_work" smooth={true} duration={1200}>
           <UserAvatar src="../../assets/images/marcus.webp" alt="Marcus Liljehammar" />
           </Link>
+          </Tooltip>
           }
         </NavbarBrand>
         <NavbarContent className={`${styles.menu_wrap} gap-4 md:gap-6`}>

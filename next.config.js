@@ -2,6 +2,8 @@
 
 const path = require('path');
 
+const redirects = require('./redirects');
+
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
@@ -37,6 +39,9 @@ const nextConfig = {
         ],
       },
     ];
+  },
+  async redirects() {
+    return redirects;
   },
 };
 
