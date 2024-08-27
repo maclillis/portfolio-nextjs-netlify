@@ -7,7 +7,6 @@ import styles from './ContactModule.module.scss'
 
 export default function ContactModule() {
 
-  const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
 
   const loadRecaptcha = () => {
@@ -29,6 +28,7 @@ export default function ContactModule() {
       subject: '',
       honeypot: '',
     });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState(false);
     
@@ -51,7 +51,7 @@ export default function ContactModule() {
 
     const recaptchaToken = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
 
-    const response = await fetch('/api/verifyRecaptcha', {
+    const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -76,28 +76,6 @@ export default function ContactModule() {
     } finally {
       setIsSubmitting(false);
   }
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setResponseMessage(true);
-      } else {
-        setResponseMessage(`Error: ${result.error}`);
-      }
-    } catch (error) {
-      setResponseMessage('Failed to send message. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
-    }
 
 }
     
