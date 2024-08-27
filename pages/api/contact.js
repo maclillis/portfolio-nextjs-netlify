@@ -3,7 +3,12 @@ import axios from 'axios';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { name, email, message, subject, recaptchaToken } = req.body;
+    const { name, email, message, subject, honeypot, recaptchaToken } = req.body;
+
+    // Honeypot validation: If the honeypot field is filled, reject the request
+    if (honeypot) {
+      return res.status(400).json({ error: 'Spam upptäckt, meddelandet har inte skickats' });
+    }
 
     // Verify reCAPTCHA
     const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
@@ -19,6 +24,7 @@ export default async function handler(req, res) {
 
     if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
       
+      // Create a slack notifiction if the reCAPTCHA fails
       const slackMessage = {
           text: `:x: *reCAPTCHa-validering misslyckades för kontaktformuläret!* :rotating_light:\n\n\n*Namn:* ${name}\n*Email:* ${email}\n*Meddelande:*\n\n${message}`
       };
@@ -30,7 +36,8 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify(slackMessage),
       });
-
+      
+      //Discontinue the submitting
       return res.status(400).json({ error: 'Valideringen misslyckades. Försök igen.' });
     }
 

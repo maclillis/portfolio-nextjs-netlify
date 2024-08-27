@@ -27,6 +27,7 @@ export default function ContactModule() {
       email: '',
       message: '',
       subject: '',
+      honeypot: '',
     });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState(false);
@@ -66,6 +67,7 @@ export default function ContactModule() {
       // Continue with form submission
     } else {
       console.log("reCAPTCHA failed");
+      setResponseMessage(`Error: ${result.error}`);
     }
 
   } catch (error) {
@@ -103,7 +105,7 @@ export default function ContactModule() {
         <form id="contact_form" className={`${styles.contact_form_wrap} grid grid-cols-1 py-5 md:grid-cols-2 md:gap-x-8 w-full`} onSubmit={handleSubmit}>
             <div className="w-full">
 
-            <input type="text" name="honey" style={{ display: 'none' }} onChange={handleChange} />
+            <input type="text" name="honeypot" value={formData.honeypot} style={{ display: 'none' }} onChange={handleChange} />
 
             <Input onFocus={loadRecaptcha} value={formData.namn} id="name" labelPlaceholder="Namn" type="text" name="name" label="Namn" labelPlacement="inside" variant="bordered" classNames={{label: ["contact_form_label", "group-data-[focus=true]:text-gray-400"], inputWrapper: ["contact_form_bg", "focus-within:!border-white"]}} className="py-2" onChange={handleChange} required />
 
