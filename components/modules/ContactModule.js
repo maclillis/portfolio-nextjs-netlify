@@ -1,8 +1,8 @@
-import {Input, Button, Select, SelectItem, Textarea, Tooltip} from "@nextui-org/react";
+import {Input, Button, Select, SelectItem, Textarea} from "@nextui-org/react";
 
 import React, { useState } from 'react';
 import {CircularProgress} from "@nextui-org/react";
-import { HandThumbUpIcon, HandThumbDownIcon } from '@heroicons/react/solid';
+import { HandThumbUpIcon, HandThumbDownIcon } from '@heroicons/react/24/solid';
 
 import styles from './ContactModule.module.scss'
 
