@@ -80,6 +80,8 @@ export default function BlogSingle({blogPost}) {
             <meta property="og:description" content={blogPost.exerpt} />
             <meta property="og:image" content={blogPost.featured.asset.url} />
             <meta property="og:url" content={`${baseURL}/blogg/${blogPost.slug.current}`} />
+            <meta property="article:author" content="Marcus Liljehammar" />
+            <meta property="article:published_time" content={blogPost.publishedAt} />
             <script type="application/ld+json">
                 {JSON.stringify(structuredData)}
             </script>

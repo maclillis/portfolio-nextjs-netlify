@@ -81,6 +81,9 @@ export default function WorkSingle({workPost}) {
             <meta property="og:description" content={workPost.excerpt} />
             <meta property="og:image" content={workPost.featured.asset.url} />
             <meta property="og:url" content={`${baseURL}/projekt/${workPost.slug.current}`} />
+            <meta property="article:author" content="Marcus Liljehammar" />
+            <meta property="article:published_time" content={workPost.publishedAt} />
+
             <script type="application/ld+json">
                 {JSON.stringify(structuredData)}
             </script>

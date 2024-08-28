@@ -80,6 +80,8 @@ export default function Home({blogPosts, workPosts}) {
           <meta property="og:description" content="Jag har 12+ års erfarenhet att jobba professionellt med framställandet av vackra, enkla att använda och snabba webbappar och hemsidor som konverterar." />
           <meta property="og:image" content={`${baseURL}/assets/images/some_marcus_banner.jpg`} />
           <meta property="og:url" content={`${baseURL}`} />
+          <meta name="author" content="Marcus Liljehammar" />
+
           <script type="application/ld+json">
               {JSON.stringify(structuredData)}
           </script>
