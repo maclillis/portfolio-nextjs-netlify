@@ -1,7 +1,7 @@
 import {Input, Button, Select, SelectItem, Textarea} from "@nextui-org/react";
 
 import React, { useState } from 'react';
-import {CircularProgress} from "@nextui-org/react";
+import {Spinner} from "@nextui-org/spinner";
 import { HandThumbUpIcon, XCircleIcon } from '@heroicons/react/24/solid';
 
 import styles from './ContactModule.module.scss'
@@ -85,7 +85,7 @@ export default function ContactModule() {
 
 const buttonContent = isSubmitting ? (
   <>
-    <CircularProgress size="sm" color="default" />
+    <Spinner size="sm" color="default" />
   </>
 ) : isSuccess === true ? (
   <>

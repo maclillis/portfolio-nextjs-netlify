@@ -1,12 +1,13 @@
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Tooltip, CircularProgress} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Tooltip, Badge} from "@nextui-org/react";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
+import { BellAlertIcon } from '@heroicons/react/24/solid';
 import styles from './Header.module.scss'
 
 const UserAvatar = dynamic(() => import('../utils/Avatar'), {
   ssr: true,
-  loading: () =><CircularProgress size="sm" color="secondary" aria-label="Laddar..." />, // Optional loading indicator
+  loading: () => "", // Optional loading indicator
 });
 
 export default function Header({ href, isActive, children }) {
@@ -57,7 +58,9 @@ export default function Header({ href, isActive, children }) {
         }}
       >
           <Link href="/#freelance_work" to="/#freelance_work" smooth={true} duration={1200}>
+          <Badge showOutline={false} size="sm" isOneChar content="1" color="danger" shape="circle" placement="top-left">
           <UserAvatar src="../../assets/images/marcus.webp" alt="Marcus Liljehammar" />
+          </Badge>
           </Link>
           </Tooltip>
           }

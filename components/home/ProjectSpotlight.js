@@ -24,7 +24,7 @@ export default function ProjectSpotlight({ workPosts }) {
                         </Link>
 
                         <div className="listing_assets py-3 h-50">
-                            <PortableText value={workPost.excerpt}  />
+                            <p><Truncate text={workPost.excerpt} maxLength={130} lines={3} /></p>
                         </div>
 
                         <Link href={`/projekt/${workPost.slug.current}`} className="link_button justify-center text-lg py-2 px-0 w-full lg:justify-start lg:text-lg">Gå till projektet</Link>
