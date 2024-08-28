@@ -34,7 +34,7 @@ export default function About() {
                 <p className={`${styles.about_text}`}>Jag gillar verkligen människan och hennes beteende och det finns nog inget mer fascinerande än att studera det som i det digitala, på webben.</p>
                 <p className={`${styles.about_text}`}>Det finns något riktigt speciellt att starta en digital resa med någon, att se  något formas till en konverterande plattform för någon att få ut sitt budskap i, vare sig det gäller sälja inom e-handel till bara att publicera historier i en blogg.</p>
                 <p className={`${styles.about_text}`}>Mitt fokus ligger väldigt mycket i att balansera det snygga med det tekniska och lever enligt deviserna ”less is more” och ”keep it simple, stupid” eftersom enkelhet är det första steget i att skapa verktyg alla kan använda och det är där magin finns.</p>
-                <p className={`${styles.about_text}`}>Ska vi göra något kul tillsammans? <Link ahref="/kontakt">Kontakta mig gärna via formuläret här</Link> eller <Link ahref="https://www.linkedin.com/in/marcusliljehammar/" target="_blank">på LinkedIn</Link>, så tar vi det därifrån.</p>
+                <p className={`${styles.about_text}`}>Ska vi göra något kul tillsammans? <Link href="/kontakt">Kontakta mig gärna via formuläret här</Link> eller <Link href="https://www.linkedin.com/in/marcusliljehammar/" target="_blank">på LinkedIn</Link>, så tar vi det därifrån.</p>
             </section>
 
             <section className="py-6 lg:py-8  w-full px-0 lg:px-32">
@@ -79,28 +79,28 @@ export default function About() {
                         <p className={styles.skills_models}>React, Vue (Next.js, Nuxt.js)</p>
                     </div>
                     <div className="col-span-1 flex justify-center items-center">
-                        <Chip className="text-white" size="md" variant="bordered">+5 ÅRS ERFARENHET</Chip>
+                        <Chip className="text-white" size="md" variant="bordered">+5 ÅR</Chip>
                     </div>
                     <div className="col-span-2">
                         <h3 className={styles.skills_label}>CMS</h3>
                         <p className={styles.skills_models}>Wordpress, Sanity & Strapi</p>
                     </div>
                     <div className="col-span-1 flex justify-center items-center">
-                        <Chip className="text-white" size="md" variant="bordered" >+8 ÅRS ERFARENHET</Chip>
+                        <Chip className="text-white" size="md" variant="bordered" >+8 ÅR</Chip>
                     </div>
                     <div className="col-span-2">
                         <h3 className={styles.skills_label}>Frontend</h3>
                         <p className={styles.skills_models}>HTML, CSS, JavaScript, TypeScript, JSON</p>
                     </div>
                     <div className="col-span-1 flex justify-center items-center">
-                        <Chip className="text-white" size="md" variant="bordered">+8 ÅRS ERFARENHET</Chip>
+                        <Chip className="text-white" size="md" variant="bordered">+8 ÅR</Chip>
                     </div>
                     <div className="col-span-2">
                         <h3 className={styles.skills_label}>API</h3>
                         <p className={styles.skills_models}>REST, graphQL, Webhooks</p>
                     </div>
                     <div className="col-span-1 flex justify-center items-center text-white">
-                        <Chip className="text-white" size="md" variant="bordered">+3 ÅRS ERFARENHET</Chip>
+                        <Chip className="text-white" size="md" variant="bordered">+3 ÅR</Chip>
                     </div>
                 </div>
             </section>
