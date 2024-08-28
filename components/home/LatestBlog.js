@@ -14,7 +14,7 @@ export default function LatestBlog({ blogPosts }) {
                 <div className="grid grid-cols-1 gap-x-5 md:grid-cols-2 lg:grid-cols-3 lg:px-5 lg:py-6">
 
                 {blogPosts.map((blogPost) => (
-                    <article key={blogPost._id}>
+                    <article key={blogPost._id} className="pb-6 h-full">
                         <Link href={`/blogg/${blogPost.slug.current}`} disableAnimation className="card_link_wrap" isBlock={false}>
                             <Card shadow="lg" isPressable isHoverable isBlurred className="listing_blog_card p-4 h-full">
                                 <CardHeader className="p-0 text-left h-28 items-start">
@@ -22,12 +22,12 @@ export default function LatestBlog({ blogPosts }) {
                                 </CardHeader>
                                 <CardBody className="overflow-visible p-0">
                                     <p className="listing_blog_datestamp">{format(new Date(blogPost.publishedAt), 'd MMMM yyy')}</p>
-                                    <div className="listing_blog_excerpt py-4">
+                                    <div className="listing_blog_excerpt py-4 h-32">
                                         <Truncate text={blogPost.exerpt} maxLength={130} lines={6} />
                                     </div>
                                 </CardBody>
                                 <CardFooter className="justify-between p-0">
-                                    <div className="link_button text-left justify-start py-2 px-0 w-full">Läs hela inlägget</div>
+                                    <div className="link_button flex items-center text-center md:text-left justify-center md:justify-start py-2 px-0 w-full">Läs hela inlägget</div>
                                 </CardFooter>
                             </Card>
                         </Link>
