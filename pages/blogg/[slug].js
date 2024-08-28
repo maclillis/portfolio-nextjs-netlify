@@ -75,6 +75,11 @@ export default function BlogSingle({blogPost}) {
             <title>{blogPost.title + " | Marcus Liljehammar - Webbutvecklare & UX/UI Designer"}</title>
             <link rel="canonical" href={`${baseURL}/blogg/${blogPost.slug.current}`} />
             <meta name="description" content={blogPost.exerpt} />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content={blogPost.title} />
+            <meta property="og:description" content={blogPost.exerpt} />
+            <meta property="og:image" content={blogPost.featured.asset.url} />
+            <meta property="og:url" content={`${baseURL}/blogg/${blogPost.slug.current}`} />
             <script type="application/ld+json">
                 {JSON.stringify(structuredData)}
             </script>
