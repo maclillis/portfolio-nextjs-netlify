@@ -105,6 +105,21 @@ a {
   cursor: pointer;
 }
 
+.navbar_active a {
+  text-decoration: underline;
+  text-underline-offset: 7px;
+}
+
+.navbar_item a {
+  text-align: center;
+  font-family:  -apple-system, BlinkMacSystemFont, 'Inter-Medium', Arial, Helvetica, sans-serif;
+  //font-size: 1.1625rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: $color-purple-300;
+}
+
 p {
   font-size: clamp(1rem, 1.2vw + 1rem, 1.2rem);
   line-height: normal
@@ -192,21 +207,21 @@ strong {
 }
 
 .listing_assets {
-  color: $color-purple-150;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-
-  .bolder {
-    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium',  Helvetica, Arial, sans-serif;
-    font-weight: bolder
-  }
-
-  p {
-    font-family: -apple-system, BlinkMacSystemFont, 'Inter-Light',  Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.3rem;
-  }
+    color: $color-purple-150;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  
+    .bolder {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium',  Helvetica, Arial, sans-serif;
+      font-weight: bolder
+    }
+  
+    div {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter-Light',  Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.3rem;
+    }
 }
 
 .listing_blog_datestamp {

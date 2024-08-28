@@ -128,28 +128,28 @@ export default function TagPage({ tag, posts }) {
                     <article key={blogPost.slug.current} ref={ref} className="pt-7">
                         {inView && (
                         <>
-                        <Link href={`/blogg/${blogPost.slug.current}`}>
-                            <h2><Truncate text={blogPost.title} maxLength={50} lines={3} /></h2>
-                        </Link>
-                        
                         {blogPost.featured && (
                             <Link href={`/blogg/${blogPost.slug.current}`}>
                                 <Image
-                                    src={blogPost.featured.asset.url} // Replace with your image field's path
+                                    src={blogPost.featured.asset.url}
                                     alt="title"
-                                    width={600} // Example width
-                                    height={400} // Example height
+                                    width={600}
+                                    height={400}
                                     className={`${styles.blog_feat_image} my-5 w-full`}
                                 />
                             </Link>
                         )}
 
-                        <p className="listing_blog_datestamp">{format(new Date(blogPost.publishedAt), 'd MMMM yyy, H:I')}</p>
-                        <div className="listing_blog_excerpt py-6">
+                        <Link href={`/blogg/${blogPost.slug.current}`}>
+                            <h2 className="h-18 overflow-hidden"><Truncate text={blogPost.title} maxLength={50} lines={3} /></h2>
+                        </Link>
+
+                        <p className="listing_blog_datestamp pt-4">{format(new Date(blogPost.publishedAt), 'd MMMM yyy, H:I')}</p>
+                        <div className="listing_blog_excerpt py-6 h-30">
                            <Truncate text={blogPost.exerpt} maxLength={130} lines={6} />
                         </div>
 
-                        <div className="tags_wrap">TAGGAR:
+                        <div className="tags_wrap h-14">TAGGAR:
                             {blogPost.tags && 
                                 blogPost.tags.map((tag, index)=>(
                                 <Link key={index} href={`/blogg/taggar/${tag.slug.current}`}>

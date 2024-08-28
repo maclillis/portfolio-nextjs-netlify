@@ -10,7 +10,7 @@ const UserAvatar = dynamic(() => import('../utils/Avatar'), {
   loading: () => "", // Optional loading indicator
 });
 
-export default function Header({ href, isActive, children }) {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleScroll = () => {
@@ -27,6 +27,8 @@ export default function Header({ href, isActive, children }) {
   }, []);
 
   const router = useRouter();
+
+  const isActive = (href) => router.pathname.startsWith(href);
 
   const navItems = [
     { label: 'Hem', path: '/' },
@@ -57,7 +59,7 @@ export default function Header({ href, isActive, children }) {
           ],
         }}
       >
-          <Link href="/#freelance_work" to="/#freelance_work" smooth={true} duration={1200}>
+          <Link href="/#freelance_work" to="/#freelance_work" smooth="true" duration={1200}>
           <Badge showOutline={false} size="sm" isOneChar content="1" color="danger" shape="circle" placement="top-left">
           <UserAvatar src="../../assets/images/marcus.webp" alt="Marcus Liljehammar" />
           </Badge>
@@ -67,7 +69,12 @@ export default function Header({ href, isActive, children }) {
         </NavbarBrand>
         <NavbarContent className={`${styles.menu_wrap} gap-4 md:gap-6`}>
           {navItems.map((item, index) => (
-            <NavbarItem key={index} isActive={router.pathname === item.path} className={`${styles.navbar_item}`}>
+            <NavbarItem key={index} className={`
+              ${item.path === '/'
+              ? isActive(item.path) && router.pathname === '/' ? 'navbar_active' : ''
+              : isActive(item.path) ? 'navbar_active' : '' }
+              navbar_item`}
+            >
               <Link className="text-md md:text-xl" href={item.path}>{item.label}</Link>
             </NavbarItem>  
           ))}

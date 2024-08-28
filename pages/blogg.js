@@ -104,27 +104,20 @@ export default function Blog({initialPosts, total, baseQuery}) {
                         
                         {blogPost.featured &&
                             <Link href={`/blogg/${blogPost.slug.current}`}>
-                                <Image
-                                  src={blogPost.featured.asset.url}
-                                  width={312}
-                                  height={133}
-                                  alt={blogPost.featured.alt}
-                                  className={`${styles.blog_feat_image} my-5 w-full`}
-                                  priority
-                                />
+                                <Image src={blogPost.featured.asset.url} width={312} height={133} alt={blogPost.featured.alt} className={`${styles.blog_feat_image} my-5 w-full`} priority />
                             </Link>
                         }
 
                         <Link href={`/blogg/${blogPost.slug.current}`}>
-                            <h2><Truncate text={blogPost.title} maxLength={50} lines={3} /></h2>
+                            <h2 className="h-16 overflow-hidden"><Truncate text={blogPost.title} maxLength={50} lines={3} /></h2>
                         </Link>
 
                         <p className="listing_blog_datestamp pt-4">{formatPublishedAt(blogPost.publishedAt)}</p>
-                        <div className="listing_blog_excerpt py-6">
+                        <div className="listing_blog_excerpt py-6 h-30">
                         <Truncate text={blogPost.exerpt} maxLength={130} lines={6} />
                         </div>
 
-                        <div className="tags_wrap">TAGGAR:
+                        <div className="tags_wrap h-14">TAGGAR:
                             {blogPost.tags && blogPost.tags.length > 0 ? (
                                 blogPost.tags.map((tag, index)=>(
                                 <Link key={index} href={`/blogg/taggar/${tag.slug.current}`}>

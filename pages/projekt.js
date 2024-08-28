@@ -106,24 +106,13 @@ export default function Work({initialPosts, total, baseQuery}) {
             {posts.map((workPost, index) => (
                 <article key={workPost._id} ref={index === posts.length - 1 ? lastPostRef : null} className="py-7">
                     <Link href={`/projekt/${workPost.slug.current}`}>
-                        <Image
-                                  src={workPost.featured.asset.url}
-                                  width={312}
-                                  height={133}
-                                  alt={workPost.featured.alt}
-                                  className={`${styles.work_feat_image} my-5 w-full`}
-                                  priority
-                                />
+                        <Image src={workPost.featured.asset.url} width={312} height={133} alt={workPost.featured.alt} className={`${styles.work_feat_image} my-5 w-full`} priority />
                     </Link>
                     <Link href={`/projekt/${workPost.slug.current}`}>
-                        <h2>{workPost.title}</h2>
+                        <h2 className="h-16">{workPost.title}</h2>
                     </Link>
-                        <div className="listing_blog_excerpt py-4">
+                        <div className="listing_blog_excerpt py-4 h-24">
                             <Truncate text={workPost.excerpt} maxLength={130} lines={6} />
-                        </div>
-
-                        <div className="listing_tools py-2">
-                            <PortableText value={workPost.tools}  />
                         </div>
 
                         <Link href={`/projekt/${workPost.slug.current}`} className="link_button pt-6 px-0 w-full">Gå till projektet</Link>

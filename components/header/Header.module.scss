@@ -45,25 +45,5 @@
             display: flex;
             justify-content: flex-end;
         }
-    
-        .navbar_item {
-            text-align: center;
-            font-family:  -apple-system, BlinkMacSystemFont, 'Inter-Medium', Arial, Helvetica, sans-serif;
-            //font-size: 1.1625rem;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-
-            &:after {
-                display: flex;
-                outline: 1px solid $color-purple-400; 
-            }
-
-            a {
-                //text-decoration: underline;
-                color: $color-purple-300;
-                text-underline-offset: 4px;
-            }
-        }
     }
 }
