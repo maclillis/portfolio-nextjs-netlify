@@ -40,15 +40,17 @@
         .post_content {
             h4 {
                 font-family: -apple-system, BlinkMacSystemFont, 'Inter-SemiBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                font-size: 1.4rem;
+                font-size: 1.3rem;
                 padding: 20px 0;
+                font-weight: 600;
             }
 
             h5 {
                 font-family: -apple-system, BlinkMacSystemFont, 'Inter-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 margin-top: 20px;
-                margin-bottom: 8px
+                margin-bottom: 8px;
+                font-weight: 500;
             }
 
             a {

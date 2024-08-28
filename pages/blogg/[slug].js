@@ -83,7 +83,7 @@ export default function BlogSingle({blogPost}) {
 
         <main className={`${styles.blog_single_main} pt-10 w-full px-5 flex items-start justify-start lg:max-w-5xl m-auto lg:pt-10`}>
 
-            <section className={`${styles.post_wrap} w-full px-0 lg:px-20`}>
+            <section className={`${styles.post_wrap} w-full px-0 lg:px-32`}>
 
                 <Breadcrumbs separator="/" itemClasses={{separator: "py-2 px-2 text-base"}} className="py-2 breadcrumbs_wrap lg:pt-1 lg:pb-5">
                     <BreadcrumbItem>

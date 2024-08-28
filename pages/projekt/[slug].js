@@ -84,7 +84,7 @@ export default function WorkSingle({workPost}) {
 
         <main className={`${styles.blog_single_main} py-10 w-full px-5 flex items-start justify-start lg:max-w-5xl m-auto lg:pt-14`}>
 
-            <section className={`${styles.post_wrap} w-full px-0 lg:px-20`}>
+            <section className={`${styles.post_wrap} w-full px-0 lg:px-32`}>
 
                 <h1 className={`${styles.post_title} lg:max-w-3xl`}>{workPost.title}</h1>
 

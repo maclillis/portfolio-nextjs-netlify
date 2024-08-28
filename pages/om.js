@@ -27,7 +27,7 @@ export default function About() {
                 <BreadcrumbItem>Om</BreadcrumbItem>
             </Breadcrumbs>
 
-            <section className="py-6 lg:py-8 w-full px-0 lg:px-20">
+            <section className="py-6 lg:py-8 w-full px-0 lg:px-32">
                 <h2 className="pb-4">Biografi</h2>
                 <p className={`${styles.about_text_start}`}>Jag har kodat hemsidor sedan gymnasiet och har under årens lopp vandrat mellan det kreativa och det tekniska med stadiga, nyfikna steg.</p>
                 <p className={`${styles.about_text}`}>Under flera år frilansade jag som grafisk designer och kom i kontakt med plattformar som Wordpress och Joomla redan 2008. Här någonstans föddes också passionen för användbarhet och tillsammans med det kreativa skapa verktyg som både förtrollar och kan användas av alla, oavsett kompetens.</p>
@@ -37,7 +37,7 @@ export default function About() {
                 <p className={`${styles.about_text}`}>Ska vi göra något kul tillsammans? <Link ahref="/kontakt">Kontakta mig gärna via formuläret här</Link> eller <Link ahref="https://www.linkedin.com/in/marcusliljehammar/" target="_blank">på LinkedIn</Link>, så tar vi det därifrån.</p>
             </section>
 
-            <section className="py-6 lg:py-8  w-full px-0 lg:px-20">
+            <section className="py-6 lg:py-8  w-full px-0 lg:px-32">
                 <h2 className="pb-7">Erfarenhet</h2>
                 <div className="grid grid-cols-3 gap-3 md:gap-6 py-6">
                     <div className="col-span-1 text-center flex flex-col items-center">
@@ -71,7 +71,7 @@ export default function About() {
                 <p className={`${styles.about_text} py-0 md:py-8`}>Och även: Varumärkesutveckling & Marknadsföring, Grafisk design och Google Analytics/Tag Manager.</p>
             </section>
 
-            <section className="py-6 lg:py-8 w-full px-0 lg:px-20">
+            <section className="py-6 lg:py-8 w-full px-0 lg:px-32">
                 <h2 className="pb-4">Skills</h2>
                 <div className="grid grid-cols-3 gap-y-6">
                     <div className="col-span-2">
@@ -105,7 +105,7 @@ export default function About() {
                 </div>
             </section>
 
-            <section className="py-6 lg:py-8 w-full px-0 lg:px-20">
+            <section className="py-6 lg:py-8 w-full px-0 lg:px-32">
                 <h2 className="pb-4">Kodlogistik</h2>
                 <p className={styles.about_text}>Versionshantering med GIT och Github och kunskap om CI/CD-utveckling</p>
 
