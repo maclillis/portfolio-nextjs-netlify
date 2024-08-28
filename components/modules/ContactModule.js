@@ -123,7 +123,7 @@ const btnState = isSuccess === true ? 'button_success' : isSuccess === false ? '
 
             <div className="flex pt-5 col-span-1 md:col-start-2 w-full justify-end items-center flex-row-reverse md:flex-row">
             {<p className="response_msg ps-5 text-base md:pe-5">{responseMessage}</p>}
-            <Button className={`${btnState} button_base button_primary btn_internal py-2 px-4 w-full md:w-auto`} type="submit" disabled={isSubmitting} auto>{buttonContent}</Button>
+            <Button className={`${btnState} button_base button_primary btn_internal py-2 px-4 w-full md:w-auto`} type="submit" disabled={isSubmitting || isSuccess === true} auto>{buttonContent}</Button>
             </div>
         </form>
     )

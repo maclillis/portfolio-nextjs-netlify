@@ -16,7 +16,7 @@ function Application({ Component, pageProps }) {
   };
 
   useEffect(() => {
-    if (analyticsAllowed && process.env.NODE_ENV === 'production') {
+    if (analyticsAllowed) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){window.dataLayer.push(arguments);}
       gtag('js', new Date());
