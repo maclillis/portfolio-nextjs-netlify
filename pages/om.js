@@ -8,6 +8,15 @@ import styles from './om.module.scss';
 
 export default function About() {
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+
+    const handleClick = () => {
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: 'button_click',
+            button_name: 'linkedin_button'
+          });
+        }
+      };
     return (
     <div className="container m-auto h-full">
         <Head>
@@ -111,7 +120,7 @@ export default function About() {
 
                 <div className="py-10 w-full flex justify-center">
                     <Link href="https://www.linkedin.com/in/marcusliljehammar" target="_blank" className="max-w-7xl linkedin_button">
-                        <Button className="button_base button_primary btn_external py-2 px-4 w-full linkedin_button">Se hela mitt CV på LinkedIn</Button>
+                        <Button onClick={handleClick} className="button_base button_primary btn_external py-2 px-4 w-full linkedin_button">Se hela mitt CV på LinkedIn</Button>
                     </Link>
                 </div>
             </section>
