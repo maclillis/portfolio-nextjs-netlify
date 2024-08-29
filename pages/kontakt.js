@@ -2,11 +2,13 @@ import Header from '@components/header/Header';
 import Head from 'next/head'
 import Footer from '@components/footer/Footer';
 import ContactModule from '@components/modules/ContactModule';
+import useGTMClickHandler from '../hooks/useGTMClickHandler';
 import {Button, Breadcrumbs, BreadcrumbItem, Link} from "@nextui-org/react";
 import styles from './kontakt.module.scss';
 
 export default function About() {
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+    const handleLinkedInClick = useGTMClickHandler('linkedin_button');
     return (
     <div className="container m-auto h-full">
         <Head>
@@ -41,7 +43,7 @@ export default function About() {
 
             <div className="pt-2 w-full flex justify-center">
                 <Link className="linkedin_button" href="https://www.linkedin.com/in/marcusliljehammar" target="_blank">
-                    <Button variant="bordered" className="linkedin_button button_base btn_external_white py-2 px-4 w-full  md:w-80">Gå till min LinkedIn</Button>
+                    <Button onClick={handleLinkedInClick} variant="bordered" className="linkedin_button button_base btn_external_white py-2 px-4 w-full  md:w-80">Gå till min LinkedIn</Button>
                 </Link>
             </div>
         </main>

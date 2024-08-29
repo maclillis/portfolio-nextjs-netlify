@@ -2,21 +2,15 @@ import Header from '@components/header/Header';
 import Head from 'next/head'
 import Footer from '@components/footer/Footer';
 import {Button, Breadcrumbs, BreadcrumbItem, Link, Chip} from "@nextui-org/react";
+import useGTMClickHandler from '../hooks/useGTMClickHandler';
 import { HandRaisedIcon, DevicePhoneMobileIcon,RectangleGroupIcon, MagnifyingGlassIcon, Cog8ToothIcon, ArchiveBoxIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
 
 import styles from './om.module.scss';
 
 export default function About() {
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+    const handleLinkedInClick = useGTMClickHandler('linkedin_button');
 
-    const handleClick = () => {
-        if (window.dataLayer) {
-          window.dataLayer.push({
-            event: 'button_click',
-            button_name: 'linkedin_button'
-          });
-        }
-      };
     return (
     <div className="container m-auto h-full">
         <Head>
@@ -120,7 +114,7 @@ export default function About() {
 
                 <div className="py-10 w-full flex justify-center">
                     <Link href="https://www.linkedin.com/in/marcusliljehammar" target="_blank" className="max-w-7xl linkedin_button">
-                        <Button onClick={handleClick} className="button_base button_primary btn_external py-2 px-4 w-full linkedin_button">Se hela mitt CV på LinkedIn</Button>
+                        <Button onClick={handleLinkedInClick} className="button_base button_primary btn_external py-2 px-4 w-full linkedin_button">Se hela mitt CV på LinkedIn</Button>
                     </Link>
                 </div>
             </section>
