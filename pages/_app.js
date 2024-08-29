@@ -6,41 +6,37 @@ import '@styles/globals.scss';
 
 function Application({ Component, pageProps }) {
 
-  const [analyticsAllowed, setAnalyticsAllowed] = useState(false);
+  const [trackingAllowed, setTrackingAllowed] = useState(false);
 
-  const loadGoogleAnalytics = () => {
-    if (!window.gtag) {
-      // Create and inject the Google Analytics script
+  const loadGoogleTagManager = () => {
+    if (!window.dataLayer) {
+      // Initialize the dataLayer
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      // Create and inject the Google Tag Manager script
       const script = document.createElement('script');
-      script.src = `https://www.googletagmanager.com/gtag/js?id=G-3ET45MQKCB`;
+      script.src = `https://www.googletagmanager.com/gtm.js?id=GTM-KBM4GQT9`; // Replace with your GTM ID
       script.async = true;
       document.head.appendChild(script);
-
-      // Initialize Google Analytics
-      script.onload = () => {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          window.dataLayer.push(arguments);
-        }
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-3ET45MQKCB');
-      };
     }
   };
 
   useEffect(() => {
-    const consent = localStorage.getItem('analyticsAllowed');
+    const consent = localStorage.getItem('trackingAllowed');
     if (consent === 'true') {
-      setAnalyticsAllowed(true);
-      loadGoogleAnalytics(); // Load GA if consent was already given
+      setTrackingAllowed(true);
+      loadGoogleTagManager(); // Load GTM if consent was already given
     }
   }, []);
 
   const handleAcceptCookies = () => {
-    setAnalyticsAllowed(true);
-    loadGoogleAnalytics(); // Load GA after user consent
-    localStorage.setItem('analyticsAllowed', 'true');
+    setTrackingAllowed(true);
+    loadGoogleTagManager(); // Load GTM after user consent
+    localStorage.setItem('trackingAllowed', 'true');
   };
 
   return (
@@ -61,10 +57,22 @@ function Application({ Component, pageProps }) {
         declineButtonClasses="button_base btn_external flex justify-center items-center consent_button_no"
         contentClasses="content_container flex justify-center mb-4 px-4 lg:mb-0 lg:px-0 lg:me-12"
         onAccept={handleAcceptCookies}
-        onDecline={() => localStorage.setItem('analyticsAllowed', 'false')}
+        onDecline={() => localStorage.setItem('trackingAllowed', 'false')}
       >
         <p className="consent_text">Den här webbplatsen använder sig av kakor (cookies) för att förbättra webbupplevelsen.</p>
       </CookieConsent>
+
+      {/* Insert the GTM <noscript> fallback for users without JavaScript */}
+      {trackingAllowed && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=GTM-KBM4GQT9`} // Replace with your GTM ID
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
+      )}
       <Component {...pageProps} />
   </NextUIProvider>
   );
