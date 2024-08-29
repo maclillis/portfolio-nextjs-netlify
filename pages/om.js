@@ -34,7 +34,7 @@ export default function About() {
                 <p className={`${styles.about_text}`}>Jag gillar verkligen människan och hennes beteende och det finns nog inget mer fascinerande än att studera det som i det digitala, på webben.</p>
                 <p className={`${styles.about_text}`}>Det finns något riktigt speciellt att starta en digital resa med någon, att se  något formas till en konverterande plattform för någon att få ut sitt budskap i, vare sig det gäller sälja inom e-handel till bara att publicera historier i en blogg.</p>
                 <p className={`${styles.about_text}`}>Mitt fokus ligger väldigt mycket i att balansera det snygga med det tekniska och lever enligt deviserna ”less is more” och ”keep it simple, stupid” eftersom enkelhet är det första steget i att skapa verktyg alla kan använda och det är där magin finns.</p>
-                <p className={`${styles.about_text}`}>Ska vi göra något kul tillsammans? <Link href="/kontakt">Kontakta mig gärna via formuläret här</Link> eller <Link href="https://www.linkedin.com/in/marcusliljehammar/" target="_blank">på LinkedIn</Link>, så tar vi det därifrån.</p>
+                <p className={`${styles.about_text}`}>Ska vi göra något kul tillsammans? <Link href="/kontakt">Kontakta mig gärna via formuläret här</Link> eller <Link href="https://www.linkedin.com/in/marcusliljehammar" target="_blank">på LinkedIn</Link>, så tar vi det därifrån.</p>
             </section>
 
             <section className="py-6 lg:py-8  w-full px-0 lg:px-32">
@@ -110,7 +110,7 @@ export default function About() {
                 <p className={styles.about_text}>Versionshantering med GIT och Github och kunskap om CI/CD-utveckling</p>
 
                 <div className="py-10 w-full flex justify-center">
-                    <Link href="https://www.linkedin.com/in/marcusliljehammar/" target="_blank" className="max-w-7xl">
+                    <Link href="https://www.linkedin.com/in/marcusliljehammar" target="_blank" className="max-w-7xl">
                         <Button className="button_base button_primary btn_external py-2 px-4 w-full">Se hela mitt CV på LinkedIn</Button>
                     </Link>
                 </div>

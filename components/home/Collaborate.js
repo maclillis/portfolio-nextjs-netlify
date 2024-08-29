@@ -15,7 +15,7 @@ export default function Collaborate() {
                     </div>
                     <div className="text-cols">
                         <p className={`${styles.collaborate_text}`}>Förutom de tekniska delarna kan jag också bistå med SEO, Produktdesign, innehållsproduktion och enklare fotografi och varumärkesutveckling.</p>
-                        <p className={`${styles.collaborate_text}`}><span className={styles.bolder}>Använd kontaktformuläret nedan eller lägg till mig på <Link href="https://www.linkedin.com/in/marcusliljehammar/" target="_blank">LinkedIn</Link>, så tar vi det där ifrån.</span></p>
+                        <p className={`${styles.collaborate_text}`}><span className={styles.bolder}>Använd kontaktformuläret nedan eller lägg till mig på <Link href="https://www.linkedin.com/in/marcusliljehammar" target="_blank">LinkedIn</Link>, så tar vi det där ifrån.</span></p>
                     </div>
                 </div>
             </div>
