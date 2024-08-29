@@ -40,8 +40,8 @@ export default function About() {
             </section>
 
             <div className="pt-2 w-full flex justify-center">
-                <Link href="https://www.linkedin.com/in/marcusliljehammar">
-                    <Button variant="bordered" className="button_base btn_external_white py-2 px-4 w-full  md:w-80">Gå till min LinkedIn</Button>
+                <Link href="https://www.linkedin.com/in/marcusliljehammar" target="_blank">
+                    <Button variant="bordered" className="linkedin_button button_base btn_external_white py-2 px-4 w-full  md:w-80">Gå till min LinkedIn</Button>
                 </Link>
             </div>
         </main>
