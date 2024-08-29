@@ -7,6 +7,8 @@ import { fetchSanity } from '../../utils/fetchSanity';
 import { format } from 'date-fns';
 import { PortableText } from '@portabletext/react';
 
+import useGTMClickHandlers from '../../hooks/useGTMClickHandler';
+
 import styles from './[slug].module.scss';
 
 export async function getServerSideProps({ params }) {
@@ -49,6 +51,9 @@ export async function getServerSideProps({ params }) {
 export default function WorkSingle({workPost}) {
 
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+
+    const buttonNames = ['github_button', 'figma_button'];
+    const handlers = useGTMClickHandlers(buttonNames);
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -126,10 +131,10 @@ export default function WorkSingle({workPost}) {
                 </div>
 
                 { workPost.links.github &&
-                    <Link href={workPost.links.github} className="link_github pt-4 px-0 w-full">Gå till repot på Github</Link>
+                    <Link onClick={handlers.github_button} href={workPost.links.github} className="link_github pt-4 px-0 w-full">Gå till repot på Github</Link>
                 }
                 { workPost.links.figma &&
-                    <Link href={workPost.links.figma} className="link_figma pt-2 px-0 w-full text-base">Se designen i Figma</Link>
+                    <Link onClick={handlers.figma_button} href={workPost.links.figma} className="link_figma pt-2 px-0 w-full text-base">Se designen i Figma</Link>
                 }
             </section>
         </main>

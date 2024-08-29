@@ -19,6 +19,9 @@ export default function GithubActivity() {
       observer.observe(img);
       return () => observer.disconnect();
     }, []);
+
+    const buttonNames = ['github_button'];
+    const handlers = useGTMClickHandlers(buttonNames);
     return(
         <section className={`${styles.github_wrap} section_bg py-4 lg:py-14 px-0 w-full md:px-0`}>
             <div className="inner_section w-full lg:max-w-5xl m-auto px-6 lg:px-10">
@@ -31,7 +34,7 @@ export default function GithubActivity() {
 
                 <div className="pt-5 flex justify-center">
                     <Link href="https://www.github.com/maclillis" className="">
-                        <Button className="button_base button_primary btn_external py-2 px-4 w-full md:w-auto">Besök min Github</Button>
+                        <Button onClick={handlers.github_button} className="button_base button_primary btn_external py-2 px-4 w-full md:w-auto">Besök min Github</Button>
                     </Link>
                 </div>
             </div>

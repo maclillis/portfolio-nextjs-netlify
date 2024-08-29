@@ -8,7 +8,8 @@ import styles from './kontakt.module.scss';
 
 export default function About() {
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
-    const handleLinkedInClick = useGTMClickHandler('linkedin_button');
+    const buttonNames = ['linkedin_button'];
+    const handlers = useGTMClickHandlers(buttonNames);
     return (
     <div className="container m-auto h-full">
         <Head>
@@ -43,7 +44,7 @@ export default function About() {
 
             <div className="pt-2 w-full flex justify-center">
                 <Link className="linkedin_button" href="https://www.linkedin.com/in/marcusliljehammar" target="_blank">
-                    <Button onClick={handleLinkedInClick} variant="bordered" className="linkedin_button button_base btn_external_white py-2 px-4 w-full  md:w-80">Gå till min LinkedIn</Button>
+                    <Button onClick={handlers.linkedin_button} variant="bordered" className="linkedin_button button_base btn_external_white py-2 px-4 w-full  md:w-80">Gå till min LinkedIn</Button>
                 </Link>
             </div>
         </main>

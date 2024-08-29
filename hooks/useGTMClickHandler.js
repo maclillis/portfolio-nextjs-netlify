@@ -1,14 +1,20 @@
 import { useCallback } from 'react';
 
-const useGTMClickHandler = (buttonName) => {
-  return useCallback(() => {
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        event: 'button_click',
-        button_name: buttonName,
-      });
-    }
-  }, [buttonName]);
+const useGTMClickHandlers = (buttonNames) => {
+  const handlers = {};
+
+  buttonNames.forEach((buttonName) => {
+    handlers[buttonName] = useCallback(() => {
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'button_click',
+          button_name: buttonName,
+        });
+      }
+    }, [buttonName]);
+  });
+
+  return handlers;
 };
 
-export default useGTMClickHandler;
+export default useGTMClickHandlers;

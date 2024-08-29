@@ -4,6 +4,8 @@ import Footer from '@components/footer/Footer';
 import Image from 'next/image';
 import {Breadcrumbs, BreadcrumbItem, Link, Divider} from "@nextui-org/react";
 
+import useGTMClickHandlers from '../hooks/useGTMClickHandler';
+
 import { PortableText } from '@portabletext/react';
 import { useLazyLoadPosts } from '../hooks/LazyLoadPosts';
 import { client } from '../sanity/lib/client';
@@ -58,6 +60,9 @@ export default function Work({initialPosts, total, baseQuery}) {
     const { posts, loading, lastPostRef } = useLazyLoadPosts(initialPosts, total, baseQuery);
 
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+
+    const buttonNames = ['github_button', 'figma_button'];
+    const handlers = useGTMClickHandlers(buttonNames);
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -118,10 +123,10 @@ export default function Work({initialPosts, total, baseQuery}) {
                         <Link href={`/projekt/${workPost.slug.current}`} className="link_button pt-6 px-0 w-full">Gå till projektet</Link>
 
                         { workPost.links.github &&
-                            <Link href={workPost.links.github} className="link_github pt-2 px-0 w-full" target="_blank">Gå till repot på Github</Link>
+                            <Link onClick={handlers.github_button} href={workPost.links.github} className="link_github pt-2 px-0 w-full" target="_blank">Gå till repot på Github</Link>
                         }
                         { workPost.links.figma &&
-                            <Link href={workPost.links.figma} className="link_figma pt-2 px-0 w-full" target="_blank">Se designen i Figma</Link>
+                            <Link onClick={handlers.figma_button} href={workPost.links.figma} className="link_figma pt-2 px-0 w-full" target="_blank">Se designen i Figma</Link>
                         }
                         <Divider />
                 </article>
