@@ -111,7 +111,7 @@ export default function About() {
 
                 <div className="py-10 w-full flex justify-center">
                     <Link href="https://www.linkedin.com/in/marcusliljehammar" target="_blank" className="max-w-7xl">
-                        <Button className="button_base button_primary btn_external py-2 px-4 w-full">Se hela mitt CV på LinkedIn</Button>
+                        <Button className="button_base button_primary btn_external py-2 px-4 w-full linkedin_button">Se hela mitt CV på LinkedIn</Button>
                     </Link>
                 </div>
             </section>
