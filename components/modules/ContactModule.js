@@ -1,13 +1,16 @@
 import {Input, Button, Select, SelectItem, Textarea} from "@nextui-org/react";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Spinner} from "@nextui-org/spinner";
 import { HandThumbUpIcon, XCircleIcon } from '@heroicons/react/24/solid';
+
+import useGTMEvent from '../../hooks/useGTMEvent';
 
 import styles from './ContactModule.module.scss'
 
 export default function ContactModule() {
-
+  const pushGTMEvent = useGTMEvent();
+  const [isFormInteracted, setIsFormInteracted] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [isSuccess, setIsSuccess] = useState(null);
 
@@ -39,6 +42,8 @@ export default function ContactModule() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+    //Mark the form as interacted with on change
+    setIsFormInteracted(true);
   };
     
   const handleSubmit = async (event) => {
@@ -69,6 +74,14 @@ export default function ContactModule() {
       // Continue with form submission
       setResponseMessage('Meddelandet har skickats!');
       setIsSuccess(true);
+
+      //Set form as no longer to interact with after submit
+      setIsFormInteracted(false);
+
+      pushGTMEvent('form_submission', {
+        form_name: 'contact_form',
+        form_data: formData,
+      });
     } else {
       setResponseMessage(result.error);
       setIsSuccess(false);
@@ -82,6 +95,24 @@ export default function ContactModule() {
   }
 
 }
+
+//Let Figure out if the form was abondoned if it's been interacted with but leaves the page without filling in name, email, subject or message.
+useEffect(() => {
+  const handleBeforeUnload = () => {
+    if (isFormInteracted && !formData.name && !formData.email && !formData.message && !formData.subject) {
+      pushGTMEvent('form_abandonment', {
+        form_name: 'contact_form',
+        form_data: formData,
+      });
+    }
+  };
+
+  window.addEventListener('beforeunload', handleBeforeUnload);
+
+  return () => {
+    window.removeEventListener('beforeunload', handleBeforeUnload);
+  };
+}, [isFormInteracted, formData, pushGTMEvent]);
 
 const buttonContent = isSubmitting ? (
   <>

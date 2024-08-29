@@ -158,9 +158,52 @@ strong {
   margin: 1.7rem auto;
 }
 
-.cookie_consent_wrap {
-  background-color: rgba(25, 15, 31, 0.95);
+.content_container {
+  border-radius: 10px 10px 0px 0px;
+  padding-top: 30px;
+  width: 600px;
+  background-color: $color-purple-800a;
+  backdrop-filter: blur(0.5rem);
   z-index: 99;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
+
+  @media only screen and (max-width: 450px) {
+    width: 90vw;
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.2rem;
+    }
+  }
+}
+
+.consent_heading {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+
+.button_wrap {
+  border-radius: 0 0 10px 10px;
+  width: 600px;
+  background-color: $color-purple-800a;
+  backdrop-filter: blur(0.5rem);
+  padding-top: 10px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  top: -1px;
+  position: relative;
+
+  @media only screen and (max-width: 450px) {
+    width: 90vw;
+  }
 }
 
 .consent_text {

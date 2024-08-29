@@ -1,5 +1,6 @@
 import styles from './GithubActivity.module.scss';
 import { useEffect, useRef } from 'react';
+import useGTMClickHandlers from '../../hooks/useGTMClickHandler';
 import { Button, Link } from '@nextui-org/react';
 
 export default function GithubActivity() {

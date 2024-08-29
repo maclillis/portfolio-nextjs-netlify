@@ -2,7 +2,7 @@ import Header from '@components/header/Header';
 import Head from 'next/head'
 import Footer from '@components/footer/Footer';
 import ContactModule from '@components/modules/ContactModule';
-import useGTMClickHandler from '../hooks/useGTMClickHandler';
+import useGTMClickHandlers from '../hooks/useGTMClickHandler';
 import {Button, Breadcrumbs, BreadcrumbItem, Link} from "@nextui-org/react";
 import styles from './kontakt.module.scss';
 
