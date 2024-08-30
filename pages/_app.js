@@ -18,7 +18,6 @@ useEffect(() => {
 const { loadGoogleTagManager } = useGoogleTagManager();
 
   const handleAcceptCookies = () => {
-    setTrackingAllowed(true);
     setCookieConsent(true);
     setUserHasConsented(true);
 
