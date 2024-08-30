@@ -46,7 +46,7 @@ const { loadGoogleTagManager } = useGoogleTagManager();
         buttonWrapperClasses="button_wrap flex"
         containerClasses="cookie_consent_wrap flex fixed items-center w-full justify-center py-4 flex-col lg:flex-row"
         declineButtonClasses="button_base btn_external flex justify-center items-center consent_button_no"
-        contentClasses="content_container flex justify-center px-4 lg:px-0"
+        contentClasses="content_container flex justify-center px-2 lg:px-0"
         style={{
           background: "rgba(0, 0, 0, 0.35)", 
           color: "white",
@@ -67,7 +67,7 @@ const { loadGoogleTagManager } = useGoogleTagManager();
         onDecline={handleDeclineCookies}
       >
         <h3 className="consent_heading">Hallå där! 👋🏻</h3>
-          <p className="consent_text px-0 lg:px-10 pb-4 lg:pb-6">Den här webbplatsen använder sig av kakor (cookies) för att samla in information om hur webbplatsen används och förbättra användar-upplevelsen. För mer information, <Link href="/integritetspolicy">läs min Integritetspolicy</Link>.</p>
+          <p className="consent_text px-0 lg:px-6 pb-4 lg:pb-6">Den här webbplatsen använder sig av kakor (cookies) för att samla in information om hur webbplatsen används och förbättra användar-upplevelsen. För mer information, <Link href="/integritetspolicy">läs min Integritetspolicy</Link>.</p>
       </CookieConsent>
 
       {/* Insert the GTM <noscript> fallback for users without JavaScript */}
