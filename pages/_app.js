@@ -2,22 +2,34 @@ import { NextUIProvider, Link } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import { useGoogleTagManager } from '../hooks/useGoogleTagManager';
 import CookieConsent from "react-cookie-consent";
+import { setCookieConsent, getCookieConsent } from '../hooks/cookieConsent';
 
 import Head from 'next/head';
 import '@styles/globals.scss';
 
 function Application({ Component, pageProps }) {
 
-const [trackingAllowed, setTrackingAllowed] = useState(false);
+const [userHasConsented, setUserHasConsented] = useState(false);
+
+useEffect(() => {
+  setUserHasConsented(getCookieConsent());
+}, []);
 
 const { loadGoogleTagManager } = useGoogleTagManager();
 
   const handleAcceptCookies = () => {
     setTrackingAllowed(true);
-    localStorage.setItem('trackingAllowed', 'true');
+    setCookieConsent(true);
+    setUserHasConsented(true);
+
+    //Loads GTM from Hook.
     loadGoogleTagManager();
   };
 
+  const handleDeclineCookies = () => {
+    setCookieConsent(false);
+    setUserHasConsented(false);
+  };
 
   return (
   <NextUIProvider>
@@ -53,14 +65,14 @@ const { loadGoogleTagManager } = useGoogleTagManager();
           textAlign: "left",
         }}
         onAccept={handleAcceptCookies}
-        onDecline={() => localStorage.setItem('trackingAllowed', 'false')}
+        onDecline={handleDeclineCookies}
       >
         <h3 className="consent_heading">Hallå där! 👋🏻</h3>
           <p className="consent_text px-0 lg:px-10 pb-4 lg:pb-6">Den här webbplatsen använder sig av kakor (cookies) för att samla in information om hur webbplatsen används och förbättra användar-upplevelsen. För mer information, <Link href="/integritetspolicy">läs min Integritetspolicy</Link>.</p>
       </CookieConsent>
 
       {/* Insert the GTM <noscript> fallback for users without JavaScript */}
-      {trackingAllowed && (
+      {userHasConsented && (
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=GTM-KBM4GQT9`} // Replace with your GTM ID

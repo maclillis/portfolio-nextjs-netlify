@@ -5,7 +5,7 @@ import Footer from '@components/footer/Footer';
 import { useEffect, useState } from 'react';
 import {Breadcrumbs, BreadcrumbItem, Link, Button} from "@nextui-org/react";
 import { useGoogleTagManager } from '../hooks/useGoogleTagManager';
-import { hasUserConsented } from '../hooks/cookieConsented';
+import { setCookieConsent, getCookieConsent } from '../hooks/cookieConsent';
 
 import styles from './cookie-installningar.module.scss';
 
@@ -13,19 +13,23 @@ export default function CookieSettings() {
 
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
-    const [trackingAllowed, setTrackingAllowed] = useState(false);
     const { loadGoogleTagManager } = useGoogleTagManager();
-    const userHasConsented = hasUserConsented();
+
+    const [userHasConsented, setUserHasConsented] = useState(false);
+
+    useEffect(() => {
+      setUserHasConsented(getCookieConsent());
+    }, []);
 
     const handleAcceptCookies = () => {
-        setTrackingAllowed(true);
+        setCookieConsent(true);
+        setUserHasConsented(true);
         loadGoogleTagManager(); // Load GTM after user consent
-        localStorage.setItem('trackingAllowed', 'true');
     };
 
     const handleDeclineCookies = () => {
-        setTrackingAllowed(false);
-        localStorage.setItem('trackingAllowed', 'false');
+        setCookieConsent(false);
+        setUserHasConsented(false);
 
         const gtmScript = document.querySelector(`script[src^="https://www.googletagmanager.com/gtm.js"]`);
         if (gtmScript) {
@@ -75,12 +79,12 @@ export default function CookieSettings() {
 
                     {!userHasConsented ? (
                         <div className="flex flex-col justify-content pt-4">
-                        <p>Just nu är Cookies inte accepterat</p>
+                        <p>Just nu är kakor (cookies) inte accepterat</p>
                         <Button className="button_base button_primary consent_button_yes w-full md:w-48 my-8" onClick={handleAcceptCookies} style={{ marginRight: "10px" }}>Godkänn att spara cookies</Button>
                     </div>
                     ) : (
                     <div className="flex-col justify-content pt-4">
-                        <p>Just nu är Cookies accepterat</p>
+                        <p>Just nu är kakor (cookies) accepterat</p>
                         <Button className=" button_base button_primary flex justify-center items-center consent_button_yes w-full md:w-48 my-8" onClick={handleDeclineCookies}>Sluta spara cookies</Button>
                     </div>
                     )}
