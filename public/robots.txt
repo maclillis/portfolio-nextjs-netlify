@@ -12,6 +12,9 @@ Disallow: /register/             # Prevents access to registration page
 Disallow: /admin/                # Prevents access to admin panel (if applicable)
 Disallow: /projekt/[object%20Object]
 
+User-agent: facebookexternalhit
+Allow: /
+
 # Allow crawlers to access certain important parts of the site
 Allow: /_next/static/css/        # Allow CSS files to be crawled
 Allow: /_next/static/chunks/     # Allow JS chunks to be crawled

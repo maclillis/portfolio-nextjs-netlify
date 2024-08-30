@@ -79,6 +79,8 @@ export default function Home({blogPosts, workPosts}) {
           <meta name="title" property="og:title" content="Marcus Liljehammar - Webutvecklare & UX/Digital Designer" />
           <meta name="description" property="og:description" content="Jag har 12+ års erfarenhet att jobba professionellt med framställandet av vackra, enkla att använda och snabba webbappar och hemsidor som konverterar." />
           <meta name="image" property="og:image" content="https://marcusliljehammar.se/assets/images/some_marcus_banner.jpg" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="627" />
           <meta property="og:url" content={`${baseURL}`} />
           <meta name="author" content="Marcus Liljehammar" />
 
