@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useGoogleTagManager } from '../hooks/useGoogleTagManager';
 import CookieConsent from "react-cookie-consent";
 import { setCookieConsent, getCookieConsent } from '../hooks/cookieConsent';
+import UserActivityMonitor from '../utils/UserActivityMonitor'
 
 import Head from 'next/head';
 import '@styles/globals.scss';
@@ -72,6 +73,8 @@ const { loadGoogleTagManager } = useGoogleTagManager();
 
       {/* Insert the GTM <noscript> fallback for users without JavaScript */}
       {userHasConsented && (
+        <>
+        <UserActivityMonitor />
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=GTM-KBM4GQT9`} // Replace with your GTM ID
@@ -80,6 +83,7 @@ const { loadGoogleTagManager } = useGoogleTagManager();
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
+        </>
       )}
       <Component {...pageProps} />
   </NextUIProvider>
