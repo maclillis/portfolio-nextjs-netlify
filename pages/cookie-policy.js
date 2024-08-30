@@ -5,7 +5,7 @@ import Footer from '@components/footer/Footer';
 import {Breadcrumbs, BreadcrumbItem, Link, Table, TableHeader, TableBody, TableColumn, TableRow, TableCell, Code} from "@nextui-org/react";
 import styles from './cookie-policy.module.scss';
 
-export default function Blog() {
+export default function CookiePolicy() {
 
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 

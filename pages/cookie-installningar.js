@@ -4,13 +4,15 @@ import Head from 'next/head'
 import Footer from '@components/footer/Footer';
 import { useEffect, useState } from 'react';
 import {Breadcrumbs, BreadcrumbItem, Link, Button} from "@nextui-org/react";
+import { useGoogleTagManager } from '../hooks/useGoogleTagManager';
 import styles from './cookie-installningar.module.scss';
 
-export default function Blog() {
+export default function CookieSettings() {
 
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
     const [trackingAllowed, setTrackingAllowed] = useState(false);
+    const { loadGoogleTagManager } = useGoogleTagManager();
 
     const handleAcceptCookies = () => {
         setTrackingAllowed(true);
@@ -50,8 +52,8 @@ export default function Blog() {
         <div className="container m-auto h-full">
             <Head>
                 <title>Cookie-inställningar | Marcus Liljehammar - Webbutvecklare & UX/UI Designer</title>
-                <link rel="canonical" href={`${baseURL}/cookie-policy/`} />
-                <meta name="description" content="Denna Cookie-policy förklarar vad cookies är, hur jag använder dem på min webbplats, och vilka valmöjligheter du har angående dem." />
+                <link rel="canonical" href={`${baseURL}/cookie-installningar/`} />
+                <meta name="description" content="Ändra dina Cookie-inställningar genom att antingen acceptera att jag spårar kakor (cookies) eller att avböja." />
             </Head>
             <Header />
             <main className={`${styles.blog_cookie}  w-full px-6 pt-24 flex items-start justify-start lg:max-w-5xl m-auto`}>

@@ -1,5 +1,6 @@
 import { NextUIProvider, Link } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
+import { useGoogleTagManager } from '../hooks/useGoogleTagManager';
 import CookieConsent from "react-cookie-consent";
 
 import Head from 'next/head';
@@ -9,36 +10,14 @@ function Application({ Component, pageProps }) {
 
 const [trackingAllowed, setTrackingAllowed] = useState(false);
 
-  const loadGoogleTagManager = () => {
-    if (!window.dataLayer) {
-      // Initialize the dataLayer
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      // Create and inject the Google Tag Manager script
-      const script = document.createElement('script');
-      script.src = `https://www.googletagmanager.com/gtm.js?id=GTM-KBM4GQT9`; // Replace with your GTM ID
-      script.async = true;
-      document.head.appendChild(script);
-    }
-  };
-
-  useEffect(() => {
-    const consent = localStorage.getItem('trackingAllowed');
-    if (consent === 'true') {
-      setTrackingAllowed(true);
-      loadGoogleTagManager(); // Load GTM if consent was already given
-    }
-  }, []);
+const { loadGoogleTagManager } = useGoogleTagManager();
 
   const handleAcceptCookies = () => {
     setTrackingAllowed(true);
-    loadGoogleTagManager(); // Load GTM after user consent
     localStorage.setItem('trackingAllowed', 'true');
+    loadGoogleTagManager();
   };
+
 
   return (
   <NextUIProvider>
@@ -79,6 +58,18 @@ const [trackingAllowed, setTrackingAllowed] = useState(false);
         <h3 className="consent_heading">Hallå där! 👋🏻</h3>
           <p className="consent_text px-0 lg:px-10 pb-4 lg:pb-6">Den här webbplatsen använder sig av kakor (cookies) för att samla in information om hur webbplatsen används och förbättra användar-upplevelsen. För mer information, <Link href="/integritetspolicy">läs min Integritetspolicy</Link>.</p>
       </CookieConsent>
+
+      {/* Insert the GTM <noscript> fallback for users without JavaScript */}
+      {trackingAllowed && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=GTM-KBM4GQT9`} // Replace with your GTM ID
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
+      )}
       <Component {...pageProps} />
   </NextUIProvider>
   );
