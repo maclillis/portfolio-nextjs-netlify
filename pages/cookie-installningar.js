@@ -5,6 +5,8 @@ import Footer from '@components/footer/Footer';
 import { useEffect, useState } from 'react';
 import {Breadcrumbs, BreadcrumbItem, Link, Button} from "@nextui-org/react";
 import { useGoogleTagManager } from '../hooks/useGoogleTagManager';
+import { hasUserConsented } from '../hooks/cookieConsented';
+
 import styles from './cookie-installningar.module.scss';
 
 export default function CookieSettings() {
@@ -13,6 +15,7 @@ export default function CookieSettings() {
 
     const [trackingAllowed, setTrackingAllowed] = useState(false);
     const { loadGoogleTagManager } = useGoogleTagManager();
+    const userHasConsented = hasUserConsented();
 
     const handleAcceptCookies = () => {
         setTrackingAllowed(true);
@@ -70,17 +73,17 @@ export default function CookieSettings() {
                 <section className="policy_content px-0 lg:px-32 pt-8 h-5/6">
                     <p>Ändra dina Cookie-inställningar genom att antingen acceptera att jag spårar kakor (cookies) eller att avböja. Du kan läsa min <Link href="/cookie-policy">Cookie policy här</Link>.</p>
 
-                    {!trackingAllowed &&
+                    {!userHasConsented ? (
                         <div className="flex flex-col justify-content pt-4">
                         <p>Just nu är Cookies inte accepterat</p>
-                        <Button className="button_base button_primary consent_button_yes w-full md:w-48 my-8" onClick={handleAcceptCookies} style={{ marginRight: "10px" }}>Godkänn</Button>
+                        <Button className="button_base button_primary consent_button_yes w-full md:w-48 my-8" onClick={handleAcceptCookies} style={{ marginRight: "10px" }}>Godkänn att spara cookies</Button>
                     </div>
-                    } {trackingAllowed &&
+                    ) : (
                     <div className="flex-col justify-content pt-4">
                         <p>Just nu är Cookies accepterat</p>
-                        <Button className="bg-transparent text-white button_base btn_external flex justify-center items-center consent_button_no w-full md:w-48 my-8" onClick={handleDeclineCookies}>Avböj</Button>
+                        <Button className=" button_base button_primary flex justify-center items-center consent_button_yes w-full md:w-48 my-8" onClick={handleDeclineCookies}>Sluta spara cookies</Button>
                     </div>
-                    }
+                    )}
 
                     <p>Har du några frågor kan du använda mailadressen nedan eller <Link href="/kontakt"> formuläret på den här sidan</Link></p>
 
