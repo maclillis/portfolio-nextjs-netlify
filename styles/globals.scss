@@ -183,10 +183,18 @@ strong {
   @media only screen and (max-width: 450px) {
     width: 90vw;
 
+    padding-top: 20px;
+
     p {
       font-size: 0.9rem;
       line-height: 1.2rem;
     }
+
+    a {
+      font-size: 0.9rem;
+      line-height: 1.2rem;
+    }
+  
   }
 }
 
@@ -210,6 +218,8 @@ strong {
 
   @media only screen and (max-width: 450px) {
     width: 90vw;
+
+    padding-bottom: 20px;
   }
 }
 
