@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 function notifySlack(message) {
-  fetch('/api/notify-slack', {
+  fetch('/api/notify_slack', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
