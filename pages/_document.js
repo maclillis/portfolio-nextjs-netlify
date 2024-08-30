@@ -6,7 +6,7 @@ class AppDocument extends Document {
       <Html lang="sv">
         <Head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#CBA6DD" />
+        <meta name="theme-color" content="#22152a" />
         <link rel="apple-touch-icon" href="../../assets/favicon/icon-192x192.png" />
         <link rel="apple-touch-icon" sizes="57x57" href="../../assets/favicon/apple-touch-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="114x114" href="../../assets/favicon/apple-touch-icon-114x114.png" />
@@ -22,7 +22,7 @@ class AppDocument extends Document {
         <link rel="icon" type="image/png" href="../../assets/favicon/favicon-16x16.png" sizes="16x16" />
         <link rel="icon" type="image/png" href="../../assets/favicon/favicon-128.png" sizes="128x128" />
         <meta name="application-name" content="Marcus Liljehammar's Portfolio"/>
-        <meta name="msapplication-TileColor" content="#271932" />
+        <meta name="msapplication-TileColor" content="#22152a" />
         <meta name="msapplication-TileImage" content="../../assets/favicon/mstile-144x144.png" />
         <meta name="msapplication-square70x70logo" content="../../assets/favicon/mstile-70x70.png" />
         <meta name="msapplication-square150x150logo" content="../../assets/favicon/mstile-150x150.png" />

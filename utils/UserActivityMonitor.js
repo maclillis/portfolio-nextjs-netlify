@@ -28,7 +28,7 @@ function UserActivityMonitor() {
       const now = Date.now();
 
       if (!lastActive || now - lastActive > 5 * 60 * 1000) { // 5 minutes
-        notifySlack('A user is active on the website!');
+        notifySlack(':bell: *Pling!* A user is visiting the portfolio!');
         sessionStorage.setItem('lastActiveTime', now);
       }
     };
