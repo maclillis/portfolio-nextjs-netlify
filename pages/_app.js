@@ -1,4 +1,4 @@
-import { NextUIProvider } from '@nextui-org/react';
+import { NextUIProvider, Link } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import CookieConsent from "react-cookie-consent";
 
@@ -77,7 +77,7 @@ const [trackingAllowed, setTrackingAllowed] = useState(false);
         onDecline={() => localStorage.setItem('trackingAllowed', 'false')}
       >
         <h3 className="consent_heading">Hallå där! 👋🏻</h3>
-          <p className="consent_text px-0 lg:px-10 pb-4 lg:pb-6">Den här webbplatsen använder sig av kakor (cookies) för att samla in information om hur webbplatsen används och förbättra användar-upplevelsen. För mer information, <a href="#">läs min Integritetspolicy</a>.</p>
+          <p className="consent_text px-0 lg:px-10 pb-4 lg:pb-6">Den här webbplatsen använder sig av kakor (cookies) för att samla in information om hur webbplatsen används och förbättra användar-upplevelsen. För mer information, <Link href="/integritetspolicy">läs min Integritetspolicy</Link>.</p>
       </CookieConsent>
       <Component {...pageProps} />
   </NextUIProvider>

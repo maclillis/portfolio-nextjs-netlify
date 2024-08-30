@@ -8,6 +8,7 @@
 @import './base/typography';
 @import './base/utilities';
 @import './layouts/grid';
+@import './layouts/tables';
 @import './components/button';
 @import './components/card';
 @import './components/forms';
@@ -341,5 +342,34 @@ strong {
 .post_content {
   p {
     margin-bottom: 1.2rem;
+  }
+}
+
+.policy_content {
+  p {
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+
+  ol {
+    padding: 1rem 0;
+  }
+
+  ol li {
+    list-style: disc;
+    font-size: 1rem;
+    margin-left: 1rem;
+    padding: 0.5rem 0;
+    line-height: 1.3rem;
+  }
+
+  h2 {
+    margin: 1.8rem 0;
+    font-size: 1.5rem;
+  }
+
+  a {
+    text-decoration: underline;
+    font-weight: 500;
   }
 }

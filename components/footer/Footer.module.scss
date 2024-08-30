@@ -6,11 +6,18 @@
 
   .copyright_text {
     color: $color-purple-600;
-    //font-size: 0.7rem;
+    font-size: 0.7rem;
     line-height: 1.05rem;
 
     .copyright_pipe {
       opacity: 0.3;
+    }
+
+    a {
+      color: $color-purple-600;
+      text-decoration: underline;
+      font-size: 0.7rem;
+      line-height: 1.2rem;
     }
   }
 }
