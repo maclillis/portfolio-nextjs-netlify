@@ -33,7 +33,25 @@ const staticPages = [
         lastmod: getLastModifiedDate('pages/blogg.js'),
         changefreq: 'yearly',
         priority: '0.7'
-      }
+    },
+    {
+      url: 'integritetspolicy',
+      lastmod: getLastModifiedDate('pages/integritetspolicy.js'),
+      changefreq: 'yearly',
+      priority: '0.7'
+    },
+    {
+      url: 'cookie-policy',
+      lastmod: getLastModifiedDate('pages/cookie-policy.js'),
+      changefreq: 'yearly',
+      priority: '0.7'
+    },
+    {
+      url: 'cookie-installningar',
+      lastmod: getLastModifiedDate('pages/cookie-installningar.js'),
+      changefreq: 'yearly',
+      priority: '0.7'
+    }
   ];
 
 export async function getServerSideProps({ res }) {
