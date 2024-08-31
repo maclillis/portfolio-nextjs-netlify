@@ -132,11 +132,12 @@ export default function TagPage({ tag, posts }) {
                             <Link href={`/blogg/${blogPost.slug.current}`}>
                                 <Image
                                     src={blogPost.featured.asset.url}
-                                    alt="title"
-                                    width={600}
-                                    height={400}
-                                    className={`${styles.blog_feat_image} my-5 w-full`}
-                                />
+                                    width={824}
+                                    height={346}
+                                    alt={blogPost.featured.alt}
+                                    className={`${styles.post_feat_image} my-5 w-full`}
+                                    priority
+                            />
                             </Link>
                         )}
 
