@@ -35,7 +35,8 @@ function getDeviceInfo() {
 
 async function getLocationInfo() {
   try {
-    const response = await fetch('https://ipinfo.io/json?token=' + process.env.IPINFO_API_TOKEN);
+    //const response = await fetch('https://ipinfo.io/json?token=' + process.env.IPINFO_API_TOKEN);
+    const response = await fetch('https://ipinfo.io/json?token=18fc6c7555e891');
     const data = await response.json();
     return `*Location:* ${data.city}, ${data.region}, ${data.country}`;
   } catch (error) {
