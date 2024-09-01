@@ -37,7 +37,7 @@ async function getLocationInfo() {
   try {
     const response = await fetch('https://ipinfo.io/json?token=' + process.env.IPINFO_API_TOKEN);
     const data = await response.json();
-    return `Location: ${data.city}, ${data.region}, ${data.country}`;
+    return `*Location:* ${data.city}, ${data.region}, ${data.country}`;
   } catch (error) {
     console.error('Error fetching location data:', error);
     return 'Location: Unknown';
@@ -59,7 +59,7 @@ function UserActivityMonitor() {
 
       if (!lastActive || now - lastActive > 5 * 60 * 1000) { // 5 minutes
         const deviceInfo = getDeviceInfo();
-        notifySlack(`:bell: *Pling!* Someone is visiting the portfolio\n---\n${deviceInfo}\n---\n${locationInfo}`);
+        notifySlack(`:bell: *Pling!* Someone is visiting the portfolio\n---\n${deviceInfo}\n${locationInfo}`);
         sessionStorage.setItem('lastActiveTime', now);
       }
     };
