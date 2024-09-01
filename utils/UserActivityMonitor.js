@@ -41,7 +41,7 @@ function UserActivityMonitor() {
 
       if (!lastActive || now - lastActive > 5 * 60 * 1000) { // 5 minutes
         const deviceInfo = getDeviceInfo();
-        notifySlack(`:bell: *Pling!* Someone is visiting the portfolio. \n\n${deviceInfo}`);
+        notifySlack(`:bell: *Pling!* Someone is visiting the portfolio :bell: \n\n${deviceInfo}`);
         sessionStorage.setItem('lastActiveTime', now);
       }
     };
