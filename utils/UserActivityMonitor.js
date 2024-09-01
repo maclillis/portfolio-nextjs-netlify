@@ -30,7 +30,7 @@ function getDeviceInfo() {
   const mobile = userAgentData.mobile ? 'Mobile' : 'Desktop';
   const language = navigator.language;
 
-  return `*Platform:* ${platform}, \n*Browser:* ${brands}, \n*Type:* ${mobile}, \n*User-Agent:* ${ua}, \n*Language:* ${language}`;
+  return `*Type:* ${mobile}, \n*Platform:* ${platform} , \n*Browser:* ${brands}, \n*Language:* ${language}, \n*User-Agent:* ${ua}`;
 }
 
 function UserActivityMonitor() {
