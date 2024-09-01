@@ -73,7 +73,7 @@ function UserActivityMonitor() {
       document.removeEventListener('keydown', handleActivity);
       document.removeEventListener('scroll', handleActivity);
     };
-  }, [cookies.cookieConsent, locationInfo]);
+  }, [locationInfo]);
 
   return null;
 }
