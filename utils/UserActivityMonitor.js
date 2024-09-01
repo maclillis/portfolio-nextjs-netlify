@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function notifySlack(message) {
   fetch('/api/notify_slack', {
