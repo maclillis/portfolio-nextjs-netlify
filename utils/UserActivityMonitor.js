@@ -21,6 +21,18 @@ function notifySlack(message) {
   });
 }
 
+function getDeviceInfo() {
+  const userAgentData = navigator.userAgentData || {};
+  const ua = navigator.userAgent;
+
+  const platform = userAgentData.platform || navigator.platform || 'Unknown Platform';
+  const brands = userAgentData.brands ? userAgentData.brands.map(b => b.brand).join(', ') : 'Unknown Browser';
+  const mobile = userAgentData.mobile ? 'Mobile' : 'Desktop';
+  const language = navigator.language;
+
+  return `Platform: ${platform}, \nBrowser: ${brands}, \nType: ${mobile}, \nUser-Agent: ${ua}, \nLanguage: ${language}`;
+}
+
 function UserActivityMonitor() {
   useEffect(() => {
     const handleActivity = () => {
@@ -28,7 +40,8 @@ function UserActivityMonitor() {
       const now = Date.now();
 
       if (!lastActive || now - lastActive > 5 * 60 * 1000) { // 5 minutes
-        notifySlack(':bell: *Pling!* Someone is visiting the portfolio');
+        const deviceInfo = getDeviceInfo();
+        notifySlack(`:bell: *Pling!* Someone is visiting the portfolio. \n\n${deviceInfo}`);
         sessionStorage.setItem('lastActiveTime', now);
       }
     };
