@@ -43,8 +43,10 @@ export default function About() {
             </section>
 
             <div className="pt-2 w-full flex justify-center">
-                <Link className="linkedin_button" href="https://www.linkedin.com/in/marcusliljehammar" target="_blank">
+                <Link className="linkedin_button" href="https://www.linkedin.com/in/marcusliljehammar" passHref>
+                <a target="_blank" el="noopener noreferrer">
                     <Button onClick={handlers.linkedin_button} variant="bordered" className="linkedin_button button_base btn_external_white py-2 px-4 w-full  md:w-80">Gå till min LinkedIn</Button>
+                </a>
                 </Link>
             </div>
         </main>

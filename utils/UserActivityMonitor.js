@@ -11,7 +11,6 @@ function notifySlack(message) {
   .then(response => response.json())
   .then(data => {
     if (data.success) {
-      console.log('Notification sent to Slack.');
     } else {
       console.error('Error sending notification:', data.error);
     }
