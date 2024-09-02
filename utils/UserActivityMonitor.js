@@ -12,11 +12,11 @@ function notifySlack(message) {
   .then(data => {
     if (data.success) {
     } else {
-      console.error('Error sending notification:', data.error);
+      //console.error('Error sending notification:', data.error);
     }
   })
   .catch(error => {
-    console.error('Error:', error);
+    //console.error('Error:', error);
   });
 }
 
@@ -67,7 +67,7 @@ async function getDeviceAndLocationInfo() {
       throw new Error(`API request failed with status ${response.status}`);
     }
     const data = await response.json();
-    locationInfo = `Location: ${data.city}, ${data.region}, ${data.country}`;
+    locationInfo = `*Location:* ${data.city}, ${data.region}, ${data.country}`;
   } catch (error) {
     console.error('Error fetching location data:', error);
   }
