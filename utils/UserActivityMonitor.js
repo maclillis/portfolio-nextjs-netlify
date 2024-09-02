@@ -69,7 +69,7 @@ async function getDeviceAndLocationInfo() {
     const data = await response.json();
     locationInfo = `*Location:* ${data.city}, ${data.region}, ${data.country}`;
   } catch (error) {
-    console.error('Error fetching location data:', error);
+    //console.error('Error fetching location data:', error);
   }
 
   return `*Type:* ${mobile}, \n*Platform:* ${platform} , \n*Browser:* ${brands}, \n*Language:* ${language}, \n${locationInfo}, \n*User-Agent:* ${ua}`;
