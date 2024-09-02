@@ -6,8 +6,6 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'API token is missing' });
     }
   
-    console.log('Using IPINFO_API_TOKEN:', token);
-  
     try {
       const response = await fetch(`https://ipinfo.io/json?token=${token}`);
       const data = await response.json();
