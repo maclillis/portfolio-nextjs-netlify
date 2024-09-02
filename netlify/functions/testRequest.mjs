@@ -1,22 +1,21 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-exports.handler = async function(event, context) {
+export async function handler(event, context) {
   try {
     console.log('Starting function execution');
 
-    // Make sure your API token is correct and available
+    // Ensure your API token is correct and available
     const token = process.env.IPINFO_API_TOKEN || 'YOUR_API_TOKEN';
     console.log('Using token:', token);
 
     const response = await fetch(`https://ipinfo.io/json?token=${token}`);
     
-    // Log the status code and check for a successful response
     console.log('Response status:', response.status);
-    
+
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
     }
-    
+
     const data = await response.json();
     console.log('Data received:', data);
 
@@ -33,4 +32,4 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({ error: 'Internal Server Error', details: error.message }),
     };
   }
-};
+}
