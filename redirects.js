@@ -34,6 +34,21 @@ const redirects = [
         destination: '/projekt/tunnelbana-tabell-app-i-react-axios',
         permanent: true,
     },
+    {
+        source: '/projekt/cookie-installningar',
+        destination: '/cookie-installningar/',
+        permanent: true,
+    },
+    {
+        source: '/cookie-policy/',
+        destination: '/cookie-installningar/',
+        permanent: true,
+    },
+    {
+        source: '/blogg//cookie-policy/',
+        destination: '/cookie-installningar/',
+        permanent: true,
+    },
   ];
   
   module.exports = redirects;

@@ -131,7 +131,7 @@ export default function Blog({initialPosts, total, baseQuery}) {
                               <span className="no_tag_ ps-1">Inga taggar</span>
                             )}
                         </div>
-                        <Link href={`/blog/${blogPost.slug.current}`} className="link_button py-6 px-0 w-full">Läs hela inlägget</Link>
+                        <Link href={`/blogg/${blogPost.slug.current}`} className="link_button py-6 px-0 w-full">Läs hela inlägget</Link>
 
                         <Divider />
                     </article>
