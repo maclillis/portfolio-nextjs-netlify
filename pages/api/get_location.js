@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-    const token = process.env.IPINFO_API_TOKEN;
+    const token = "18fc6c7555e891";
   
     if (!token) {
       console.error('IPINFO_API_TOKEN is not set');
@@ -17,6 +17,8 @@ export default async function handler(req, res) {
           country: data.country,
           ip: data.ip,
         });
+
+        console.log('response: ' + res);
       } else {
         console.error('Error fetching location data:', data);
         res.status(response.status).json({ error: 'Error fetching location data' });
