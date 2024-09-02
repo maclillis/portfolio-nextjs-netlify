@@ -5,7 +5,7 @@ export async function handler(event, context) {
     console.log('Starting function execution');
 
     // Ensure your API token is correct and available
-    const token = process.env.IPINFO_API_TOKEN || 'YOUR_API_TOKEN';
+    const token = process.env.IPINFO_API_TOKEN || '18fc6c7555e891';
     console.log('Using token:', token);
 
     const response = await fetch(`https://ipinfo.io/json?token=${token}`);
