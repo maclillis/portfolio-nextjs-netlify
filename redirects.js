@@ -1,13 +1,13 @@
 const redirects = [
     {
-      source: '/jobb',
-      destination: '/projekt',
-      permanent: true,
+        source: '/jobb',
+        destination: '/projekt',
+        permanent: true,
     },
     {
-      source: '/blog/hur-lyckas-man-med-sin-webb',
-      destination: '/blogg/hur-lyckas-man-med-sin-webb',
-      permanent: true,
+        source: '/blog/hur-lyckas-man-med-sin-webb',
+        destination: '/blogg/hur-lyckas-man-med-sin-webb',
+        permanent: true,
     },
     {
         source: '/blog/ai-min-mindre-begavade-super-kompetenta-kompis-och-kollega',
@@ -46,6 +46,11 @@ const redirects = [
     },
     {
         source: '/blogg//cookie-policy/',
+        destination: '/cookie-installningar/',
+        permanent: true,
+    },
+    {
+        source: '/blogg/taggar/cookie-installningar',
         destination: '/cookie-installningar/',
         permanent: true,
     },
