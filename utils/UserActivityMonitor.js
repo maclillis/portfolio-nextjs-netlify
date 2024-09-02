@@ -24,20 +24,50 @@ async function getDeviceAndLocationInfo() {
   const userAgentData = navigator.userAgentData || {};
   const ua = navigator.userAgent;
 
-  const platform = userAgentData.platform || navigator.platform || 'Unknown Platform';
-  const brands = userAgentData.brands ? userAgentData.brands.map(b => b.brand).join(', ') : 'Unknown Browser';
-  const mobile = userAgentData.mobile ? 'Mobile' : 'Desktop';
+  let platform = 'Unknown Platform';
+  let brands = 'Unknown Browser';
+  let mobile = 'Desktop';
+  
+  if (userAgentData.platform) {
+    platform = userAgentData.platform;
+  } else if (navigator.platform) {
+    platform = navigator.platform;
+  }
+
+  if (userAgentData.brands) {
+    brands = userAgentData.brands.map(b => b.brand).join(', ');
+  } else {
+    // Fallback to userAgent parsing
+    if (ua.includes('Safari') && !ua.includes('Chrome')) {
+      brands = 'Safari';
+    } else if (ua.includes('Chrome')) {
+      brands = 'Chrome';
+    } else if (ua.includes('Firefox')) {
+      brands = 'Firefox';
+    } else if (ua.includes('Edg')) {
+      brands = 'Edge';
+    } else {
+      brands = 'Unknown Browser';
+    }
+  }
+
+  if (userAgentData.mobile) {
+    mobile = userAgentData.mobile ? 'Mobile' : 'Desktop';
+  } else if (ua.includes('Mobi')) {
+    mobile = 'Mobile';
+  }
+
   const language = navigator.language;
 
   let locationInfo = 'Location: Unknown';
   
   try {
-    const response = await fetch('/api/get_location');
+    const response = await fetch(`https://ipinfo.io/json?token=${process.env.NEXT_PUBLIC_IPINFO_API_TOKEN}`);
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
     const data = await response.json();
-    locationInfo = `*Location:* ${data.city}, ${data.region}, ${data.country}`;
-
-    console.log('location response: ' + locationInfo);
-
+    locationInfo = `Location: ${data.city}, ${data.region}, ${data.country}`;
   } catch (error) {
     console.error('Error fetching location data:', error);
   }
