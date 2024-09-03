@@ -9,3 +9,8 @@
 [functions]
   node_bundler = "esbuild"
   directory = "netlify/functions/"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "max-age=0, must-revalidate, no-cache, no-store"
