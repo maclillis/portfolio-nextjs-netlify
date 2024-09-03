@@ -4,6 +4,8 @@ const path = require('path');
 
 const redirects = require('./redirects');
 
+const CompressionPlugin = require('compression-webpack-plugin');
+
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
@@ -15,6 +17,30 @@ const withPWA = require('next-pwa')({
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.plugins.push(
+        new CompressionPlugin({
+          filename: '[path][base].gz',
+          algorithm: 'gzip',
+          test: /\.(js|css|html|svg)$/,
+          threshold: 8192,
+          minRatio: 0.8,
+        })
+      );
+      config.plugins.push(
+        new CompressionPlugin({
+          filename: '[path][base].br',
+          algorithm: 'brotliCompress',
+          test: /\.(js|css|html|svg)$/, 
+          compressionOptions: { level: 11 }, 
+          threshold: 8192, 
+          minRatio: 0.8, 
+        })
+      );
+    }
+    return config;
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
     prependData: `@import "./styles/themes/_variables.scss";`,

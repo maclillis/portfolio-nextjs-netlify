@@ -1,8 +1,31 @@
 /sw.js
   Cache-Control: no-cache
 
-/_next/static/*
-  Cache-Control: public, max-age=31536000, immutable
-
 /icons/*
   Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: gzip
+
+/*
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Encoding: br
+
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+# Fallback to gzip if Brotli is not supported
+/* 
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: gzip
