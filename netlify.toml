@@ -9,3 +9,13 @@
 [functions]
   node_bundler = "esbuild"
   directory = "netlify/functions/"
+
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
+
+[[redirects]]
+  from = "/error"
+  to = "/500"
+  status = 500
