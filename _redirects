@@ -1,2 +1,9 @@
 /* /404   404
 /error /500   500
+
+# Omdirigering från HTTP till HTTPS
+http://marcusliljehammar.se/* https://marcusliljehammar.se/:splat 301!
+http://www.marcusliljehammar.se/* https://marcusliljehammar.se/:splat 301!
+
+# Omdirigering från www till icke-www
+https://www.marcusliljehammar.se/* https://marcusliljehammar.se/:splat 301!
