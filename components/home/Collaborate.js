@@ -1,5 +1,5 @@
 import styles from './Collaborate.module.scss'
-import { Link } from '@nextui-org/react';
+import { Link, Skeleton } from '@nextui-org/react';
 
 export default function Collaborate() {
     return(

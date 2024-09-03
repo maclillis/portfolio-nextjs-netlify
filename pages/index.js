@@ -4,12 +4,16 @@ import Header from '@components/header/Header';
 import Hero from '@components/home/Hero';
 import styles from './index.module.scss';
 import { fetchSanity } from '../utils/fetchSanity';
+import CollaborateLoader from '@components/home/CollaborateLoader';
 
 const LazyTools = dynamic(() => import('@components/home/Tools'), {ssr: false,})
 const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), {ssr: false,})
 const LazyGithub = dynamic(() => import('@components/home/GithubActivity'), {ssr: false,})
 const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {ssr: false,})
-const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {ssr: false,})
+const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {
+  ssr: false,
+  loading: () => <CollaborateLoader />
+})
 const LazyContact = dynamic(() => import('@components/home/Contact'), {ssr: false,})
 const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {ssr: false,})
 
