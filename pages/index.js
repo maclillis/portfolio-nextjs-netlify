@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Header from '@components/header/Header';
 import Hero from '@components/home/Hero';
+import Collaborate from '@components/home/Collaborate';
 import styles from './index.module.scss';
 import { fetchSanity } from '../utils/fetchSanity';
 
@@ -9,7 +10,7 @@ const LazyTools = dynamic(() => import('@components/home/Tools'), {ssr: false,})
 const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), {ssr: false,})
 const LazyGithub = dynamic(() => import('@components/home/GithubActivity'), {ssr: false,})
 const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {ssr: false,})
-const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {ssr: false,})
+//const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {ssr: false,})
 const LazyContact = dynamic(() => import('@components/home/Contact'), {ssr: false,})
 const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {ssr: false,})
 
@@ -105,7 +106,7 @@ export default function Home({blogPosts, workPosts}) {
 
         <LazyWebkpis />
 
-        <LazyCollaborate />
+        <Collaborate />
 
         <LazyContact />
 
