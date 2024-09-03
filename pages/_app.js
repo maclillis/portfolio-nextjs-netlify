@@ -72,7 +72,7 @@ const { loadGoogleTagManager } = useGoogleTagManager();
       </CookieConsent>
 
       {/* Insert the GTM <noscript> fallback for users without JavaScript */}
-      {userHasConsented && (
+      {userHasConsented && process.env.NODE_ENV === 'production' && (
         <>
         <UserActivityMonitor />
         <noscript>
