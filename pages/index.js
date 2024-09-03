@@ -11,7 +11,6 @@ const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), 
 const LazyGithub = dynamic(() => import('@components/home/GithubActivity'), {ssr: false,})
 const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {ssr: false,})
 const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {
-  ssr: false,
   loading: () => <CollaborateLoader />
 })
 const LazyContact = dynamic(() => import('@components/home/Contact'), {ssr: false,})

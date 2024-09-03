@@ -17,7 +17,7 @@ export default function ProjectSpotlight({ workPosts }) {
                         <Card shadow="none" isPressable isHoverable className={"project_card flex flex-col m-auto md:m-0"}>
                             
                             <CardHeader className={`${styles.featured_thumbnail} w-full m-auto`}>
-                                <Image src={workPost.featured.asset.url} className={styles.spotlight_feat_image} alt={workPost.featured.alt} fill sizes="(max-width: 768px) 330px, (max-width: 1024px) 250px, 250px" />
+                                <Image src={workPost.featured.asset.url} className={styles.spotlight_feat_image} alt={workPost.featured.alt} fill sizes="(max-width: 768px) 330px, (max-width: 1024px) 285px, 285px" />
                             </CardHeader>
 
                             <CardBody className="card_body">
