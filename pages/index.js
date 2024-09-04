@@ -108,8 +108,6 @@ export default function Home({blogPosts, workPosts}) {
 
         <LazyWebkpis />
 
-        <CollaborateLoader />
-
         <LazyCollaborate />
 
         <LazyContact />
