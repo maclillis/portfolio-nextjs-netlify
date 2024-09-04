@@ -4,9 +4,13 @@ import Header from '@components/header/Header';
 import Hero from '@components/home/Hero';
 import styles from './index.module.scss';
 import { fetchSanity } from '../utils/fetchSanity';
-import CollaborateLoader from '@components/home/CollaborateLoader';
+import CollaborateLoader from '@components/home/loaders/CollaborateLoader';
+import ToolsLoader from '@components/home/loaders/ToolsLoader';
 
-const LazyTools = dynamic(() => import('@components/home/Tools'));
+const LazyTools = dynamic(() => import('@components/home/Tools'), {
+  loading: () => <ToolsLoader />,
+  ssr: false
+});
 const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'));
 const LazyGithub = dynamic(() => import('@components/home/GithubActivity'));
 const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'));

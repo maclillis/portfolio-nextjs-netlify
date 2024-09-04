@@ -1,6 +1,6 @@
 
 import { Skeleton } from "@nextui-org/react";
-import styles from './Collaborate.module.scss'
+import styles from '../Collaborate.module.scss'
 
 const CollaborateLoader = () => {
   return (
