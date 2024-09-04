@@ -10,7 +10,10 @@ const LazyTools = dynamic(() => import('@components/home/Tools'));
 const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'));
 const LazyGithub = dynamic(() => import('@components/home/GithubActivity'));
 const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'));
-const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'));
+const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {
+  loading: () => <CollaborateLoader />,
+  ssr: false
+});
 const LazyContact = dynamic(() => import('@components/home/Contact'));
 const LazyBlog = dynamic(() => import('@components/home/LatestBlog'));
 
