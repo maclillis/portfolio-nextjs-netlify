@@ -6,17 +6,17 @@ import styles from './index.module.scss';
 import { fetchSanity } from '../utils/fetchSanity';
 import CollaborateLoader from '@components/home/CollaborateLoader';
 
-const LazyTools = dynamic(() => import('@components/home/Tools'), {ssr: false,})
-const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), {ssr: false,})
-const LazyGithub = dynamic(() => import('@components/home/GithubActivity'), {ssr: false,})
-const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {ssr: false,})
+const LazyTools = dynamic(() => import('@components/home/Tools'));
+const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'));
+const LazyGithub = dynamic(() => import('@components/home/GithubActivity'));
+const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'));
 const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {
   loading: () => <CollaborateLoader />
-})
-const LazyContact = dynamic(() => import('@components/home/Contact'), {ssr: false,})
-const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {ssr: false,})
+});
+const LazyContact = dynamic(() => import('@components/home/Contact'));
+const LazyBlog = dynamic(() => import('@components/home/LatestBlog'));
 
-const LazyFooter = dynamic(() => import('@components/footer/Footer'), {ssr: false,})
+const LazyFooter = dynamic(() => import('@components/footer/Footer'));
 
 export async function getServerSideProps() {
   const blogQuery = `*[_type == "blog"] | order(_createdAt desc)[0...3]{
@@ -107,6 +107,8 @@ export default function Home({blogPosts, workPosts}) {
         <LazyBlog blogPosts={blogPosts} />
 
         <LazyWebkpis />
+
+        <CollaborateLoader />
 
         <LazyCollaborate />
 
