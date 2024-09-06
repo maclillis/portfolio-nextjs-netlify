@@ -45,13 +45,18 @@ const redirects = [
         permanent: true,
     },
     {
-        source: '/blogg//cookie-policy/',
+        source: '/blogg/cookie-policy/',
         destination: '/cookie-installningar/',
         permanent: true,
     },
     {
         source: '/blogg/taggar/cookie-installningar',
         destination: '/cookie-installningar/',
+        permanent: true,
+    },
+    {
+        source: '/blog/att-anvaenda-sidbyggare-eller-inte-anvaenda-sidbyggare',
+        destination: '/blogg/att-anvaenda-sidbyggare-eller-inte-anvaenda-sidbyggare',
         permanent: true,
     },
   ];

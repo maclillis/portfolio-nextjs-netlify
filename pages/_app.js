@@ -14,16 +14,6 @@ const [userHasConsented, setUserHasConsented] = useState(false);
 
 useEffect(() => {
   setUserHasConsented(getCookieConsent());
-
-  if (typeof window !== 'undefined') {
-    // Initialize Google Consent Mode
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      'event': 'consent_init',
-      'ad_storage': 'denied',     // Default state is 'denied'
-      'analytics_storage': 'denied',
-    });
-  }
 }, []);
 
 const { loadGoogleTagManager } = useGoogleTagManager();
@@ -32,15 +22,6 @@ const { loadGoogleTagManager } = useGoogleTagManager();
     setCookieConsent(true);
     setUserHasConsented(true);
 
-    if (typeof window !== 'undefined') {
-      // Update Google Consent Mode on acceptance
-      window.dataLayer.push({
-        'event': 'consent_update',
-        'ad_storage': 'granted',       // User accepted cookies
-        'analytics_storage': 'granted',
-      });
-    }
-
     //Loads GTM from Hook.
     loadGoogleTagManager();
   };
@@ -48,15 +29,6 @@ const { loadGoogleTagManager } = useGoogleTagManager();
   const handleDeclineCookies = () => {
     setCookieConsent(false);
     setUserHasConsented(false);
-
-    if (typeof window !== 'undefined') {
-      // Update Google Consent Mode on rejection
-      window.dataLayer.push({
-        'event': 'consent_update',
-        'ad_storage': 'denied',       // User declined cookies
-        'analytics_storage': 'denied',
-      });
-    }
   };
 
   return (
