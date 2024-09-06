@@ -77,36 +77,41 @@ async function getDeviceAndLocationInfo() {
 
 function UserActivityMonitor() {
   const [deviceInfo, setDeviceInfo] = useState('');
+  const [locationFetched, setLocationFetched] = useState(false);
 
   useEffect(() => {
     // Fetch location data once when the component is mounted
     getDeviceAndLocationInfo().then(info => {
       setDeviceInfo(info);
+      setLocationFetched(true); 
     });
+  })
     
-
-    const handleActivity = () => {
-      const lastActive = sessionStorage.getItem('lastActiveTime');
-      const now = Date.now();
-
-      if (!lastActive || now - lastActive > 5 * 60 * 1000) { // 5 minutes
-        notifySlack(`:bell: *Pling!* Someone is visiting the portfolio\n---\n${deviceInfo}`);
-        sessionStorage.setItem('lastActiveTime', now);
-      }
-    };
-
-    document.addEventListener('mousemove', handleActivity);
-    document.addEventListener('keydown', handleActivity);
-    document.addEventListener('scroll', handleActivity);
-
-    return () => {
-      document.removeEventListener('mousemove', handleActivity);
-      document.removeEventListener('keydown', handleActivity);
-      document.removeEventListener('scroll', handleActivity);
-    };
-  }, [deviceInfo]);
-
-  return null;
-}
+    useEffect(() => {
+      if (!locationFetched) return;
+  
+      const handleActivity = () => {
+        const lastActive = sessionStorage.getItem('lastActiveTime');
+        const now = Date.now();
+  
+        if (!lastActive || now - lastActive > 5 * 60 * 1000) { // 5 minutes
+          notifySlack(`:bell: *Pling!* Someone is visiting the portfolio\n---\n${deviceInfo}`);
+          sessionStorage.setItem('lastActiveTime', now);
+        }
+      };
+  
+      document.addEventListener('mousemove', handleActivity);
+      document.addEventListener('keydown', handleActivity);
+      document.addEventListener('scroll', handleActivity);
+  
+      return () => {
+        document.removeEventListener('mousemove', handleActivity);
+        document.removeEventListener('keydown', handleActivity);
+        document.removeEventListener('scroll', handleActivity);
+      };
+    }, [locationFetched, deviceInfo]);
+  
+    return null;
+  }
 
 export default UserActivityMonitor;
