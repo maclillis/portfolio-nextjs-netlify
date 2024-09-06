@@ -7,13 +7,17 @@ import { fetchSanity } from '../utils/fetchSanity';
 import CollaborateLoader from '@components/home/loaders/CollaborateLoader';
 import ToolsLoader from '@components/home/loaders/ToolsLoader';
 import WebKpisLoader from '@components/home/loaders/WebKpisLoader';
+import ProjectsLoader from '@components/home/loaders/ProjectsLoader';
 
 const LazyTools = dynamic(() => import('@components/home/Tools'), {
   loading: () => <ToolsLoader />,
   ssr: false
 });
 
-const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'));
+const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), {
+  loading: () => <ProjectsLoader />,
+  ssr: false
+});
 const LazyGithub = dynamic(() => import('@components/home/GithubActivity'));
 
 const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {
