@@ -12,7 +12,7 @@ export const useGoogleTagManager = () => {
       gtag('js', new Date());
 
       const script = document.createElement('script');
-      script.src = `https://www.googletagmanager.com/gtm.js?id=GTM-KBM4GQT9`; // Replace with your GTM ID
+      script.src = `https://www.googletagmanager.com/gtm.js?id=GTM-KBM4GQT9`;
       script.async = true;
       document.head.appendChild(script);
 
