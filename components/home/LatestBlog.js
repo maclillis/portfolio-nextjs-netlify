@@ -11,7 +11,7 @@ export default function LatestBlog({ blogPosts }) {
                 <h2 className={styles.section_heading}>Senaste från bloggen</h2>
                 <p className="section_description md:w-3/5">Små men roliga och insiktsfulla historier från mitt yrkesliv.</p>
 
-                <div className="grid grid-cols-1 gap-x-5 md:grid-cols-2 lg:grid-cols-3 lg:px-5 lg:py-6">
+                <div className="grid grid-cols-1 gap-x-5 pt-6 md:grid-cols-2 lg:grid-cols-3 lg:px-5 lg:py-6">
 
                 {blogPosts.map((blogPost) => (
                     <article key={blogPost._id} className="pb-6 h-full">
@@ -36,9 +36,9 @@ export default function LatestBlog({ blogPosts }) {
 
                 </div>
 
-                <div className="pt-5  flex justify-center">
+                <div className="flex justify-center">
                     <Link href="/blogg">
-                        <Button className="button_base button_primary btn_internal py-2 px-4 w-full md:w-auto">Se alla blogginlägg</Button>
+                        <Button className="button_base button_primary btn_internalpx-4 w-full md:w-auto">Se alla blogginlägg</Button>
                     </Link>
                 </div>
             </div>

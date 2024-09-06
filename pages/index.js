@@ -8,6 +8,7 @@ import CollaborateLoader from '@components/home/loaders/CollaborateLoader';
 import ToolsLoader from '@components/home/loaders/ToolsLoader';
 import WebKpisLoader from '@components/home/loaders/WebKpisLoader';
 import ProjectsLoader from '@components/home/loaders/ProjectsLoader';
+import BlogLoader from '@components/home/loaders/BlogLoader';
 
 const LazyTools = dynamic(() => import('@components/home/Tools'), {
   loading: () => <ToolsLoader />,
@@ -30,7 +31,10 @@ const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {
   ssr: false
 });
 const LazyContact = dynamic(() => import('@components/home/Contact'));
-const LazyBlog = dynamic(() => import('@components/home/LatestBlog'));
+const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {
+  loading: () => <BlogLoader />,
+  ssr: false
+});
 
 const LazyFooter = dynamic(() => import('@components/footer/Footer'));
 
@@ -119,6 +123,8 @@ export default function Home({blogPosts, workPosts}) {
         <LazyProjects workPosts={workPosts} />
 
         <LazyGithub />
+
+        <BlogLoader />
 
         <LazyBlog blogPosts={blogPosts} />
 
