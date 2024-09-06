@@ -28,16 +28,6 @@ const nextConfig = {
           minRatio: 0.8,
         })
       );
-      config.plugins.push(
-        new CompressionPlugin({
-          filename: '[path][base].br',
-          algorithm: 'brotliCompress',
-          test: /\.(js|css|html|svg)$/, 
-          compressionOptions: { level: 11 }, 
-          threshold: 8192, 
-          minRatio: 0.8, 
-        })
-      );
     }
     return config;
   },
