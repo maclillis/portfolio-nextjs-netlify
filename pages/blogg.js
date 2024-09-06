@@ -104,7 +104,7 @@ export default function Blog({initialPosts, total, baseQuery}) {
                         
                         {blogPost.featured &&
                             <Link href={`/blogg/${blogPost.slug.current}`}>
-                                <Image src={blogPost.featured.asset.url} width={312} height={133} alt={blogPost.featured.alt} className={`${styles.blog_feat_image} my-5 w-full`} priority />
+                                <Image src={blogPost.featured.asset.url} width={312} height={133} quality={50} lt={blogPost.featured.alt} className={`${styles.blog_feat_image} my-5 w-full`} priority />
                             </Link>
                         }
 

@@ -134,6 +134,7 @@ export default function TagPage({ tag, posts }) {
                                     src={blogPost.featured.asset.url}
                                     width={824}
                                     height={346}
+                                    quality={50}
                                     alt={blogPost.featured.alt}
                                     className={`${styles.post_feat_image} my-5 w-full`}
                                     priority

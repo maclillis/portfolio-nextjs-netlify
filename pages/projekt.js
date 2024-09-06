@@ -111,7 +111,7 @@ export default function Work({initialPosts, total, baseQuery}) {
             {posts.map((workPost, index) => (
                 <article key={workPost._id} ref={index === posts.length - 1 ? lastPostRef : null} className="py-7">
                     <Link href={`/projekt/${workPost.slug.current}`}>
-                        <Image src={workPost.featured.asset.url} width={312} height={133} alt={workPost.featured.alt} className={`${styles.work_feat_image} my-5 w-full`} priority />
+                        <Image src={workPost.featured.asset.url} width={312} height={133} quality={50} alt={workPost.featured.alt} className={`${styles.work_feat_image} my-5 w-full`} priority />
                     </Link>
                     <Link href={`/projekt/${workPost.slug.current}`}>
                         <h2 className="h-16">{workPost.title}</h2>

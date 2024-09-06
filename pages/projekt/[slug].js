@@ -116,6 +116,7 @@ export default function WorkSingle({workPost}) {
                     src={workPost.featured.asset.url}
                     width={824}
                     height={346}
+                    quality={50}
                     alt={workPost.featured.alt}
                     className={`${styles.post_feat_image} my-5 w-full`}
                     priority
