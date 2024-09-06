@@ -1,5 +1,5 @@
-import dynamic from 'next/dynamic'
-import Head from 'next/head'
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import Header from '@components/header/Header';
 import Hero from '@components/home/Hero';
 import styles from './index.module.scss';
