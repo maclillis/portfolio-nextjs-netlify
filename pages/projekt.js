@@ -71,7 +71,7 @@ export default function Work({initialPosts, total, baseQuery}) {
             "@type": "CreativeWork",
             "position": index + 1,
             "name": workPost.title,
-            "url": `${baseURL}/jobb/`,
+            "url": `${baseURL}/projekt/`,
             "image": workPost.featured ? workPost.featured.asset.url : "",
             "description": workPost.excerpt,
             "datePublished": workPost._createdAt,
@@ -86,7 +86,7 @@ export default function Work({initialPosts, total, baseQuery}) {
     <div className="container m-auto h-full">
         <Head>
             <title>Jobb | Marcus Liljehammar - Webbutvecklare & UX/UI Designer</title>
-            <link rel="canonical" href={`${baseURL}/jobb/`} />
+            <link rel="canonical" href={`${baseURL}/projekt/`} />
             <meta name="description" content="Här samlar jag alla mina projekt, stora som små som jag jobbat med under åren och känner att jag vill dela med mig av." />
             <script type="application/ld+json">
                 {JSON.stringify(structuredData)}
