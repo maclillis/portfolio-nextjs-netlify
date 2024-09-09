@@ -59,6 +59,21 @@ const redirects = [
         destination: '/blogg/att-anvaenda-sidbyggare-eller-inte-anvaenda-sidbyggare',
         permanent: true,
     },
+    {
+        source: '/jobb/raspberry-pi-system-monitor',
+        destination: '/projekt/raspberry-pi-system-monitor',
+        permanent: true,
+    },
+    {
+        source: '/jobb/tunnelbana-tabell-app-i-react-axios',
+        destination: '/projekt/tunnelbana-tabell-app-i-react-axios',
+        permanent: true,
+    },
+    {
+        source: '/jobb/tunnelbana-tabell-app-i-react-axios',
+        destination: '/projekt/tunnelbana-tabell-app-i-react-axios',
+        permanent: true,
+    },
   ];
   
   module.exports = redirects;
