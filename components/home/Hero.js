@@ -11,7 +11,7 @@ export default function Hero() {
                     <p className={`${styles.welcome_text} md:pt-8 lg:pt-6`}>Hej! Jag heter Marcus.</p>
                 </div>
 
-                <h1 className={`${styles.headline_text} md:w-2/3 lg:w-1/2`}>Webbutvecklare & UX/Digital Designer</h1>
+                <h1 className={`${styles.headline_text} leading-8 md:leading-10 md:w-2/3 lg:w-1/2`}>Webbutvecklare & UX/Digital Designer</h1>
                 <p className={`${styles.subline_text} w-40 text-sm md:w-2/3 pt-3 md:pt-1 md:text-lg`}>Bor & arbetar i Stockholm</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 w-full">

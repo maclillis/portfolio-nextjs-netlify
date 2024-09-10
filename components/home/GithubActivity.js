@@ -24,7 +24,7 @@ export default function GithubActivity() {
     const buttonNames = ['github_button'];
     const handlers = useGTMClickHandlers(buttonNames);
     return(
-        <section className={`${styles.github_wrap} section_bg py-4 lg:py-14 px-0 w-full md:px-0`}>
+        <section className={`${styles.github_wrap} section_bg py-6 lg:py-14 px-0 w-full md:px-0`}>
             <div className="inner_section w-full lg:max-w-5xl m-auto px-6 lg:px-10">
                 <h2 className={styles.section_heading}>Github-aktivitet</h2>
                 <p className="section_description md:w-3/5">Jobbet är inte det ända jag "pushar" för, om du förstår vad jag menar. Här nedan visar jag min commit-historik på GitHub – liten men naggande god.</p>

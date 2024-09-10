@@ -4,7 +4,7 @@ import { PaintBrushIcon, Cog8ToothIcon, BuildingStorefrontIcon, ShoppingBagIcon 
 
 export default function Tools() {
     return( 
-        <section className={`${styles.tools_wrap} section_bg py-14 px-0 md:px-0 w-full`}>
+        <section className={`${styles.tools_wrap} section_bg py-6 lg:py-14 px-0 md:px-0 w-full`}>
             <div className="inner_section w-full lg:max-w-5xl m-auto px-6 lg:px-10">
                 <h2 className={styles.section_heading}>Min verktygslåda</h2>
 

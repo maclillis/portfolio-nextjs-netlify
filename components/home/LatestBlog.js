@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 
 export default function LatestBlog({ blogPosts }) {
     return(
-        <section className={`${styles.latest_blog_wrap} w-full py-14 px-0 md:px-0`}>
+        <section className={`${styles.latest_blog_wrap} w-full py-6 lg:py-14 px-0 md:px-0`}>
             <div className="inner_section w-full lg:max-w-5xl m-auto px-6 lg:px-10">
                 <h2 className={styles.section_heading}>Senaste från bloggen</h2>
                 <p className="section_description md:w-3/5">Små men roliga och insiktsfulla historier från mitt yrkesliv.</p>

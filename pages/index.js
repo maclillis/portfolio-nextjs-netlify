@@ -10,27 +10,13 @@ import WebKpisLoader from '@components/home/loaders/WebKpisLoader';
 import ProjectsLoader from '@components/home/loaders/ProjectsLoader';
 import BlogLoader from '@components/home/loaders/BlogLoader';
 
-const LazyTools = dynamic(() => import('@components/home/Tools'), {
-  loading: () => <ToolsLoader />
-});
-
-const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), {
-  loading: () => <ProjectsLoader />,
-});
+const LazyTools = dynamic(() => import('@components/home/Tools'), {loading: () => <ToolsLoader />});
+const LazyProjects = dynamic(() => import('@components/home/ProjectSpotlight'), {loading: () => <ProjectsLoader />,});
 const LazyGithub = dynamic(() => import('@components/home/GithubActivity'));
-
-const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {
-  loading: () => <WebKpisLoader />
-});
-
-const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {
-  loading: () => <CollaborateLoader />
-});
+const LazyWebkpis = dynamic(() => import('@components/home/WebKpis'), {loading: () => <WebKpisLoader />});
+const LazyCollaborate = dynamic(() => import('@components/home/Collaborate'), {loading: () => <CollaborateLoader />});
 const LazyContact = dynamic(() => import('@components/home/Contact'));
-const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {
-  loading: () => <BlogLoader />
-});
-
+const LazyBlog = dynamic(() => import('@components/home/LatestBlog'), {loading: () => <BlogLoader />});
 const LazyFooter = dynamic(() => import('@components/footer/Footer'));
 
 export async function getServerSideProps() {
