@@ -1,5 +1,35 @@
 .hero_wrap {
-    background-color: $color-purple-900;
+    //background-color: $color-purple-900;
+
+    //Inspiration and credit: https://codepen.io/Md-Tofajjal-Hossen/pen/GRJoqYL
+
+    background: linear-gradient(62deg, #452356, #271932, #22152a, #150c1a);
+    animation: gradient 15s ease infinite; 
+    background-size: 400% 400%;
+
+    @-webkit-keyframes gradient{
+        0% {
+          background-position: 0 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+           background-position: 0% 50%;
+        }
+      }
+      @keyframes gradient{
+        0% {
+          background-position: 0 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+           background-position: 0% 50%;
+        }
+      }
+
     .welcome_wrap {
         .welcome_text {
             font-family: -apple-system, BlinkMacSystemFont, 'Inter-Light', 'Helvetica Neue', Helvetica, sans-serif;
