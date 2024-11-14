@@ -6,7 +6,7 @@ import getLastModifiedDate from '../utils/getLastModifiedDate'; // Adjust the pa
 const staticPages = [
     {
       url: '',
-      lastmod: getLastModifiedDate('pages/index.js'),  // You can hardcode this or fetch from your VCS like git or use file modified dates
+      lastmod: getLastModifiedDate('pages/index.js'), 
       changefreq: 'monthly',
       priority: '1.0'
     },
@@ -29,10 +29,10 @@ const staticPages = [
       priority: '0.7'
     },
     {
-        url: 'blogg',
-        lastmod: getLastModifiedDate('pages/blogg.js'),
-        changefreq: 'yearly',
-        priority: '0.7'
+    url: 'blogg',
+    lastmod: getLastModifiedDate('pages/blogg.js'),
+    changefreq: 'monthly',
+    priority: '0.7'
     },
     {
       url: 'integritetspolicy',

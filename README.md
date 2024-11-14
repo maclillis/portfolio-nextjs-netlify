@@ -1,63 +1,135 @@
-# Next + Netlify Starter
-
+# Marcus Liljehammar's Portfolio Web
 [![Netlify Status](https://api.netlify.com/api/v1/badges/46648482-644c-4c80-bafb-872057e51b6b/deploy-status)](https://app.netlify.com/sites/next-dev-starter/deploys)
+![Portfolio Website Preview](https://marcusliljehammar.se/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ff8yoduqd%2Fproduction%2Fc135892054f69a58d3eaa66c374cd8b4333e03bc-1200x500.webp&w=1920&q=50)
 
-This is a [Next.js](https://nextjs.org/) v14 project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and set up to be instantly deployed to [Netlify](https://url.netlify.com/SyTBPVamO)!
+A sleek and modern personal portfolio website built with [Next.js](https://nextjs.org/), showcasing projects, skills, contact information and an up to date blog about all tech, web and... stuff.
 
-This project is a very minimal starter that includes 2 sample components, a global stylesheet, a `netlify.toml` for deployment, and a `jsconfig.json` for setting up absolute imports and aliases. With Netlify, you'll have access to features like Preview Mode, server-side rendering/incremental static regeneration via Netlify Functions, and internationalized routing on deploy automatically.
+## 🚀 Features
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex-cs)
+- **Fast & SEO-Friendly:** Optimized for performance and search engines with Next.js' static generation.
+- **Responsive Design:** Fully responsive and accessible on all devices.
+- **Dynamic Projects Section:** Easily add and edit projects through a configuration file.
+- **Contact Form Integration:** Powered by a serverless function using Next.js API routes.
+- **Customizable Theme:** Change colors, fonts, and layout easily.
 
-(If you click this button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify)
+## 🛠️ Tech Stack
 
-## Table of Contents:
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Backend/CMS:** [Sanity](https://sanity.io/)
+- **Components:** [NextUI](https://nextui.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Icons:** [Heroicons](https://heroicons.com/)
+- **Hosting:** [Netlify](https://www.netlify.com/)
 
-- [Getting Started](#getting-started)
-- [Installation options](#installation-options)
-- [Testing](#testing)
-  - [Included Default Testing](#included-default-testing)
-  - [Removing Renovate](#removing-renovate)
+## 📂 Project Structure
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```
+portfolio-nextjs-netlify/
+├── public/             # Static files
+├── src/
+│   ├── components/     # Reusable components
+│   ├── pages/          # Next.js pages
+│   ├── styles/         # Global and component styles
+│   ├── data/           # Projects and configuration data
+│   └── utils/          # Helper functions
+├── .env.local          # Environment variables (local only)
+├── next.config.js      # Next.js configuration
+├── tailwind.config.js  # Tailwind CSS configuration
+└── package.json        # Dependencies and scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🖥️ Demo
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Check out the live demo: [Your Portfolio](https://www.marcusliljehammar.se)
 
-### Installation options
+## 🔧 Getting Started
 
-**Option one:** One-click deploy
+### Prerequisites
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex-cs)
+Ensure you have the following installed:
 
-**Option two:** Manual clone
+- [Node.js](https://nodejs.org/) (>= 14.x)
+- [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/)
 
-1. Clone this repo: `git clone https://github.com/netlify-templates/next-netlify-starter.git`
-2. Navigate to the directory and run `npm install`
-3. Run `npm run dev`
-4. Make your changes
-5. Connect to [Netlify](https://url.netlify.com/Bk4UicocL) manually (the `netlify.toml` file is the one you'll need to make sure stays intact to make sure the export is done and pointed to the right stuff)
+### Installation
 
-## Testing
+1. Clone the repository:
 
-### Included Default Testing
+   ```bash
+   git clone https://github.com/yourusername/portfolio-website.git
+   cd portfolio-website
+   ```
 
-We’ve included some tooling that helps us maintain these templates. This template currently uses:
+2. Install dependencies:
 
-- [Renovate](https://www.mend.io/free-developer-tools/renovate/) - to regularly update our dependencies
-- [Cypress](https://www.cypress.io/) - to run tests against how the template runs in the browser
-- [Cypress Netlify Build Plugin](https://github.com/cypress-io/netlify-plugin-cypress) - to run our tests during our build process
+   ```bash
+   yarn install
+   # or
+   npm install
+   ```
 
-If your team is not interested in this tooling, you can remove them with ease!
+3. Start the development server:
 
-### Removing Renovate
+   ```bash
+   yarn dev
+   # or
+   npm run dev
+   ```
 
-In order to keep our project up-to-date with dependencies we use a tool called [Renovate](https://github.com/marketplace/renovate). If you’re not interested in this tooling, delete the `renovate.json` file and commit that onto your main branch.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+
+### Building for Production
+
+To create a production build:
+
+```bash
+yarn build
+# or
+npm run build
+```
+
+### Deploying to Netlify
+
+1. Install the Netlify CLI (optional):
+
+   ```bash
+   npm install -g netlify-cli
+   ```
+
+2. Build the project:
+
+   ```bash
+   yarn build
+   # or
+   npm run build
+   ```
+
+3. Deploy to Netlify:
+
+   ```bash
+   netlify deploy
+   ```
+
+   Follow the CLI prompts to configure the deployment or use the Netlify web interface to connect your GitHub repository for continuous deployment.
+
+   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex-cs)
+
+## 🤝 Contributions
+
+Contributions are welcome! If you'd like to add new features, fix bugs, or improve documentation:
+
+1. Fork this repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes and commit them.
+4. Push to your fork and submit a pull request.
+
+## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Made with ❤️ by [Marcus Liljehammar](https://www.marcusliljehammar.se).
