@@ -1,7 +1,7 @@
 # Marcus Liljehammar's Portfolio Web
 ![Portfolio Website Preview](https://marcusliljehammar.se/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ff8yoduqd%2Fproduction%2Fc135892054f69a58d3eaa66c374cd8b4333e03bc-1200x500.webp&w=1920&q=50)
 
-A sleek and modern personal portfolio website built with [Next.js](https://nextjs.org/), showcasing projects, skills, contact information and an up to date blog about all tech, web and... stuff.
+A sleek and modern personal portfolio website built with [Next.js](https://nextjs.org/), showcasing projects, skills, contact information and an up to date blog about all tech, web and... stuff. Bundled, pushed and depoloyed on [Netlify](https:netlify.com)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/46648482-644c-4c80-bafb-872057e51b6b/deploy-status)](https://app.netlify.com/sites/next-dev-starter/deploys)
 
@@ -11,7 +11,6 @@ A sleek and modern personal portfolio website built with [Next.js](https://nextj
 - **Responsive Design:** Fully responsive and accessible on all devices.
 - **Dynamic Projects Section:** Easily add and edit projects through a configuration file.
 - **Contact Form Integration:** Powered by a serverless function using Next.js API routes.
-- **Customizable Theme:** Change colors, fonts, and layout easily.
 
 ## 🛠️ Tech Stack
 
@@ -41,7 +40,7 @@ portfolio-nextjs-netlify/
 
 ## 🖥️ Demo
 
-Check out the live demo: [Your Portfolio](https://www.marcusliljehammar.se)
+Check out the live demo: [here](https://www.marcusliljehammar.se)
 
 ## 🔧 Getting Started
 
