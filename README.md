@@ -1,8 +1,9 @@
 # Marcus Liljehammar's Portfolio Web
-[![Netlify Status](https://api.netlify.com/api/v1/badges/46648482-644c-4c80-bafb-872057e51b6b/deploy-status)](https://app.netlify.com/sites/next-dev-starter/deploys)
 ![Portfolio Website Preview](https://marcusliljehammar.se/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ff8yoduqd%2Fproduction%2Fc135892054f69a58d3eaa66c374cd8b4333e03bc-1200x500.webp&w=1920&q=50)
 
 A sleek and modern personal portfolio website built with [Next.js](https://nextjs.org/), showcasing projects, skills, contact information and an up to date blog about all tech, web and... stuff.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/46648482-644c-4c80-bafb-872057e51b6b/deploy-status)](https://app.netlify.com/sites/next-dev-starter/deploys)
 
 ## 🚀 Features
 
@@ -15,7 +16,7 @@ A sleek and modern personal portfolio website built with [Next.js](https://nextj
 ## 🛠️ Tech Stack
 
 - **Framework:** [Next.js](https://nextjs.org/)
-- **Backend/CMS:** [Sanity](https://sanity.io/)
+- **CMS:** [Sanity](https://sanity.io/)
 - **Components:** [NextUI](https://nextui.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **Icons:** [Heroicons](https://heroicons.com/)
@@ -113,18 +114,6 @@ npm run build
    Follow the CLI prompts to configure the deployment or use the Netlify web interface to connect your GitHub repository for continuous deployment.
 
    [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex-cs)
-
-## 🤝 Contributions
-
-Contributions are welcome! If you'd like to add new features, fix bugs, or improve documentation:
-
-1. Fork this repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes and commit them.
-4. Push to your fork and submit a pull request.
 
 ## 📜 License
 
