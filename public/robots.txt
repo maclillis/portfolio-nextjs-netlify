@@ -10,7 +10,6 @@ Disallow: /private/              # Example of a directory that shouldn't be craw
 Disallow: /login/                # Prevents access to login page
 Disallow: /register/             # Prevents access to registration page
 Disallow: /admin/                # Prevents access to admin panel (if applicable)
-Disallow: /projekt/[object%20Object]
 
 User-agent: facebookexternalhit
 Allow: /
